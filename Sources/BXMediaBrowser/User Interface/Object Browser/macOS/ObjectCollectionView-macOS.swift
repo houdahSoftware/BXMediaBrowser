@@ -200,9 +200,9 @@ public struct ObjectCollectionView<Cell:ObjectCell> : NSViewRepresentable
 // ---------
 
 // The layout created by this function contains a nasty edge case bug that causes an exception inside Apple's
-// layout solving code, and thus leads to a crash: When using and .absolute(cellWidth) the layout is fine as
+// layout solving code, and thus leads to a crash: When using an .absolute(cellWidth) the layout is fine as
 // long as the view is wide enough to accommodate at least one cell. But when resizing the view (by resizing
-// the window or the sidebar), so that it get narrower that one cell, creating and assigning a new layout
+// the window or the sidebar), so that it gets narrower that one cell, creating and assigning a new layout
 // causes the exception and thus a crash.
 
 // WORKAROUNDS
@@ -212,7 +212,7 @@ public struct ObjectCollectionView<Cell:ObjectCell> : NSViewRepresentable
 // crash is to switch to .fractionalWidth(1.0) layout BEFORE reaching the small view width. The only way I figured
 // out was to apply a "safety" margin e.g. 10pt, so when reaching the safety size, we switch to .fractionalWidth
 // layout. That way we are already at .fractionalWidth when reaching the fatal small view size and the crash is
-// avoided. However, if the user moves the moouse really fast when resizing the view, we go from a large view size
+// avoided. However, if the user moves the mouse really fast when resizing the view, we go from a large view size
 // to a fatally small one in one step, any we never make the required switch to .fractionalWidth beforehand!
 
 // 2) Another workaround would be to stop using .absolute layout altogehter and simulate its behavior with the
@@ -232,15 +232,18 @@ extension ObjectCollectionView
 	
     private func createLayout(for collectionView:NSCollectionView, newSize:NSSize? = nil) -> NSCollectionViewLayout
     {
-		let w:CGFloat = cellType.width
-		let h:CGFloat = cellType.height
-		let d:CGFloat = cellType.spacing
+		let w:CGFloat = floor(cellType.width)
+		let h:CGFloat = floor(cellType.height)
+		let d:CGFloat = floor(cellType.spacing)
         let ratio = (w/h).validated(fallbackValue:0.75)
 		
 		let viewWidth = newSize?.width ?? collectionView.bounds.width
-		let minWidth:CGFloat = 70 // This is the minimum width to display ObjectRatingView without clipping
-		let maxWidth = max(minWidth, viewWidth - 2*d - 2)
+		let maxCellWidth = floor(max(32.0, viewWidth - 2*d - 2))	// view width determines maximum size - in case of 0 width view enforce a maxCellWidth>0 or we crash!
+		let minCellWidth = floor(min(70.0, maxCellWidth))			// 70 is the minimum width to display ObjectRatingView without clipping
+		
 		let size = self.uiState.thumbnailSize
+		let cellWidth = floor(size.clipped(to:minCellWidth...maxCellWidth))
+		let cellHeight = floor((cellWidth/ratio).validated(fallbackValue:h))
 		
 		// Item (cell)
 		
@@ -260,11 +263,8 @@ extension ObjectCollectionView
 //            itemHeight = .fractionalWidth(1.0/ratio)
 //            item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension:itemWidth, heightDimension:itemHeight))
 //        }
-        else
+        else	// ImageObjectCells use calculated size (cellWidth,cellHeight)
         {
-            let cellWidth = size.clipped(to:minWidth...maxWidth)
-            let cellHeight = (cellWidth / ratio).validated(fallbackValue: h)
-
             itemWidth = .absolute(cellWidth)
             itemHeight = .absolute(cellHeight)
             item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension:itemWidth, heightDimension:itemHeight))
@@ -273,7 +273,8 @@ extension ObjectCollectionView
 		// Group (row)
 		
         let groupSize = NSCollectionLayoutSize(widthDimension:.fractionalWidth(1.0), heightDimension:itemHeight)
- 		let group = NSCollectionLayoutGroup.horizontal(layoutSize:groupSize, subitems:[item])
+//		let group = NSCollectionLayoutGroup.horizontal(layoutSize:groupSize, subitem:item, count:1) // To avoid edge case crashes do not call with subitems:[item], but instead call with fixed count=1. Fore more refer to https://stackoverflow.com/questions/63748268/uicollectionviewdiffabledatasource-crash-invalid-parameter-not-satisfying-item
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize:groupSize, subitems:[item])
 		group.interItemSpacing = .fixed(d)
 		
 		// Section
@@ -500,7 +501,17 @@ extension ObjectCollectionView
 			snapshot.appendSections([0])
 			snapshot.appendItems(objects, toSection:0)
 			
-			self.dataSource.apply(snapshot, animatingDifferences:shouldAnimate)
+			do
+			{
+				try NSException.toSwiftError
+				{
+					self.dataSource.apply(snapshot, animatingDifferences:shouldAnimate)
+				}
+			}
+			catch let error
+			{
+				log.error {"\(Self.self).\(#function) ERROR \(error)"}
+			}
 		}
 
 
@@ -508,7 +519,13 @@ extension ObjectCollectionView
 		
 		@MainActor func cell(for collectionView:NSCollectionView, indexPath:IndexPath, identifier:Object) -> NSCollectionViewItem?
 		{
-			// Get the object - Please note that the dataSource use Object directly, because it is Hashable and Equatable
+			// Check if indexPath is valid
+			
+			let n = self.container?.objects.count ?? 0
+			let i = indexPath.item
+			guard i>=0 && i<n else { return nil }
+			
+			// Get the object - Please note that the dataSource uses Object directly, because it is Hashable and Equatable
 			
 			let object = identifier
 			
@@ -533,8 +550,9 @@ extension ObjectCollectionView
 		@MainActor public func collectionView(_ collectionView:NSCollectionView, willDisplay item:NSCollectionViewItem, forRepresentedObjectAt indexPath:IndexPath)
 		{
 			guard let container = self.container else { return }
-			
 			let n = container.objects.count
+			guard n > 0 else { return }
+			
 			let i = indexPath.item
 			let j = (n - 1).clipped(to:0 ... n-1)
 			
@@ -707,7 +725,7 @@ extension ObjectCollectionView
 		{
 			let i = indexPath.item
 			guard let objects = self.container?.objects else { return nil }
-			guard i < objects.count else { return nil }
+			guard i>=0 && i<objects.count else { return nil }
 			return objects[i]
 		}
 
