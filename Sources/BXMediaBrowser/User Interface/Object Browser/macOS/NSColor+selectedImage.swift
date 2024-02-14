@@ -23,68 +23,24 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-import SwiftUI
-import BXSwiftUI
+#if os(macOS)
+
+import AppKit
 
 
 //----------------------------------------------------------------------------------------------------------------------
 
 
-/// This is the root view for a BXMediaBrowser.Library
-
-public struct LibraryView : View
+public extension NSColor
 {
-	// Model
-	
-	@ObservedObject var library:Library
-	
-	// Environment
-	
-	@Environment(\.viewFactory) private var viewFactory
-	
-	// Init
-	
-	public init(with library:Library)
+	static var selectedImageColor:NSColor
 	{
-		self.library = library
+		NSColor(srgbRed:1.0, green:0.90, blue:0.2, alpha:1.0)
 	}
-	
-	// View
-	
-	public var body: some View
-    {
-		EfficientVStack(alignment:.leading, spacing:4)
-		{
-			ForEach(library.sections)
-			{
-				if SectionView.shouldDisplay($0)
-				{
-					viewFactory.sectionView(for:$0)
-				}
-			}
-		}
-		
-		// Pass Library reference down the view hierarchy. This is needed for setting the selected Container.
-		
-		.environmentObject(library)
-
-		// Set id for finding in a hierarchy
-		
-		#if os(macOS)
-		.identifiableBackgroundView(withID:"BXMediaBrowser.LibraryView")
-		#endif
-		
-		// When important properties of the library have changed, then save the current state
-		
-//		.onReceive(library.$selectedContainer)
-//		{
-//			_ in library.saveState()
-//		}
-   }
 }
 
 
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
+#endif
