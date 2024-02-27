@@ -27,8 +27,8 @@ let package = Package(
 
     dependencies:
     [
-        .package(url:"git@github.com:houdahSoftware/BXSwiftUtils.git", .branch("master")),
-        .package(url:"git@github.com:houdahSoftware/BXSwiftUI.git", .branch("master")),
+        .package(url:"git@github.com:houdahSoftware/BXSwiftUtils.git", .branch("spm")),
+        .package(url:"git@github.com:houdahSoftware/BXSwiftUI.git", .branch("spm")),
         .package(url:"git@github.com:peterb180369/OAuth2.git", .branch("master")),
     ],
     
