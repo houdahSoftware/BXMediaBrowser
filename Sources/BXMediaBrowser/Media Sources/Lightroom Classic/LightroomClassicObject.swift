@@ -293,6 +293,21 @@ open class LightroomClassicObject : Object, AppLifecycleMixin
 	}
 }
 
+extension LightroomClassicObject {
+
+	@objc public var xmpString: String? {
+		guard let data = data as? LRCData else { return nil }
+		let parserMessenger = data.parserMessenger
+		let imbObject = data.imbObject
+
+		if let parser = parserMessenger.parser(withIdentifier: imbObject.parserIdentifier) as? IMBLightroomParser {
+			return parser.xmpString(for: imbObject)
+		}
+
+		return nil
+
+	}
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
