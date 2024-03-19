@@ -46,6 +46,7 @@
 
 // Author: Peter Baumgartner
 
+#import <Cocoa/Cocoa.h>
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -238,6 +239,18 @@ typedef void (^IMBCompletionBlock)(id inResult,NSError* inError);
 #define NSAppKitVersionNumber10_9 1265
 #endif
 
+#ifndef NSAppKitVersionNumber10_10_Max
+#define NSAppKitVersionNumber10_10_Max 1349
+#endif
+
+#ifndef NSAppKitVersionNumber10_11
+#define NSAppKitVersionNumber10_11 1404
+#endif
+
+#ifndef NSAppKitVersionNumber10_12
+#define NSAppKitVersionNumber10_12 1504
+#endif
+
 #ifndef NSAppKitVersionNumber10_13
 #define NSAppKitVersionNumber10_13 1561
 #endif
@@ -247,6 +260,8 @@ typedef void (^IMBCompletionBlock)(id inResult,NSError* inError);
 #define IMBRunningOnLion1073OrNewer()		(NSAppKitVersionNumber > NSAppKitVersionNumber10_7_2)
 #define IMBRunningOnMavericksOrNewer()		(NSAppKitVersionNumber >= NSAppKitVersionNumber10_9)
 #define IMBRunningOnYosemite10103OrNewer()  ([[NSProcessInfo processInfo] respondsToSelector:@selector(isOperatingSystemAtLeastVersion:)] && [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){10,10,3}])
+#define IMBRunningOnSierraOrNewer()			(NSAppKitVersionNumber >= NSAppKitVersionNumber10_11)
+#define IMBRunningOnHighSierraOrNewer()		(NSAppKitVersionNumber >= NSAppKitVersionNumber10_12)
 #define IMBRunningOnMojaveOrNewer()			(NSAppKitVersionNumber >= NSAppKitVersionNumber10_13)
 
 #if defined(MAC_OS_X_VERSION_10_7)

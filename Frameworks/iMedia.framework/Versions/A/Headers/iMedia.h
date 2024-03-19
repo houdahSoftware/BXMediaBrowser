@@ -94,6 +94,7 @@
 #import <iMedia/IMBImageFolderParser.h>
 #import <iMedia/IMBAudioFolderParser.h>
 #import <iMedia/IMBMovieFolderParser.h>
+#import <iMedia/IMBLightroomParser.h>
 
 // Model
 
@@ -122,8 +123,7 @@
 #import <iMedia/IMBComboTableView.h>
 #import <iMedia/IMBComboTextCell.h>
 #import <iMedia/IMBTextFieldCell.h>
-#import <iMedia/IMBImageBrowserView.h>
-#import <iMedia/IMBImageBrowserCell.h>
+#import <iMedia/IMBObjectCollectionView.h>
 #import <iMedia/IMBViewAppearance.h>
 #import <iMedia/IMBTableViewAppearance.h>
 #import <iMedia/IMBComboTableViewAppearance.h>

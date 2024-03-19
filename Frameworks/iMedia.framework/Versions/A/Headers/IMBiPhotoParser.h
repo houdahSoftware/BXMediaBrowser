@@ -44,7 +44,7 @@
 */
 
 
-// Author: Peter Baumgartner, Dan Wood, Daniel Jalkut, Jörg Jacobsen
+// Author: Jörg Jacobsen, Peter Baumgartner
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -52,67 +52,26 @@
 
 #pragma mark HEADERS
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
-#import <Quartz/Quartz.h>
-#import "IMBItemizableView.h"
+#import "IMBAppleMediaParser.h"
 
 
 //----------------------------------------------------------------------------------------------------------------------
 
 
-#pragma mark CLASSES
+#pragma mark 
 
-@class IMBObject;
-
-
-//----------------------------------------------------------------------------------------------------------------------
-
-
-@interface IMBImageBrowserView : IKImageBrowserView <IMBItemizableView>
+@interface IMBiPhotoParser : IMBAppleMediaParser
 {
-	Class _cellClass;
-	NSRect _lastVisibleRect;			// So we can "scroll" a background image when scrolling
-	BOOL _dragSelectInProgress;
-	NSInteger _mouseOperation;
-	NSInteger _clickedObjectIndex;
-	IMBObject* _clickedObject;
-	
-	// Skimming 
-	NSTrackingArea* _trackingArea;	// Area where we track mouse move events
+	int _fakeAlbumID;					// for iPhoto2 compatibility
+	NSDateFormatter* _dateFormatter;
 }
 
-@property (assign) NSInteger mouseOperation;
-@property (assign) NSInteger clickedObjectIndex;
-@property (retain) IMBObject* clickedObject;
+@property (retain) NSDateFormatter* dateFormatter;
 
-- (void) enableSkimming;
-
-#if IMB_COMPILING_WITH_SNOW_LEOPARD_OR_NEWER_SDK
-- (NSUInteger) indexOfCellAtPoint:(NSPoint)inPoint;
-#endif
-
-@end
-
-
-/*!
- @category NSObject (IMBImageBrowserDelegate)
- @abstract Informal protocol for extending IKImageBrowserDelegate informal protocol
- */
-@interface NSObject (IMBImageBrowserDelegate)
-
-/*!
- @method imageBrowser:cellWasClickedAtIndex:
- @abstract Invoked by 'inView' when a cell was single clicked.
- @param inIndex Index of the cell that was double clicked.
- */
-- (void) imb_imageBrowser:(IKImageBrowserView *)inView cellWasClickedAtIndex:(NSUInteger)inIndex;
+//- (NSArray *)iMediaKeywordsFromIDs:(NSArray *)keywordIDs; // public utility method to help extract keywords from numbers
 
 @end
 
 
 //----------------------------------------------------------------------------------------------------------------------
 
-
-#pragma clang diagnostic pop
