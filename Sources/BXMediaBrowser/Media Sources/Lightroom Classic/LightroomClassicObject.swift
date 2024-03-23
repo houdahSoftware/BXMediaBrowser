@@ -295,6 +295,37 @@ open class LightroomClassicObject : Object, AppLifecycleMixin
 
 extension LightroomClassicObject {
 
+	@objc public var lightroomApplicationPath: String? {
+		guard let data = data as? LRCData else { return nil }
+		let parserMessenger = data.parserMessenger
+		let imbObject = data.imbObject
+
+		if let parser = parserMessenger.parser(withIdentifier: imbObject.parserIdentifier) as? IMBLightroomParser {
+			return parser.appPath
+		}
+
+		return nil
+	}
+
+	@objc public var libraryURL: URL? {
+		guard let data = data as? LRCData else { return nil }
+		let parserMessenger = data.parserMessenger
+		let imbObject = data.imbObject
+
+		if let parser = parserMessenger.parser(withIdentifier: imbObject.parserIdentifier) {
+			return parser.mediaSource
+		}
+
+		return nil
+	}
+
+	@objc public var persistentResourceIdentifier: String? {
+		guard let data = data as? LRCData else { return nil }
+		let imbObject = data.imbObject
+
+		return imbObject.persistentResourceIdentifier
+	}
+
 	@objc public var absolutePyramidPath: String? {
 		guard let data = data as? LRCData else { return nil }
 		let imbObject = data.imbObject
@@ -311,7 +342,7 @@ extension LightroomClassicObject {
 
 	@objc public var imageLocationURL: URL? {
 		guard let data = data as? LRCData else { return nil }
-		let parserMessenger = data.parserMessenger
+//		let parserMessenger = data.parserMessenger
 		let imbObject = data.imbObject
 
 		return imbObject.imageLocationURL()
