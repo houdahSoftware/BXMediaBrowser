@@ -700,8 +700,17 @@ extension ObjectCollectionView
 		@MainActor public func collectionView(_ collectionView:NSCollectionView, pasteboardWriterForItemAt indexPath:IndexPath) -> NSPasteboardWriting?
 		{
 			// Get Object to be dragged
-			
-			guard let object = self.object(for:indexPath) else { return nil }
+			let object:Object?
+
+			// Use the object for which metadata has already been preloaded
+			if let item = collectionView.item(at:indexPath) as? ObjectCell {
+				object = item.object
+			}
+			else {
+				object = self.object(for:indexPath)
+			}
+
+			guard let object = object else { return nil }
 			guard object.isEnabled else { return nil }
 			
 			// Get a file promise from the Object
