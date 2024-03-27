@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F3CA2152BB230C400572AD5 /* LightroomClassicFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */; };
 		8FCE63832BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FCE63842BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */; };
 		D00D6DE22838CF1200013C39 /* LightroomCCContainerAllPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00D6DE12838CF1200013C39 /* LightroomCCContainerAllPhotos.swift */; };
@@ -179,6 +180,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightroomClassicFilterBar.swift; sourceTree = "<group>"; };
 		8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMBLightroomParser+ExtendedMetadata.h"; sourceTree = "<group>"; };
 		8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMBLightroomParser+ExtendedMetadata.m"; sourceTree = "<group>"; };
 		D00D6DE12838CF1200013C39 /* LightroomCCContainerAllPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightroomCCContainerAllPhotos.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				D0D9EDC427FF3CF300D5D7FB /* PhotosFilterBar.swift */,
 				D01B492527CA1378008249C0 /* MusicFilterBar.swift */,
 				D052BE2D27F0BDA80084068A /* LightroomCCFilterBar.swift */,
+				8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */,
 				D01B492627CA1378008249C0 /* UnsplashFilterBar.swift */,
 				D0BAD10D27D3AB0800B749FD /* PexelsFilterBar.swift */,
 				D01B492427CA1378008249C0 /* SearchBar.swift */,
@@ -1025,6 +1028,7 @@
 				D01B497327CA1378008249C0 /* MusicObject.swift in Sources */,
 				D01B495927CA1378008249C0 /* AudioPreviewController.swift in Sources */,
 				D01B497727CA1378008249C0 /* FolderContainer.swift in Sources */,
+				8F3CA2152BB230C400572AD5 /* LightroomClassicFilterBar.swift in Sources */,
 				D01B496E27CA1378008249C0 /* Object+Filter.swift in Sources */,
 				D08906DE2875C7B700FD6C0B /* LegacyDataController.swift in Sources */,
 				D01B498E27CA1378008249C0 /* UnsplashFilterBar.swift in Sources */,

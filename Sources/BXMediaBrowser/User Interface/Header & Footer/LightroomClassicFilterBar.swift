@@ -30,16 +30,16 @@ import SwiftUI
 //----------------------------------------------------------------------------------------------------------------------
 
 
-public struct PhotosFilterBar : View
+public struct LightroomClassicFilterBar : View
 {
 	// Model
 	
 	@ObservedObject var selectedContainer:Container
-	@ObservedObject var filter:PhotosFilter
+	@ObservedObject var filter:FolderFilter
 	
 	// Init
 	
-	public init(with selectedContainer:Container, filter:PhotosFilter)
+	public init(with selectedContainer:Container, filter:FolderFilter)
 	{
 		self.selectedContainer = selectedContainer
 		self.filter = filter
@@ -51,12 +51,14 @@ public struct PhotosFilterBar : View
     {
 		HStack(spacing:10)
 		{
+
 			Spacer()
 
 //			RatingFilterView(rating:self.$filter.rating)
+//				.padding(.leading,-12)
 				
 			SortOrderPopup(
-				defaultShapeIcon:"square.grid.2x2",
+				defaultShapeIcon:defaultShapeIcon,
 				selectedContainer:selectedContainer,
 				filter:filter)
 		}
@@ -69,3 +71,14 @@ public struct PhotosFilterBar : View
 //----------------------------------------------------------------------------------------------------------------------
 
 
+extension LightroomClassicFilterBar
+{
+	var defaultShapeIcon:String
+	{
+		let isAudio = selectedContainer.mediaTypes.contains(.audio)
+		return isAudio ? "text.justify" : "square.grid.2x2"
+	}
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------

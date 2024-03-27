@@ -260,7 +260,7 @@ public extension ViewFactory
 		}
 		else if let container = container as? LightroomClassicContainer, let filter = container.filter as? FolderFilter
 		{
-			FolderFilterBar(with:container, filter:filter)
+			LightroomClassicFilterBar(with:container, filter:filter)
 		}
 		else if let container = container as? PhotosContainer, let filter = container.filter as? PhotosFilter
 		{

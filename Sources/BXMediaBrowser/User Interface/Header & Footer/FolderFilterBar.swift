@@ -57,8 +57,8 @@ public struct FolderFilterBar : View
 
 			Spacer()
 
-			RatingFilterView(rating:self.$filter.rating)
-				.padding(.leading,-12)
+//			RatingFilterView(rating:self.$filter.rating)
+//				.padding(.leading,-12)
 				
 			SortOrderPopup(
 				defaultShapeIcon:defaultShapeIcon,
