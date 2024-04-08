@@ -66,10 +66,14 @@ public struct Photos
 	
 	public static var displayFilenames = false
 	
-	/// THis settings controls which smart albums (if any) are displayed in the browser
+	/// This settings controls which smart albums (if any) are displayed in the browser
 	
 	public static var allowedSmartAlbums:[PHAssetCollectionSubtype] = [.any]
-	
+
+	/// This settings controls the display of shared albums in the browser
+
+	public static var allowSharedAlbums = true
+
 	/// A BXLogger instance for logging Photos related informations
 	
 	public static var log:BXLogger =
