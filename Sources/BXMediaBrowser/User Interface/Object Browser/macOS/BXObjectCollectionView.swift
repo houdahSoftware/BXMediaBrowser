@@ -69,7 +69,21 @@ public class BXObjectCollectionView : QuicklookCollectionView
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+	public override func magnify(with event: NSEvent) {
+		if let coordinator = self.delegate as? ObjectCollectionView.Coordinator {
+			let uiState = coordinator.uiState
+			let span = 1 + ImageObjectCell.maxThumbnailSize - ImageObjectCell.minThumbnailSize;
+			let adjustment = Double(span) * event.magnification
+			let thumbnailSize = uiState.thumbnailSize + adjustment
+
+			uiState.thumbnailSize = max(ImageObjectCell.minThumbnailSize, min(ImageObjectCell.maxThumbnailSize, thumbnailSize))
+		}
+	}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 
