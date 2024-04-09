@@ -64,7 +64,7 @@ public struct Photos
 	/// This global property controls whether Object filenames are displayed or not. Getting filename has a
 	/// serious performance impact, so it is disabled by default.
 	
-	public static var displayFilenames = false
+//	public static var displayFilenames = false
 	
 	/// This settings controls which smart albums (if any) are displayed in the browser
 	
