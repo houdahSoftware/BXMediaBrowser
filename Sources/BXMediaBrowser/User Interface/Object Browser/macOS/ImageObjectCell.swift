@@ -84,7 +84,7 @@ open class ImageObjectCell : ObjectCell
 			self.ratingView = ratingView
 			self.view.addSubview(ratingView)
 		}
-		
+
 		imageView.imageScaling = .scaleProportionallyUpOrDown
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		imageView.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant:0).isActive = true
@@ -212,10 +212,10 @@ open class ImageObjectCell : ObjectCell
 		
 		let isHilited = isEnabled && (isSelected || highlightState != .none)
 
-		if let layer = self.view.layer
+		if let layer = self.imageView?.subviews.first?.layer
 		{
 			layer.borderWidth = isHilited ? 3.0 : 1.0
-			layer.borderColor = isHilited ? NSColor.controlAccentColor.cgColor : self.strokeColor.cgColor
+			layer.borderColor = isHilited ? NSColor.selectedImageColor.cgColor : self.strokeColor.cgColor
 		}
     }
     
