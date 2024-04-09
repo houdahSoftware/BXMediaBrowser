@@ -71,6 +71,20 @@ class ObjectView : NSView
 		self.mouseHoverHandler?(false)
 	}
 
+	override func mouseDown(with event:NSEvent)
+	{
+		/// Shows the context menu on control-click
+		if event.modifierFlags.deviceIndependent == .control,
+		   let menu = self.menu(for: event)
+		{
+			NSMenu.popUpContextMenu(menu, with: event, for: self)
+
+			return
+		}
+
+		super.mouseDown(with: event)
+	}
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
