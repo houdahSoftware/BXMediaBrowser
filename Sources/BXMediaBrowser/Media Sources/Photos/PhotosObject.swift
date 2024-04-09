@@ -93,9 +93,41 @@ public class PhotosObject : Object
 	
 	override open var displayName:String
 	{
+		if let asset = data as? PHAsset
+		{
+			var title: String?
+
+			if asset.responds(to: #selector(getter: PHAsset.title))
+			{
+				title = asset.title
+			}
+
+			if title == nil
+			{
+				if asset.responds(to: #selector(PHAsset.fetchPropertySetsIfNeeded)) {
+					asset.fetchPropertySetsIfNeeded()
+				}
+
+				title = asset.title
+			}
+
+			if let displayName = title
+			{
+				return displayName
+			}
+
+			if asset.responds(to: #selector(getter: PHAsset.originalFilename))
+			{
+				if let displayName = asset.originalFilename
+				{
+					return displayName
+				}
+			}
+		}
+
 		if Photos.displayFilenames, _displayName.isEmpty, let asset = data as? PHAsset
 		{
-			let name = asset.originalFilename ?? ""
+			let name = asset.resourceOriginalFilename ?? ""
 			self._displayName = name
 		}
 		
@@ -181,7 +213,7 @@ public class PhotosObject : Object
 
 		var metadata:[String:Any] = [:]
 		metadata["mediaType"] = asset.mediaType.rawValue
-		metadata[.titleKey] = asset.originalFilename
+		metadata[.titleKey] = asset.resourceOriginalFilename
 		metadata[.widthKey] = asset.pixelWidth
 		metadata[.heightKey] = asset.pixelHeight
 		metadata[.durationKey] = asset.duration
@@ -221,7 +253,7 @@ public class PhotosObject : Object
 	
 	public var previewFilename:String
     {
-		(data as? PHAsset)?.originalFilename ?? ""
+		(data as? PHAsset)?.resourceOriginalFilename ?? ""
 	}
 	
 	/// Returns the title for the QuickLook panel

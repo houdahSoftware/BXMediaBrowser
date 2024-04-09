@@ -51,7 +51,7 @@ public class PhotosImageObject : PhotosObject
 
 		var array:[ObjectMetadataEntry] = []
 
-		if let name = asset.originalFilename
+		if let name = asset.resourceOriginalFilename
 		{
 			let photoLabel = NSLocalizedString("File", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Label")
 			array += ObjectMetadataEntry(label:photoLabel, value:name)
@@ -91,7 +91,7 @@ public class PhotosImageObject : PhotosObject
 	
 	override public var localFileName:String
 	{
-		if let asset = data as? PHAsset, let filename = asset.originalFilename
+		if let asset = data as? PHAsset, let filename = asset.resourceOriginalFilename
 		{
 			return filename
 		}

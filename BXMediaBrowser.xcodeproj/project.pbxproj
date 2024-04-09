@@ -10,6 +10,7 @@
 		8F3CA2152BB230C400572AD5 /* LightroomClassicFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */; };
 		8FCE63832BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FCE63842BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */; };
+		8FD9141B2BC48D26007D5FBD /* Photos-BXPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FD914192BC48BBD007D5FBD /* Photos-BXPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D00D6DE22838CF1200013C39 /* LightroomCCContainerAllPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00D6DE12838CF1200013C39 /* LightroomCCContainerAllPhotos.swift */; };
 		D00D6DE4283923AE00013C39 /* ScrollToBottomMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00D6DE3283923AE00013C39 /* ScrollToBottomMixin.swift */; };
 		D00D6DF6283F67CE00013C39 /* OAuth2 in Frameworks */ = {isa = PBXBuildFile; productRef = D00D6DF5283F67CE00013C39 /* OAuth2 */; };
@@ -183,6 +184,7 @@
 		8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightroomClassicFilterBar.swift; sourceTree = "<group>"; };
 		8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMBLightroomParser+ExtendedMetadata.h"; sourceTree = "<group>"; };
 		8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMBLightroomParser+ExtendedMetadata.m"; sourceTree = "<group>"; };
+		8FD914192BC48BBD007D5FBD /* Photos-BXPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Photos-BXPrivate.h"; sourceTree = "<group>"; };
 		D00D6DE12838CF1200013C39 /* LightroomCCContainerAllPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightroomCCContainerAllPhotos.swift; sourceTree = "<group>"; };
 		D00D6DE3283923AE00013C39 /* ScrollToBottomMixin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollToBottomMixin.swift; sourceTree = "<group>"; };
 		D00DF1BD27F45BA300DC1D27 /* SortOrderPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrderPopup.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 		D01B491A27CA1378008249C0 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				8FD914192BC48BBD007D5FBD /* Photos-BXPrivate.h */,
 				D0D9EDBC27FEE16900D5D7FB /* Photos.swift */,
 				D01B491D27CA1378008249C0 /* PhotosSource.swift */,
 				D01B491B27CA1378008249C0 /* PhotosContainer.swift */,
@@ -808,6 +811,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD9141B2BC48D26007D5FBD /* Photos-BXPrivate.h in Headers */,
 				8FCE63832BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h in Headers */,
 				D01B48B527CA1313008249C0 /* BXMediaBrowser.h in Headers */,
 			);

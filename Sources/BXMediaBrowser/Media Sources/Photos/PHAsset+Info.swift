@@ -36,7 +36,7 @@ extension PHAsset
 {
 	/// Returns the original filename for the PHAsset
 	
-    var originalFilename:String?
+    var resourceOriginalFilename:String?
     {
 		self.firstResource?.originalFilename
     }
