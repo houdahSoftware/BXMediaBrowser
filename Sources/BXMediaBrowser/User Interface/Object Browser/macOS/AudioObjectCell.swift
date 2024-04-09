@@ -96,10 +96,13 @@ open class AudioObjectCell : ObjectCell
 		self.nameField = nameField
 		self.view.addSubview(nameField)
 		
-		let ratingView = ObjectRatingView(frame: CGRect(x:46, y:24, width:90, height:16))
-		self.ratingView = ratingView
-		self.view.addSubview(ratingView)
-		
+		if Config.useRatings
+		{
+			let ratingView = ObjectRatingView(frame: CGRect(x:46, y:24, width:90, height:16))
+			self.ratingView = ratingView
+			self.view.addSubview(ratingView)
+		}
+
 		let useCountView = NSTextField(frame:CGRect(x:46, y:24, width:18, height:18))
 		self.useCountView = useCountView
 		self.view.addSubview(useCountView)
@@ -130,13 +133,16 @@ open class AudioObjectCell : ObjectCell
 		nameField.heightAnchor.constraint(equalToConstant:16).isActive = true
 		self.setupTextField(nameField, size:NSFont.systemFontSize, alignment:.left)
 
-		ratingView.translatesAutoresizingMaskIntoConstraints = false
-		ratingView.topAnchor.constraint(equalTo:view.topAnchor, constant:7).isActive = true
-		ratingView.leadingAnchor.constraint(equalTo:nameField.trailingAnchor, constant:4).isActive = true
-		ratingView.heightAnchor.constraint(equalToConstant:16).isActive = true
-		let width1 = ratingView.widthAnchor.constraint(equalToConstant:90)
-		width1.priority = .defaultHigh
-		width1.isActive = true
+		if let ratingView = self.ratingView
+		{
+			ratingView.translatesAutoresizingMaskIntoConstraints = false
+			ratingView.topAnchor.constraint(equalTo:view.topAnchor, constant:7).isActive = true
+			ratingView.leadingAnchor.constraint(equalTo:nameField.trailingAnchor, constant:4).isActive = true
+			ratingView.heightAnchor.constraint(equalToConstant:16).isActive = true
+			let width1 = ratingView.widthAnchor.constraint(equalToConstant:90)
+			width1.priority = .defaultHigh
+			width1.isActive = true
+		}
 
 		useCountView.cell = PillTextFieldCell()
 		useCountView.textColor = .white
@@ -153,7 +159,16 @@ open class AudioObjectCell : ObjectCell
 
 		durationField.translatesAutoresizingMaskIntoConstraints = false
 		durationField.topAnchor.constraint(equalTo:view.topAnchor, constant:6).isActive = true
-		durationField.leadingAnchor.constraint(greaterThanOrEqualTo:ratingView.trailingAnchor, constant:4).isActive = true
+
+		if let ratingView = self.ratingView
+		{
+			durationField.leadingAnchor.constraint(greaterThanOrEqualTo:ratingView.trailingAnchor, constant:4).isActive = true
+		}
+		else
+		{
+			durationField.leadingAnchor.constraint(greaterThanOrEqualTo:nameField.trailingAnchor, constant:4).isActive = true
+		}
+
 		durationField.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant:-20).isActive = true
 		durationField.heightAnchor.constraint(equalToConstant:16).isActive = true
 		let width2 = durationField.widthAnchor.constraint(greaterThanOrEqualToConstant:60)

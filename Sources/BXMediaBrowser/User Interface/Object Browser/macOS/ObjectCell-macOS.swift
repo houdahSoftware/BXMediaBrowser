@@ -187,14 +187,17 @@ open class ObjectCell : NSCollectionViewItem
 			}
 		}
 
-		self.observers += NotificationCenter.default.publisher(for:StatisticsController.ratingNotification, object:self.object).sink
+		if Config.useRatings
 		{
-			[weak self] notification in
-			guard let self = self else { return }
-			
-			DispatchQueue.main.asyncIfNeeded
+			self.observers += NotificationCenter.default.publisher(for:StatisticsController.ratingNotification, object:self.object).sink
 			{
-				self.showRatingControl(false)
+				[weak self] notification in
+				guard let self = self else { return }
+
+				DispatchQueue.main.asyncIfNeeded
+				{
+					self.showRatingControl(false)
+				}
 			}
 		}
 
@@ -215,7 +218,12 @@ open class ObjectCell : NSCollectionViewItem
 		// Initial state
 		
 		self.setupDoubleClick()
-		self.setupRatingControl()
+
+		if Config.useRatings
+		{
+			self.setupRatingControl()
+		}
+
 		self.updateTooltip()
 	}
 	
@@ -291,11 +299,21 @@ open class ObjectCell : NSCollectionViewItem
 	
 	open func showRatingControl(_ isInside:Bool)
 	{
-		let rating = self.object?.rating ?? 0
-		let showRating = isInside || rating > 0
-		self.textField?.isHidden = showRating
-		self.ratingView?.isHidden = !showRating
-		self.ratingView?.needsDisplay = showRating
+		guard let _ = self.ratingView else { return }
+
+		if Config.useRatings
+		{
+			let rating = self.object?.rating ?? 0
+			let showRating = isInside || rating > 0
+			self.textField?.isHidden = showRating
+			self.ratingView?.isHidden = !showRating
+			self.ratingView?.needsDisplay = showRating
+		}
+		else
+		{
+			self.textField?.isHidden = false
+			self.ratingView?.isHidden = true
+		}
 	}
 	
 	/// Loads the Object thumbnail and metadata into memory
@@ -372,25 +390,27 @@ open class ObjectCell : NSCollectionViewItem
 		
 		// Special for Photos App
 		
-		else if object is PhotosObject
-		{
-			menu.addItem(NSMenuItem.separator())
-			
-			self.addMenuItem(menu:menu, title:NSLocalizedString("Show Filenames", bundle:.BXMediaBrowser, comment:"Menu Item"), state:Photos.displayFilenames ? .on : .off)
-			{
-				Photos.displayFilenames.toggle()
-			}
-		}
+//		else if object is PhotosObject
+//		{
+//			menu.addItem(NSMenuItem.separator())
+//			
+//			self.addMenuItem(menu:menu, title:NSLocalizedString("Show Filenames", bundle:.BXMediaBrowser, comment:"Menu Item"), state:Photos.displayFilenames ? .on : .off)
+//			{
+//				Photos.displayFilenames.toggle()
+//			}
+//		}
 		
 		// Set rating on selected objects
-		
-		menu += NSMenuItem.separator()
-		
-		menu += NSMenuItem(sectionName:NSLocalizedString("rating", tableName:"Object.Filter", bundle:.BXMediaBrowser, comment:"Sorting Kind Name"))
-		
-		menu += NSMenuItem(size:CGSize(106,20))
-		{
-			RatingFilterView(rating:self.ratingBinding)
+
+		if Config.useRatings {
+			menu += NSMenuItem.separator()
+
+			menu += NSMenuItem(sectionName:NSLocalizedString("rating", tableName:"Object.Filter", bundle:.BXMediaBrowser, comment:"Sorting Kind Name"))
+
+			menu += NSMenuItem(size:CGSize(106,20))
+			{
+				RatingFilterView(rating:self.ratingBinding)
+			}
 		}
 		
 		// Debugging commands (not visible in release builds)

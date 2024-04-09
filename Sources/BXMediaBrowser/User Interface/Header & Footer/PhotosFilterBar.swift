@@ -53,8 +53,11 @@ public struct PhotosFilterBar : View
 		{
 			Spacer()
 
-//			RatingFilterView(rating:self.$filter.rating)
-				
+			if Config.useRatings
+			{
+				RatingFilterView(rating:self.$filter.rating)
+			}
+			
 			SortOrderPopup(
 				defaultShapeIcon:"square.grid.2x2",
 				selectedContainer:selectedContainer,

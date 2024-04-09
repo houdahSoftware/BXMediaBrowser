@@ -78,9 +78,12 @@ open class ImageObjectCell : ObjectCell
 		self.useCountView = useCountView
 		self.view.addSubview(useCountView)
 
-		let ratingView = ObjectRatingView(frame: CGRect(x:0, y:0, width:70, height:14))
-		self.ratingView = ratingView
-		self.view.addSubview(ratingView)
+		if Config.useRatings
+		{
+			let ratingView = ObjectRatingView(frame: CGRect(x:0, y:0, width:70, height:14))
+			self.ratingView = ratingView
+			self.view.addSubview(ratingView)
+		}
 		
 		imageView.imageScaling = .scaleProportionallyUpOrDown
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,11 +101,14 @@ open class ImageObjectCell : ObjectCell
 		textField.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant:0).isActive = true
 		self.setupTextField(textField, size:NSFont.smallSystemFontSize, alignment:.center, alpha:0.3)
 
-		ratingView.translatesAutoresizingMaskIntoConstraints = false
-		ratingView.heightAnchor.constraint(equalToConstant:14).isActive = true
-		ratingView.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant:1).isActive = true
-		ratingView.widthAnchor.constraint(equalToConstant:70).isActive = true
-		ratingView.centerXAnchor.constraint(equalTo:view.centerXAnchor, constant:0).isActive = true
+		if let ratingView = self.ratingView
+		{
+			ratingView.translatesAutoresizingMaskIntoConstraints = false
+			ratingView.heightAnchor.constraint(equalToConstant:14).isActive = true
+			ratingView.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant:1).isActive = true
+			ratingView.widthAnchor.constraint(equalToConstant:70).isActive = true
+			ratingView.centerXAnchor.constraint(equalTo:view.centerXAnchor, constant:0).isActive = true
+		}
 
 		useCountView.cell = PillTextFieldCell()
 		useCountView.textColor = .white
@@ -206,10 +212,10 @@ open class ImageObjectCell : ObjectCell
 		
 		let isHilited = isEnabled && (isSelected || highlightState != .none)
 
-		if let layer = self.imageView?.subviews.first?.layer
+		if let layer = self.view.layer
 		{
 			layer.borderWidth = isHilited ? 3.0 : 1.0
-			layer.borderColor = isHilited ? NSColor.selectedImageColor.cgColor : self.strokeColor.cgColor
+			layer.borderColor = isHilited ? NSColor.controlAccentColor.cgColor : self.strokeColor.cgColor
 		}
     }
     

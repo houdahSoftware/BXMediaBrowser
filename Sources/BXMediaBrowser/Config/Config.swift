@@ -31,6 +31,10 @@ import Foundation
 
 public struct Config
 {
+	/// Determines whether the media browser can set or filter by ratings
+	
+	public static var useRatings = true
+
 	public struct RemoteFile
 	{
 		/// Determines whether remote files should be displayed in the media browser
