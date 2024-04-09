@@ -93,7 +93,7 @@ public class PhotosObject : Object
 	
 	override open var displayName:String
 	{
-		if let asset = data as? PHAsset
+		if _displayName.isEmpty, let asset = data as? PHAsset
 		{
 			var title: String?
 
@@ -111,25 +111,24 @@ public class PhotosObject : Object
 				title = asset.title
 			}
 
-			if let displayName = title
+			if let displayName = title, !displayName.isEmpty
 			{
-				return displayName
+				self._displayName = displayName
 			}
-
-			if asset.responds(to: #selector(getter: PHAsset.originalFilename))
+			else if asset.responds(to: #selector(getter: PHAsset.originalFilename))
 			{
 				if let displayName = asset.originalFilename
 				{
-					return displayName
+					self._displayName = displayName
 				}
 			}
 		}
 
-		if Photos.displayFilenames, _displayName.isEmpty, let asset = data as? PHAsset
-		{
-			let name = asset.resourceOriginalFilename ?? ""
-			self._displayName = name
-		}
+//		if Photos.displayFilenames, _displayName.isEmpty, let asset = data as? PHAsset
+//		{
+//			let name = asset.resourceOriginalFilename ?? ""
+//			self._displayName = name
+//		}
 		
 		return _displayName
 	}
