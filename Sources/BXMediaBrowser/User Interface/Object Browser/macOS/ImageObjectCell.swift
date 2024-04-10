@@ -168,7 +168,7 @@ open class ImageObjectCell : ObjectCell
 		self.textField?.isEnabled = isEnabled
 		self.ratingView?.isEnabled = isEnabled
 		self.imageView?.layer?.opacity = alpha
-		self.textField?.layer?.opacity = 0.25 * alpha
+		self.textField?.layer?.opacity = 0.75 * alpha
 		self.useCountView?.layer?.opacity = alpha
 	}
 	
@@ -215,7 +215,7 @@ open class ImageObjectCell : ObjectCell
 		if let layer = self.imageView?.subviews.first?.layer
 		{
 			layer.borderWidth = isHilited ? 3.0 : 1.0
-			layer.borderColor = isHilited ? NSColor.selectedImageColor.cgColor : self.strokeColor.cgColor
+			layer.borderColor = isHilited ? NSColor.controlAccentColor.cgColor : self.strokeColor.cgColor
 		}
     }
     
