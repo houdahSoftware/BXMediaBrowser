@@ -177,8 +177,12 @@ public class PhotosContainer : Container
 					}
 					else if let collectionList = collection as? PHCollectionList
 					{
-						let fetchResult = PHCollection.fetchCollections(in:collectionList, options:nil)
-						let collections = PhotosData.items(for:fetchResult)
+						let fetchOptions = PHFetchOptions()
+
+						fetchOptions.includeUserSmartAlbums = Photos.allowUserSmartAlbums
+
+						let fetchResult = PHCollection.fetchCollections(in:collectionList, options:fetchOptions)
+						let collections = PhotosData.filterUserCollections(collections: PhotosData.items(for:fetchResult))
 						let name = collectionList.localizedTitle ?? ""
 						
 						let container = PhotosContainer(

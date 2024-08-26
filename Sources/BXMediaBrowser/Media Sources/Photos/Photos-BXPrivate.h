@@ -22,4 +22,17 @@
 @end
 
 
+@interface PHFetchOptions (BXPrivate)
+
+@property(nonatomic) BOOL includeUserSmartAlbums;
+
+@end
+
+
+@interface PHCollectionList (BXPrivate)
+
++ (PHFetchResult<PHCollectionList *> *)fetchRootAlbumCollectionListWithOptions:(PHFetchOptions *)options;
+
+@end
+
 #endif /* Photos_BXPrivate_h */

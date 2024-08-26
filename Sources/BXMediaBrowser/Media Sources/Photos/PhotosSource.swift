@@ -157,9 +157,21 @@ public class PhotosSource : Source, AccessControl
 		// Albums
 		
 		try await Tasks.canContinue()
-		
-		let albumsFetchResult = PHCollectionList.fetchTopLevelUserCollections(with:nil)
-		let albumsCollections = PhotosData.items(for:albumsFetchResult)
+
+		let fetchOptions = PHFetchOptions()
+
+		fetchOptions.includeUserSmartAlbums = Photos.allowUserSmartAlbums
+
+		let albumsFetchResult: PHFetchResult<PHCollection>
+
+		if let rootAlbumCollectionsList = PHCollectionList.fetchRootAlbumCollectionList(with: fetchOptions).firstObject {
+			albumsFetchResult = PHCollection.fetchCollections(in: rootAlbumCollectionsList, options: fetchOptions)
+		}
+		else {
+			albumsFetchResult = PHCollectionList.fetchTopLevelUserCollections(with: fetchOptions)
+		}
+
+		let albumsCollections = PhotosData.filterUserCollections(collections: PhotosData.items(for:albumsFetchResult))
 		let albumsData = PhotosData.folder(collections:albumsCollections, fetchResult:albumsFetchResult)
 
 		containers += PhotosContainer(

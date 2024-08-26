@@ -70,7 +70,30 @@ extension PhotosData
 			
 		return items
 	}
-	
+
+	public static func filterUserCollections(collections : [PHCollection]) -> [PHCollection]
+	{
+		return collections.filter { collection in
+			if let assetCollection = collection as? PHAssetCollection {
+				if assetCollection.assetCollectionType != .album && assetCollection.assetCollectionType != .smartAlbum {
+					return false
+				}
+
+				let assetCollectionSubtypeRaw = assetCollection.assetCollectionSubtype.rawValue
+
+				if assetCollection.assetCollectionSubtype != .albumRegular && assetCollection.assetCollectionSubtype != .albumCloudShared && assetCollectionSubtypeRaw != 100 && assetCollectionSubtypeRaw != 1000000204 {
+					return false
+				}
+			}
+			else if let collectionList = collection as? PHCollectionList {
+				if collectionList.collectionListType != .folder {
+					return false
+				}
+			}
+
+			return true
+		}
+	}
 	
 //	/// Returns the start and end date for a .timespan
 //

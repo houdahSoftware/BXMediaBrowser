@@ -66,6 +66,10 @@ public struct Photos
 	
 //	public static var displayFilenames = false
 	
+	/// This settings controls the display of user smart albums in the browser
+
+	public static var allowUserSmartAlbums = true
+
 	/// This settings controls which smart albums (if any) are displayed in the browser
 	
 	public static var allowedSmartAlbums:[PHAssetCollectionSubtype] = [.any]
