@@ -212,7 +212,7 @@ open class ImageObjectCell : ObjectCell
 		
 		let isHilited = isEnabled && (isSelected || highlightState != .none)
 
-		if let layer = self.view.layer
+		if let layer = self.imageView?.subviews.first?.layer
 		{
 			layer.borderWidth = isHilited ? 3.0 : 1.0
 			layer.borderColor = isHilited ? NSColor.controlAccentColor.cgColor : self.strokeColor.cgColor
