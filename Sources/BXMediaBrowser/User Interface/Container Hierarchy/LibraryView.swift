@@ -63,7 +63,24 @@ public struct LibraryView : View
 				}
 			}
 		}
-		
+		// https://stackoverflow.com/questions/73252399/swiftui-keyboard-navigation-in-lists-on-macos
+//		.onAppear {
+//			NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { nsevent in
+//				if selection != nil {
+//					if nsevent.keyCode == 125 { // arrow down
+//						selection = selection! < fruits.count ? selection! + 1 : 0
+//					} else {
+//						if nsevent.keyCode == 126 { // arrow up
+//							selection = selection! > 1 ? selection! - 1 : 0
+//						}
+//					}
+//				} else {
+//					selection = 0
+//				}
+//				return nsevent
+//			}
+//		}
+
 		// Pass Library reference down the view hierarchy. This is needed for setting the selected Container.
 		
 		.environmentObject(library)
