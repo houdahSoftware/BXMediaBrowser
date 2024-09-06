@@ -111,16 +111,25 @@ public class PhotosImageObject : PhotosObject
 
 		guard let asset = data as? PHAsset else { throw Object.Error.downloadFileFailed }
 		
-//		var continueDownloading = true
-	
+		var isCancelled = false
+		let progress = Progress(parent:nil)
+		progress.totalUnitCount = 100
+		progress.completedUnitCount = 0
+		Progress.globalParent?.addChild(progress, withPendingUnitCount:1)
+
+		DraggingProgress.message = NSLocalizedString("Downloading", bundle:.BXMediaBrowser, comment:"Progress Message")
+		
 		let options = PHContentEditingInputRequestOptions()
 		options.isNetworkAccessAllowed = true
 		options.progressHandler =
 		{
-			progress,outStop in
-
-//			continueDownloading = iOSMediaBrowser.downloadProgressHandler?(self,progress,nil) ?? true
-//			if !continueDownloading { outStop.pointee = true }
+			fraction,outStop in
+			progress.completedUnitCount = Int64(fraction*100.0)
+			if progress.isCancelled
+			{
+				outStop.pointee = true
+				isCancelled = true
+			}
 		}
 
         return try await withCheckedThrowingContinuation
@@ -137,7 +146,8 @@ public class PhotosImageObject : PhotosObject
 				}
 				else
 				{
-					continuation.resume(throwing:Object.Error.downloadFileFailed)
+					let error = isCancelled ? Object.Error.downloadFileCancelled : Object.Error.downloadFileFailed
+					continuation.resume(throwing:error)
 				}
 			}
 		}
