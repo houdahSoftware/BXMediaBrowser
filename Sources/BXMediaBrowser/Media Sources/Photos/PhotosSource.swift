@@ -136,6 +136,24 @@ public class PhotosSource : Source, AccessControl
 			data: libraryData,
 			filter: filter)
 
+		// Favorites
+
+		try await Tasks.canContinue()
+
+		let favoritesFetchResult = PHAssetCollection.fetchAssetCollections(with:.smartAlbum, subtype:.smartAlbumFavorites, options:nil)
+
+		if let favoritesCollection = favoritesFetchResult.firstObject
+		{
+			let favoritesData = PhotosData.album(collection:favoritesCollection)
+
+			containers += PhotosContainer(
+				identifier: "Photos:Favorites",
+				icon: "heart",
+				name: favoritesCollection.localizedTitle ?? "Favorites",
+				data: favoritesData,
+				filter: filter)
+		}
+
 		// Recently Added
 		
 		try await Tasks.canContinue()
