@@ -58,12 +58,17 @@
 
 @interface IMBLightroomModernParser : IMBLightroomParser <IMBLightroomParser>
 {
-	
+	NSNumber* _usesLrprevPyramidFiles;
 }
 
 - (NSNumber*) databaseVersion;
 
-+ (NSData*) previewDataForLightroomObject:(IMBLightroomObject*)lightroomObject maximumSize:(NSNumber*)maximumSize;
+- (BOOL)usesLrprevPyramidFiles;
+
++ (NSData*) previewDataWithPyramidPath:(NSString *)absolutePyramidPath
+						   maximumSize:(NSNumber*)maximumSize
+						  preferLrprev:(BOOL)preferLrprev
+				 acceptAlternateDigest:(BOOL)acceptAlternateDigest;
 
 @end
 
