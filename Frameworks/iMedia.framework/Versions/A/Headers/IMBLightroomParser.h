@@ -105,6 +105,7 @@ IMBLightroomNodeType;
 + (NSString*) lightroomAppVersion;
 + (NSString*) lightroomAppBundleIdentifier;
 
+- (BOOL)usesLrprevPyramidFiles;
 
 // Return an array to Lightroom library files...
 + (NSArray*) libraryPaths;

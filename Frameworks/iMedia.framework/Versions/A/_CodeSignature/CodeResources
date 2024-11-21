@@ -20,13 +20,9 @@
 		<data>
 		ML7Eqdu53c1vK7IBME4kuuPIgYs=
 		</data>
-		<key>Resources/IMBAccessRightsViewController.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBAccessRightsViewController.nib</key>
 		<data>
 		LBhya53aQLgxTLpQfxeXC0ijLmw=
-		</data>
-		<key>Resources/IMBAccessRightsViewController.nib/keyedobjects.nib</key>
-		<data>
-		gx9DwnNsIEpZDCZ5RLEsdeWgbbo=
 		</data>
 		<key>Resources/IMBAlertPopoverViewController.nib/keyedobjects-101300.nib</key>
 		<data>
@@ -36,33 +32,25 @@
 		<data>
 		Yy1ZlKAC0xqBZ33upBRY+SRv/oc=
 		</data>
-		<key>Resources/IMBApertureHeaderView.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBApertureHeaderView.nib</key>
 		<data>
 		nuo1e9UVGX5z2/oj/SNYBXFOpt0=
 		</data>
-		<key>Resources/IMBApertureHeaderView.nib/keyedobjects.nib</key>
-		<data>
-		Zxv27yv6f9aq33ozere6HBpzht0=
-		</data>
 		<key>Resources/IMBAudioObjectViewController.nib/keyedobjects-101300.nib</key>
 		<data>
-		Ewn5X5ihOOKMLbgVZjS/5CPcYbE=
+		qUYtfqXpxo6pNOUeup4XTOkawZI=
 		</data>
 		<key>Resources/IMBAudioObjectViewController.nib/keyedobjects.nib</key>
 		<data>
-		XV7BT8LuLIhEsSEpL9KzkcozvfY=
+		Nv1hMtzmj2sPU7uRKvZDxQCqI+I=
 		</data>
 		<key>Resources/IMBComboViewTemplate.pdf</key>
 		<data>
 		1dO+ayz7nEUNuuxelQQZBaXPlts=
 		</data>
-		<key>Resources/IMBFlickrHeaderView.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBFlickrHeaderView.nib</key>
 		<data>
 		a9Ti5ck6pag7tvTFkA7jR7adQH4=
-		</data>
-		<key>Resources/IMBFlickrHeaderView.nib/keyedobjects.nib</key>
-		<data>
-		rC3w+YkcCvbuCCMxgtj3r6r80Rc=
 		</data>
 		<key>Resources/IMBImageObjectViewController.nib/keyedobjects-101300.nib</key>
 		<data>
@@ -96,10 +84,6 @@
 		<data>
 		mk387c6mqbK2VWb/6XSoubFCSMY=
 		</data>
-		<key>Resources/IMBNodeViewController.nib/keyedobjects.nib</key>
-		<data>
-		5dGTpJ8ew+ev2CM9lPfdK4C3bew=
-		</data>
 		<key>Resources/IMBNoteIcon.icns</key>
 		<data>
 		ZlP4L1X+QDezyEC3BIWAyhfZWZ0=
@@ -112,21 +96,13 @@
 		<data>
 		gn3nHNYntK8EoxU98/X5d4fjp8Y=
 		</data>
-		<key>Resources/IMBPanel.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBPanel.nib</key>
 		<data>
 		nft8u8oSiYLFTfut/QYFtinN+6U=
 		</data>
-		<key>Resources/IMBPanel.nib/keyedobjects.nib</key>
-		<data>
-		wET32QfjuDee1JtHToBllDVblwE=
-		</data>
-		<key>Resources/IMBProgress.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBProgress.nib</key>
 		<data>
 		dUvWxsF3hVn2s000tXX7/W6h7DA=
-		</data>
-		<key>Resources/IMBProgress.nib/keyedobjects.nib</key>
-		<data>
-		g5aO7WlbdC/+BkqVQBbJ3BbHZ9Y=
 		</data>
 		<key>Resources/IMBStopIcon.icns</key>
 		<data>
@@ -134,7 +110,7 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		77OusycEcYAEc+nLH3oPoBYg8Ds=
+		luDoojjofsWDh2b6JeHZK3Db4bU=
 		</data>
 		<key>Resources/OmniwebBookmarksToXBEL.xslt</key>
 		<data>
@@ -675,10 +651,6 @@
 	<dict>
 		<key>Headers/FMDatabase.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oQB2AiPL3n/OrId6cdahspxR4io=
-			</data>
 			<key>hash2</key>
 			<data>
 			BD2QI11D9KGkJfOJv9kTPMuaR0GOmSVRWgz/oyRuhwo=
@@ -686,10 +658,6 @@
 		</dict>
 		<key>Headers/FMDatabaseAdditions.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7TzYZkI6WJ5R6sWAwUqmet80pFw=
-			</data>
 			<key>hash2</key>
 			<data>
 			9UPxUAIJkkV+dlLPPsa6iiJ+3cdCFO2aFTIxCCEg4B0=
@@ -697,10 +665,6 @@
 		</dict>
 		<key>Headers/FMDatabasePool.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KB74jhvLBcIcj929OAxy1yzYXmQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			bsT8sLvMZGm123GJbv/h3bHLeI89o/WKiwiT0Cnvs94=
@@ -708,10 +672,6 @@
 		</dict>
 		<key>Headers/FMDatabaseQueue.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L6amil7hPO5xGJPs5RHsWshquBI=
-			</data>
 			<key>hash2</key>
 			<data>
 			1PJvi+R0esrPeWugP0hvkffzarGdE+gR9SLuYj1++gI=
@@ -719,10 +679,6 @@
 		</dict>
 		<key>Headers/FMResultSet.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			onPcVF/KecszoKrAZKpPXaR6Keo=
-			</data>
 			<key>hash2</key>
 			<data>
 			P/8KZYjF7r0gqgMpLPuPSQTL644Ujz9hb4w8rEMTnL8=
@@ -730,10 +686,6 @@
 		</dict>
 		<key>Headers/IMBAccessRightsController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			RnxUVPLQ4EAjHsYB3Ddos5YnexA=
-			</data>
 			<key>hash2</key>
 			<data>
 			tyrUQLgrtrUsbgVwoJBOaFG4rglHJjnE3fctjExirlQ=
@@ -741,10 +693,6 @@
 		</dict>
 		<key>Headers/IMBAccessRightsViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			omQ2SpkcDqKegTVIyzgXykAhaR8=
-			</data>
 			<key>hash2</key>
 			<data>
 			0T83aH1hz7sJ0P89kI1cKh+Vgun43SHBdCeONz1WOK0=
@@ -752,10 +700,6 @@
 		</dict>
 		<key>Headers/IMBAppleMediaLibraryParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			RmHFsyGxd3gTVZSH8vSY5mElMRQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			M5pvY3VwPY2EbaMMk7+CPOPciorhOSrUAq9bEjthrPw=
@@ -763,10 +707,6 @@
 		</dict>
 		<key>Headers/IMBAppleMediaLibraryParserConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qPcVlzJO0ZWCStSOu9fq2jVFvlk=
-			</data>
 			<key>hash2</key>
 			<data>
 			U4JPlRiFGttA2uCHWOOPQTtOHC2d1tfIOaGKyGkkOZM=
@@ -774,10 +714,6 @@
 		</dict>
 		<key>Headers/IMBAppleMediaLibraryParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jNEGKhSWAUASJyQEqmg8BXxwlVo=
-			</data>
 			<key>hash2</key>
 			<data>
 			hSYVMhvS2J9PHL/JnnE97ASHfuSPECOSpUqyAKWmzm0=
@@ -785,10 +721,6 @@
 		</dict>
 		<key>Headers/IMBAppleMediaParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FuO6Kno3VlCmwYSk3IT2c1Rfsqk=
-			</data>
 			<key>hash2</key>
 			<data>
 			IL9rB7EpWYMve1EfUcgs5BAHC1Q4wcCy98kM74hGe/M=
@@ -796,10 +728,6 @@
 		</dict>
 		<key>Headers/IMBApplePhotosParserConfiguration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Jzd7XQNKBbbsTyBTTQ6F4aCT7/Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			R6WzIqsSeedYY798++2tdjogz56Ww5LWZFuD+Mpr2qg=
@@ -807,10 +735,6 @@
 		</dict>
 		<key>Headers/IMBAudioFolderParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+QkONtW8+wJY5c6rSaVjdD1d8Dw=
-			</data>
 			<key>hash2</key>
 			<data>
 			W9NUGBYTUt0nSd5cd8ZtQV5uXT8iUJoOkR5qSdzv3DE=
@@ -818,10 +742,6 @@
 		</dict>
 		<key>Headers/IMBAudioFolderParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+whE+uTGhYHeJkrcoxeidlZOUnI=
-			</data>
 			<key>hash2</key>
 			<data>
 			Zblfw+8KEL3It0FLssPhej1WyW6l2fkhxlMH14q8v/g=
@@ -829,10 +749,6 @@
 		</dict>
 		<key>Headers/IMBAudioNodeViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oNtYy7bagK1bto2tS2a/1UDFPTI=
-			</data>
 			<key>hash2</key>
 			<data>
 			B2yl0IufMZD+8RLxJsnDS4SSf1R+6wQv3tfsY+DlTLs=
@@ -840,10 +756,6 @@
 		</dict>
 		<key>Headers/IMBAudioObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HeX/l6wc6T5eRJ5fThQJN6Ee45I=
-			</data>
 			<key>hash2</key>
 			<data>
 			1X2UeHzQoBAfQsdCcMMmEYn/W5c6PdsnBIXYAIwHPGc=
@@ -851,10 +763,6 @@
 		</dict>
 		<key>Headers/IMBButtonObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L9yND2EJqmJLZ+VzBSiCk4I9Mf0=
-			</data>
 			<key>hash2</key>
 			<data>
 			CqyPGCs2tPwY75opyBA43igpmf7ahTaB6/A2+vph7y4=
@@ -862,10 +770,6 @@
 		</dict>
 		<key>Headers/IMBComboTableView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YF3yJlmwG24SGWUTXIX5yBD/jdE=
-			</data>
 			<key>hash2</key>
 			<data>
 			ilKrxZ2oIhA57vu8/do04oYnTH6zouX/grw42mG0nIk=
@@ -873,10 +777,6 @@
 		</dict>
 		<key>Headers/IMBComboTableViewAppearance.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2Oyx2OWA3aaJgUeSHFBr1U8PbZI=
-			</data>
 			<key>hash2</key>
 			<data>
 			diwP06xch6ZtE3zReSKIcrihTdkD+TN+hAC8VDkMCvg=
@@ -884,10 +784,6 @@
 		</dict>
 		<key>Headers/IMBComboTextCell.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4GtUDMfU8GF6V/UTOz8YPyeqH0M=
-			</data>
 			<key>hash2</key>
 			<data>
 			s//JgmZAaJJTTLQHQNueqwwjNyzNysQddVuaj3NPEuw=
@@ -895,10 +791,6 @@
 		</dict>
 		<key>Headers/IMBCommon.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IUrDLK089Rl+SyoVSfNxJLWQQDk=
-			</data>
 			<key>hash2</key>
 			<data>
 			jGxVNadOIdveRpkJincDuBO3ZR7myF+MQBhDPYXP/RY=
@@ -906,10 +798,6 @@
 		</dict>
 		<key>Headers/IMBConfig.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vE2oq5OguWNvIam1VsnLI9xr69M=
-			</data>
 			<key>hash2</key>
 			<data>
 			Ac0efVwQjlsEVeUABipzjH6DLhyoVmwHNX/FcbT18rQ=
@@ -917,10 +805,6 @@
 		</dict>
 		<key>Headers/IMBDisableTitleToColorTransformer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FvBuFWpJZ+cbMXlBjrz9Dnsn7ZQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			nTlWc/MK9W9NdPGn6Aard8ePc6UTKVFrXoKyE22z0Rw=
@@ -928,10 +812,6 @@
 		</dict>
 		<key>Headers/IMBDynamicTableView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/9g501AohOqR5p1hxFEg1mYTNy8=
-			</data>
 			<key>hash2</key>
 			<data>
 			jFZEcPpfZJKdFpKj6W2gw25hOJuEVh9Q27IMEpxr2lY=
@@ -939,10 +819,6 @@
 		</dict>
 		<key>Headers/IMBFaceObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pppRrKblNpDVfIUf99DN6+2ygik=
-			</data>
 			<key>hash2</key>
 			<data>
 			GuAb9UwhF3FplHYpbz781cKicLyQj8T6U4HLexOHZfo=
@@ -950,10 +826,6 @@
 		</dict>
 		<key>Headers/IMBFileSystemObserver.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2urKsCUyRzTFEK0oGcwCMENGSX8=
-			</data>
 			<key>hash2</key>
 			<data>
 			HXdwxviyI6p9ZbpnwSuO3fx+kCq7h3QgInGW3GF9yEI=
@@ -961,10 +833,6 @@
 		</dict>
 		<key>Headers/IMBFolderObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y/8e43rp2HUISWbDxzOtU4fOuNE=
-			</data>
 			<key>hash2</key>
 			<data>
 			WMmY+qhXOWC1fJEEhV8UMukfrZeqkYz2kGkMOLinIbc=
@@ -972,10 +840,6 @@
 		</dict>
 		<key>Headers/IMBFolderParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/r9hpCMe6tAXeahtpWytdFt32ts=
-			</data>
 			<key>hash2</key>
 			<data>
 			zd0rVXe4K+orvHSNUuvltsJsl+cHnoWKyWsfiQgT4pU=
@@ -983,10 +847,6 @@
 		</dict>
 		<key>Headers/IMBFolderParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L9/yGCs4gCDjAVkpxucOA/8oj4g=
-			</data>
 			<key>hash2</key>
 			<data>
 			6f2lCoaj2FiCHhhhsS/W7AT+lICkTRUKeHyzbOdDrmQ=
@@ -994,10 +854,6 @@
 		</dict>
 		<key>Headers/IMBGarageBandParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0VQtypGULPCixmhxIBauU+vfhTo=
-			</data>
 			<key>hash2</key>
 			<data>
 			yLA7JpJDJ2LCSxjjfD36XIFLF1D0exnNO6KL4UNHkmY=
@@ -1005,10 +861,6 @@
 		</dict>
 		<key>Headers/IMBImageFolderParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			o04uw5RH+oTeqFSSW9mDhZRffVs=
-			</data>
 			<key>hash2</key>
 			<data>
 			hJzepozyd7sItew/8r95u1MJ3S3JSpetlCCP/azmqNo=
@@ -1016,10 +868,6 @@
 		</dict>
 		<key>Headers/IMBImageFolderParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2r5NizIXScFJx5fgNs/2PIzy1dA=
-			</data>
 			<key>hash2</key>
 			<data>
 			xgKJAl0md1/rAX/Fv4BkNSbWWLGEtbQQpdHgd0Ot/5E=
@@ -1027,10 +875,6 @@
 		</dict>
 		<key>Headers/IMBImageItem.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LBG0nDkBW3R4QRib+lIJTs31viw=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZhPQjc93qqjD+MDlmOhgo1Zt8E7ljFLkwEGRVRqeB6E=
@@ -1038,10 +882,6 @@
 		</dict>
 		<key>Headers/IMBImageNodeViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L0B3AkR4YbAZmglyMb024pD6gXc=
-			</data>
 			<key>hash2</key>
 			<data>
 			L6s9Vm4tYnPAyUx2+IceNRyv29EPW5qaQSi6QQJK7Hw=
@@ -1049,10 +889,6 @@
 		</dict>
 		<key>Headers/IMBImageObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VVg1BAx7r6LX9hSAJ8BQz99DH6o=
-			</data>
 			<key>hash2</key>
 			<data>
 			4wjZ1h/z0n1F6RapR5GKHUN6GXb+1VuRmMKVCBKvRCY=
@@ -1060,10 +896,6 @@
 		</dict>
 		<key>Headers/IMBItemizableView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Q+7r4ErtafHgLZpZurVs/IHXkcc=
-			</data>
 			<key>hash2</key>
 			<data>
 			U/ds91IO9bqQrN0fJtypA8gx32b2Qv/NztH1dtvXKDQ=
@@ -1071,10 +903,6 @@
 		</dict>
 		<key>Headers/IMBLibraryController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lIEFCzH0Zj+EcOJsvdC/RmMWtr4=
-			</data>
 			<key>hash2</key>
 			<data>
 			452OzE7PMHzTnC2YTQclwoT8cSbJajLN830UJSTUUTs=
@@ -1082,43 +910,27 @@
 		</dict>
 		<key>Headers/IMBLightroomModernParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bRDaksbs1BH6MqyKEXbU+OnsuLk=
-			</data>
 			<key>hash2</key>
 			<data>
-			uK0rWFgytBsY6L74xQe/tK9zbrq6r2ZiDwbHrOWkhnM=
+			pWnWZdSig6fuju/y/4NnWvntxgkNP4V8i/1oJA7Gj+c=
 			</data>
 		</dict>
 		<key>Headers/IMBLightroomObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			X5ZMPjNDRUCuAwtMUM5Mmc6XLv0=
-			</data>
 			<key>hash2</key>
 			<data>
-			6US3cVp5qoGq2JzGHO1x8NoRfpE/s8EDp9vgTsX7hpo=
+			8Sv1JkklIOGX2kg5ceKFRAUfpSkSJcJr8Z7HYjUF/48=
 			</data>
 		</dict>
 		<key>Headers/IMBLightroomParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L+o7ZECr7NV8ueyCnhi2or1IOxA=
-			</data>
 			<key>hash2</key>
 			<data>
-			26iXdoUHg9D/fMQ2p0pWBobMmwxl82pYj85QomJn7OU=
+			o1c034UYhU0noBSBD7cqoL+rWLvz2jr9ntS7jW9z72w=
 			</data>
 		</dict>
 		<key>Headers/IMBLightroomParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VhZHnnYj56AsJDWU9WKdxr104Js=
-			</data>
 			<key>hash2</key>
 			<data>
 			tZqVG7zvLrkthuBWPIbQpunStTLKiXXVn60W/DFDGOY=
@@ -1126,10 +938,6 @@
 		</dict>
 		<key>Headers/IMBLinkNodeViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MJdfkuRXwIYcBtN/bxTNaiBfp4k=
-			</data>
 			<key>hash2</key>
 			<data>
 			V8/gUblpZ+Wtivqswl6znIu8866kYdJdKz8ztpWecUk=
@@ -1137,10 +945,6 @@
 		</dict>
 		<key>Headers/IMBLinkObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fH3DNsaAFoATzGxVnJ0HLdZpz7o=
-			</data>
 			<key>hash2</key>
 			<data>
 			KSm5FVDTLueeV6xpOviwSXHI+hOaZHui6TXrFIFoYoc=
@@ -1148,10 +952,6 @@
 		</dict>
 		<key>Headers/IMBLinkObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cncgNGueN4aEOQLmc0rnqMXH6PI=
-			</data>
 			<key>hash2</key>
 			<data>
 			mc/0EBpgjeYloP2IV2zneWG1cE3jET4OW/QyPoONYvE=
@@ -1159,10 +959,6 @@
 		</dict>
 		<key>Headers/IMBMetadataTransformer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lsxWs+H2RmvGIyJO/x0cySQSW6A=
-			</data>
 			<key>hash2</key>
 			<data>
 			pcz28+svTt4b6TdLbFU1ftJ6+FHR12oEHihLTNPUnHQ=
@@ -1170,10 +966,6 @@
 		</dict>
 		<key>Headers/IMBMovieFolderParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Vav/IpaWAonydHCbKfK5C9Q4PiM=
-			</data>
 			<key>hash2</key>
 			<data>
 			O0aoh4ZGaKxbhW+Wadt4rje4RvXgL3CtKXCtaK7QoJY=
@@ -1181,10 +973,6 @@
 		</dict>
 		<key>Headers/IMBMovieFolderParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hB5GmT4YbYUBmLgsWhB5W5NmcGU=
-			</data>
 			<key>hash2</key>
 			<data>
 			RyBpwBiQ7V53unQMKCglixe9idknEr8bapV5bCZGcZk=
@@ -1192,10 +980,6 @@
 		</dict>
 		<key>Headers/IMBMovieNodeViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PueQR4u7kifzEVGzJWbiDxcDW8A=
-			</data>
 			<key>hash2</key>
 			<data>
 			f0rSaMIqRAqjvXbuxNjgYzaYrzdfXV0oTRPPLUsn508=
@@ -1203,10 +987,6 @@
 		</dict>
 		<key>Headers/IMBMovieObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8XZkRpNi3u1b5V2f4Z1AgqBiBpw=
-			</data>
 			<key>hash2</key>
 			<data>
 			40Su93FaLExsb4d3jYk4AcJuVUmwSaMyFSRy/Ch9nis=
@@ -1214,10 +994,6 @@
 		</dict>
 		<key>Headers/IMBNavigationController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tdZAkHhJKyDveOdRsvl13+gngTI=
-			</data>
 			<key>hash2</key>
 			<data>
 			4JlmIT/7H1l52xkw0WYGtbu69Y3QVDvjX601YmjfWYw=
@@ -1225,10 +1001,6 @@
 		</dict>
 		<key>Headers/IMBNode.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			76Pi4TfLRnfYNFFf7uwyJmMupnM=
-			</data>
 			<key>hash2</key>
 			<data>
 			X89e3+++87RTopZBUX+CeFFq+ASnXHoGw093U0I62OM=
@@ -1236,10 +1008,6 @@
 		</dict>
 		<key>Headers/IMBNodeCell.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nxJXEIeEoxpF/UVy7ZBju4VCVns=
-			</data>
 			<key>hash2</key>
 			<data>
 			shN7Hk/ozFw75siNF6EZmqt2wsqLFDQdrwki5wpi/L0=
@@ -1247,10 +1015,6 @@
 		</dict>
 		<key>Headers/IMBNodeObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			g+QB/Ht9sVnao82I/+cNRGEwURw=
-			</data>
 			<key>hash2</key>
 			<data>
 			926iOr85IwJ11YcXhE6u3Vm/rLFw5kAppsoGCot/mIE=
@@ -1258,10 +1022,6 @@
 		</dict>
 		<key>Headers/IMBNodeViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ghI/Zq1muLlOYa4RLvJ4Xgl7vrA=
-			</data>
 			<key>hash2</key>
 			<data>
 			PfLpBIMfY+gztrL/jjVVXA4JBYspOcTZbAeUMoTs7Zg=
@@ -1269,10 +1029,6 @@
 		</dict>
 		<key>Headers/IMBObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			F/VlQ88rFLHdSAvukIkgQTxUgFI=
-			</data>
 			<key>hash2</key>
 			<data>
 			VD5bk/h9VYzBk6z/3DFO7vsnsi7g2SKSu1epDVfP7zw=
@@ -1280,10 +1036,6 @@
 		</dict>
 		<key>Headers/IMBObjectArrayController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iqfW6DQJI9HStNqXMgmnoE7c0cg=
-			</data>
 			<key>hash2</key>
 			<data>
 			mUmVa88Z4DUwqImi0YyTV1mfqnmWhw/mqXX36z5dzPQ=
@@ -1291,10 +1043,6 @@
 		</dict>
 		<key>Headers/IMBObjectCollectionView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xeg5IIltgFrVCSOfFLXQqLJZ7/I=
-			</data>
 			<key>hash2</key>
 			<data>
 			gpoxzsvh8DcsZSEaVvxoskZrEUqNriyjRoglz/0KYME=
@@ -1302,10 +1050,6 @@
 		</dict>
 		<key>Headers/IMBObjectFifoCache.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Bz5rNuBFXJRRu4MC3+ZSjYYjGxg=
-			</data>
 			<key>hash2</key>
 			<data>
 			qdu/O0XyyTG1LHAL+0uTCI/jcKvIh+nV8tUb5T43bGo=
@@ -1313,10 +1057,6 @@
 		</dict>
 		<key>Headers/IMBObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			b/Tdn+mzcFdufVZ7TrIgLowHzVQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			Hm6qTbePdQcbZXjPBHc2PuP7bwGK/tQZTOxn5A7k1+0=
@@ -1324,10 +1064,6 @@
 		</dict>
 		<key>Headers/IMBOutlineView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			p6J+610BsPdLqXIVlioUk83oC/g=
-			</data>
 			<key>hash2</key>
 			<data>
 			BcSUO3k9qSrOYBqVTbGya0XhrCzAlplGV7s6U1VaaTg=
@@ -1335,10 +1071,6 @@
 		</dict>
 		<key>Headers/IMBPanel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pBA3pM058B0Lqx3ZYtt9qTXrC6w=
-			</data>
 			<key>hash2</key>
 			<data>
 			f/Cz6im+NCTThzhQFZX18NoLz9IzMGfEz0BFqdUW9YY=
@@ -1346,10 +1078,6 @@
 		</dict>
 		<key>Headers/IMBPanelController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NidO4n8n4wb5c1DMDXb2V25ueBA=
-			</data>
 			<key>hash2</key>
 			<data>
 			DUXByi0P8YAL27G92uXttYgokFC+rmiVnQHNlyzwV10=
@@ -1357,10 +1085,6 @@
 		</dict>
 		<key>Headers/IMBParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nHkFwecD45fKnN0jwzb6sChKwGY=
-			</data>
 			<key>hash2</key>
 			<data>
 			cpiQA1N6MH77DECh+X39ChJc24TNu2bh2qCEBoMEZ7Y=
@@ -1368,10 +1092,6 @@
 		</dict>
 		<key>Headers/IMBParserController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			E2TpTrzDlBF+n2zWLL1HiFMtaVA=
-			</data>
 			<key>hash2</key>
 			<data>
 			fIjkPUtpoNptGeRVwFHU7NJWOmOKLsVnwQObtElUvms=
@@ -1379,10 +1099,6 @@
 		</dict>
 		<key>Headers/IMBParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KksXitilURdOR/ib5WrGiVYKdEE=
-			</data>
 			<key>hash2</key>
 			<data>
 			qvzFBO9PblJvrVATxHPJMN6ymvwaSJ+5B4MoVwxbq4k=
@@ -1390,10 +1106,6 @@
 		</dict>
 		<key>Headers/IMBProgressWindowController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ePFNOsoqXY+16xtY7qHvkyvKXbo=
-			</data>
 			<key>hash2</key>
 			<data>
 			8f6UMEmj4zGFczi9UiqPgaK1UXIj2P8fmd7jP9Y78iI=
@@ -1401,10 +1113,6 @@
 		</dict>
 		<key>Headers/IMBQLPreviewPanel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GNoQCB3KbTz8zmqOwg0GSienKtY=
-			</data>
 			<key>hash2</key>
 			<data>
 			vbRUNxXt2F8mH9m3R/i2xwZvBwiaIwTwy8lFPeMRan4=
@@ -1412,10 +1120,6 @@
 		</dict>
 		<key>Headers/IMBSafariParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BoMIfSuDx7NvBxZy7Ksd8wbW5Gg=
-			</data>
 			<key>hash2</key>
 			<data>
 			/T7QsbxRxYMNU/f5i1KAZqFwcR+aQzdkYHQGpto2KdY=
@@ -1423,10 +1127,6 @@
 		</dict>
 		<key>Headers/IMBSkimmableObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Plckk645tyL56GmmFh4S3Im7VHk=
-			</data>
 			<key>hash2</key>
 			<data>
 			BR+MXvVXYfMg4rh/dXvbvjz/vB1JLlvONU23sRS8yk8=
@@ -1434,10 +1134,6 @@
 		</dict>
 		<key>Headers/IMBSkimmableObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IDp+WPM/lnL3ulY1OcBLgLUo2+k=
-			</data>
 			<key>hash2</key>
 			<data>
 			PtkuIlTiC10lCHbaBjmVfrAlluwtv4N5LSBMrOFys9I=
@@ -1445,10 +1141,6 @@
 		</dict>
 		<key>Headers/IMBSmartFolderObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			J8kOcWQtzBgHbz3MMU0qSrNv7y4=
-			</data>
 			<key>hash2</key>
 			<data>
 			SvCS0GzXPWCVrOCpy8HVyjuFARHewUUTp+MgKjfoRFo=
@@ -1456,10 +1148,6 @@
 		</dict>
 		<key>Headers/IMBTableView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			P9w7Onyw3HO1LZh1DrCir/i/wlg=
-			</data>
 			<key>hash2</key>
 			<data>
 			ylZdhC9F2caPZCr2zdrj5fqsZJ6M74GCmOx1HFqhLXQ=
@@ -1467,10 +1155,6 @@
 		</dict>
 		<key>Headers/IMBTableViewAppearance.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9cVxBdoToCk838Y3PwfXEXzoX6g=
-			</data>
 			<key>hash2</key>
 			<data>
 			erkZYMy8tQS1A/az9GFFTaU9+MWJ0D1OCRx29otW9PE=
@@ -1478,10 +1162,6 @@
 		</dict>
 		<key>Headers/IMBTextFieldCell.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			npDB1a+2DeglGN+GX5xDsB/xv4k=
-			</data>
 			<key>hash2</key>
 			<data>
 			v3PTkg+thGVRZIQritF+VaNSBGtYIY4fZQ+GUthkZ+U=
@@ -1489,10 +1169,6 @@
 		</dict>
 		<key>Headers/IMBTimecodeTransformer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Orh9S7Y+I+PwQ1C0nOFcd6HoaLU=
-			</data>
 			<key>hash2</key>
 			<data>
 			/6T0BcAkNKHakf0xo/uk8Yr5srvc2catJrxqzbm8+ew=
@@ -1500,10 +1176,6 @@
 		</dict>
 		<key>Headers/IMBViewAppearance.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			x6XEsic+pxI80Inrh+B4mb+/R1A=
-			</data>
 			<key>hash2</key>
 			<data>
 			MOS7bBBIoW9zXp4+QoKLwGPooshZQk7KkTyqkd31EJk=
@@ -1511,10 +1183,6 @@
 		</dict>
 		<key>Headers/IMBiPhotoEventNodeObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L1WLD1/bUoqa77CPaI6QwvF1GB8=
-			</data>
 			<key>hash2</key>
 			<data>
 			0Xoru1NWDVMt2ENqmej9ztkpRIhguFW2v2whoelvhXc=
@@ -1522,10 +1190,6 @@
 		</dict>
 		<key>Headers/IMBiPhotoEventObjectViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zMvklbPqL3fAym6ch23F6930XBA=
-			</data>
 			<key>hash2</key>
 			<data>
 			peVhqttdIn3oYH8rWPMjv20uS4AXwKXfc4DDTta1eiQ=
@@ -1533,10 +1197,6 @@
 		</dict>
 		<key>Headers/IMBiPhotoParser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ce3mXdwbGF0jP81aIeOAffHMhV4=
-			</data>
 			<key>hash2</key>
 			<data>
 			JfImSHvzFRp3csVURFRa+lub6JyzBf4MHYKVDhlkjKA=
@@ -1544,10 +1204,6 @@
 		</dict>
 		<key>Headers/IMBiPhotoParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+xW2Gbe5Zsg3HvZqPwS8taGWwEM=
-			</data>
 			<key>hash2</key>
 			<data>
 			CNC4psU5/kjHxkZdcnDj81Y3apSUxR42c4n+D4ZHATE=
@@ -1555,10 +1211,6 @@
 		</dict>
 		<key>Headers/IMBiTunesParserMessenger.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			L7Mm/pQynm6XsIBx/IF4BqvcvP8=
-			</data>
 			<key>hash2</key>
 			<data>
 			ICAFf8Ly1FhKicmICs8V6QUpL32KdJDtfvx0YuzzHx8=
@@ -1566,10 +1218,6 @@
 		</dict>
 		<key>Headers/NSData+SKExtensions.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			s3aYQcobK6e8FovAmiTRiRNGJKg=
-			</data>
 			<key>hash2</key>
 			<data>
 			bOY1pClHIHf1xfZ/U8JWahYps7ULo5TDetV23oP94f4=
@@ -1577,10 +1225,6 @@
 		</dict>
 		<key>Headers/NSDictionary+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fKDqcw3HAAlhefT3ITD/q2HSBic=
-			</data>
 			<key>hash2</key>
 			<data>
 			9YsTRboYCLDP9OTQYkQ+jdyWrsughgxxGXb8iOnl3F8=
@@ -1588,10 +1232,6 @@
 		</dict>
 		<key>Headers/NSFileManager+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TY1nUw/flCS8poiO/huaEVsexfo=
-			</data>
 			<key>hash2</key>
 			<data>
 			D3MxUgvbp3AOypl5SW2vGVdtUQfp0ppsS1/tRG6aqkI=
@@ -1599,10 +1239,6 @@
 		</dict>
 		<key>Headers/NSImage+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7bYj7fDzfUDDP0Au383c2Hk7PEM=
-			</data>
 			<key>hash2</key>
 			<data>
 			dMOjOzVoR8839rfmKAgBaZ8U9Zqi+nHWc7c58sEGexc=
@@ -1610,10 +1246,6 @@
 		</dict>
 		<key>Headers/NSKeyedArchiver+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q0jDEc8Ix/F0ha1unuSGC6h5/LU=
-			</data>
 			<key>hash2</key>
 			<data>
 			UQ0noOBEr9ojalyS4W8e0z31b4D+6e0BivDYNkfNNH4=
@@ -1621,10 +1253,6 @@
 		</dict>
 		<key>Headers/NSPasteboard+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mUjdfjdYQ4vIqQrxM+pB7KfFsew=
-			</data>
 			<key>hash2</key>
 			<data>
 			uqbpDBRoWrkkXY0VKJ4v58pap3VwWuEc+z9h2cGWbso=
@@ -1632,10 +1260,6 @@
 		</dict>
 		<key>Headers/NSString+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2i0WeLVyPlPGRUVwVBcgRpS6su0=
-			</data>
 			<key>hash2</key>
 			<data>
 			DZ4Z8hpeC7Nn3FJlPxa8rbxe9AVVb+6s5iGp86iQM4s=
@@ -1643,10 +1267,6 @@
 		</dict>
 		<key>Headers/NSURL+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cIP18FhdQ+fb941cHqMx7KCApTo=
-			</data>
 			<key>hash2</key>
 			<data>
 			N7Xt9UKLG9UXqiOsBXKLCJQyXD32E6d5cbl9Lx5JSy0=
@@ -1654,10 +1274,6 @@
 		</dict>
 		<key>Headers/NSView+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yJoPUVc0vVu8Bdtv1JmlisTtcpA=
-			</data>
 			<key>hash2</key>
 			<data>
 			4yhsiTyMcUv4voMttE/dJceS8zys6tB2tV6qL2PFhLI=
@@ -1665,10 +1281,6 @@
 		</dict>
 		<key>Headers/NSWorkspace+iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/CrEpGx9fCk54RI400oLhusudcE=
-			</data>
 			<key>hash2</key>
 			<data>
 			f5WrxVujxulDJU6R6CWEDXax3Cicg2J6KMynDSWXLn8=
@@ -1676,10 +1288,6 @@
 		</dict>
 		<key>Headers/SBUtilities.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QPIZgD2uwmJMA6TKqqouvJnZaYA=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZUnXDf0S8tV4CqKWsbaNSTVBaVwQg6e5vsLMMMcPPyI=
@@ -1687,10 +1295,6 @@
 		</dict>
 		<key>Headers/iMedia.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			F/eEl/eloIPm/YkxJC7Sgg7tyWA=
-			</data>
 			<key>hash2</key>
 			<data>
 			leq0rDrjqUVosX/0q0PhgUybN9pFUL9ce9QABP0Yam8=
@@ -1698,10 +1302,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ur+yUDmjYqOgiD9BysUiqfIoypE=
-			</data>
 			<key>hash2</key>
 			<data>
 			zkVNCs2SFzD2SSX6iK3gK0vKp1z51yOjuwqUkkDRPT4=
@@ -1709,10 +1309,6 @@
 		</dict>
 		<key>PrivateHeaders/UKFNSubscribeFileWatcher.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QzzL/FadyTWunSX5TmHPsHcHEcw=
-			</data>
 			<key>hash2</key>
 			<data>
 			WgS2l5PaWLazYOgjRlfZ6jDEMNvHbCRU5tAZzSazBEw=
@@ -1720,10 +1316,6 @@
 		</dict>
 		<key>PrivateHeaders/UKFSEventsWatcher.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iANxUhjijDLB0q8JDSZBA/HivaA=
-			</data>
 			<key>hash2</key>
 			<data>
 			qPs8doaxaxtHsE99muPz9vhEc2sWMU3AS9Xh1b88r88=
@@ -1731,10 +1323,6 @@
 		</dict>
 		<key>PrivateHeaders/UKFileWatcher.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			B1JYuxBLgOyud9zuvVD7Y/28GI8=
-			</data>
 			<key>hash2</key>
 			<data>
 			Svo59TKTn7Nz5+eY8tZhkvUp3vrmMBt1/6a4B1+Y7ow=
@@ -1742,10 +1330,6 @@
 		</dict>
 		<key>PrivateHeaders/UKKQueue.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AGqTwcHwKsAxlGdop+VcpOjwNYw=
-			</data>
 			<key>hash2</key>
 			<data>
 			1XrBfEi1WWGekbGnmXgbtgV9BJUr/ewSjl5aGS30w90=
@@ -1753,10 +1337,6 @@
 		</dict>
 		<key>PrivateHeaders/UKMainThreadProxy.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xEO94Bh38OuetbzzG7jnracRpkY=
-			</data>
 			<key>hash2</key>
 			<data>
 			L6mA+Ujot/xI9vOhDWAx9W7sRujm4wgWNVQWHMQ/C7w=
@@ -1764,10 +1344,6 @@
 		</dict>
 		<key>PrivateHeaders/UK_IMB_RenameBegin.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bnOftG5bwIujIaixXroMFn3ccas=
-			</data>
 			<key>hash2</key>
 			<data>
 			Wey6Suuj7226589W8J8uJGaFfrESbTwJhHzIwoDKsA0=
@@ -1775,10 +1351,6 @@
 		</dict>
 		<key>PrivateHeaders/UK_IMB_RenameEnd.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			62jt+n4d2gByxZ+xhbmZ/XNHTIE=
-			</data>
 			<key>hash2</key>
 			<data>
 			dMT2CqgR30q3/i1K+OEhK6FxIS49XZuY6wO+mSzYWQ0=
@@ -1786,10 +1358,6 @@
 		</dict>
 		<key>Resources/Attribute.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			b2Qd0KzwIP5mwPd0wALiEy5/MsY=
-			</data>
 			<key>hash2</key>
 			<data>
 			04/CpQBTL1j6hHfQdw5hTkjzRn8UJ6nNjBPyC/GGKRM=
@@ -1797,10 +1365,6 @@
 		</dict>
 		<key>Resources/CC.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5ywlt42wzLNMZMjCIYUpuQb+QIc=
-			</data>
 			<key>hash2</key>
 			<data>
 			svvC3DhGQjT48+rXAP2hA8Fkb8y7kIcVRZ6EU6X6gAs=
@@ -1808,10 +1372,6 @@
 		</dict>
 		<key>Resources/Credits.html</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yhCJyIWw9d5bwAalCOt+ziKY4Wg=
-			</data>
 			<key>hash2</key>
 			<data>
 			ZyNMaRBAynyywf5lxzS/BEC6zlr4/4zMAG5MtbkpKEo=
@@ -1819,43 +1379,20 @@
 		</dict>
 		<key>Resources/Flickr.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ML7Eqdu53c1vK7IBME4kuuPIgYs=
-			</data>
 			<key>hash2</key>
 			<data>
 			TotehBz3VzNn3A35806FpTgYjQ6mQSqUT1LQHxA8Zr0=
 			</data>
 		</dict>
-		<key>Resources/IMBAccessRightsViewController.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBAccessRightsViewController.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LBhya53aQLgxTLpQfxeXC0ijLmw=
-			</data>
 			<key>hash2</key>
 			<data>
 			e1zsQUZUBCzaVBYFJcQjdysab4dFhGznHMFkBoR1nAU=
 			</data>
 		</dict>
-		<key>Resources/IMBAccessRightsViewController.nib/keyedobjects.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gx9DwnNsIEpZDCZ5RLEsdeWgbbo=
-			</data>
-			<key>hash2</key>
-			<data>
-			ejOWeSe66rcOabMq/ZbtdTmy0P6x2Wo6r84qUFXfYnY=
-			</data>
-		</dict>
 		<key>Resources/IMBAlertPopoverViewController.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vl3V+3bQNYUIGyroZK+9a5+IZjk=
-			</data>
 			<key>hash2</key>
 			<data>
 			fIyGQf4zUMXRk1+UH8Fy0/R5jBDXcxwvS4LnK74dj+I=
@@ -1863,98 +1400,48 @@
 		</dict>
 		<key>Resources/IMBAlertPopoverViewController.nib/keyedobjects.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Yy1ZlKAC0xqBZ33upBRY+SRv/oc=
-			</data>
 			<key>hash2</key>
 			<data>
 			nijub0R0WGW3DwQLXkfT+5Qy3RsunxEodlDVDVvpTlY=
 			</data>
 		</dict>
-		<key>Resources/IMBApertureHeaderView.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBApertureHeaderView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nuo1e9UVGX5z2/oj/SNYBXFOpt0=
-			</data>
 			<key>hash2</key>
 			<data>
 			DNSs1oc5KnkQHMeQv6jcdckpJ0MExO7mjrL18g6WSOE=
 			</data>
 		</dict>
-		<key>Resources/IMBApertureHeaderView.nib/keyedobjects.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Zxv27yv6f9aq33ozere6HBpzht0=
-			</data>
-			<key>hash2</key>
-			<data>
-			mhzvGeFK5RHyV2Ly86TQlUFctoV5/V5FEijzBMjIa2g=
-			</data>
-		</dict>
 		<key>Resources/IMBAudioObjectViewController.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ewn5X5ihOOKMLbgVZjS/5CPcYbE=
-			</data>
 			<key>hash2</key>
 			<data>
-			wiAlnm84jRKGm7UWnB0ENtNV2NtCm9u2QmVDUyTxeOw=
+			alCaTakDWad6AXDJAyVcqJHmJqOrimqGpaoLhge0p1E=
 			</data>
 		</dict>
 		<key>Resources/IMBAudioObjectViewController.nib/keyedobjects.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XV7BT8LuLIhEsSEpL9KzkcozvfY=
-			</data>
 			<key>hash2</key>
 			<data>
-			/qeqdPiarhVHLUzKIQoyYkyjQVsWk9dDxaYmZxYy9rs=
+			SdHXQ1KUo6cdd5YpfteyZdtqwBMGYm+kFkTkNt3ebkw=
 			</data>
 		</dict>
 		<key>Resources/IMBComboViewTemplate.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1dO+ayz7nEUNuuxelQQZBaXPlts=
-			</data>
 			<key>hash2</key>
 			<data>
 			y/OXu8AQHvKxO/x5POhMkRI0I3iU+Sb44ulP6d4aWiQ=
 			</data>
 		</dict>
-		<key>Resources/IMBFlickrHeaderView.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBFlickrHeaderView.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			a9Ti5ck6pag7tvTFkA7jR7adQH4=
-			</data>
 			<key>hash2</key>
 			<data>
 			Nsiib6Bp/eOLXQlu3BxHlKjCw8eQ7fk5K2m7SlymnLw=
 			</data>
 		</dict>
-		<key>Resources/IMBFlickrHeaderView.nib/keyedobjects.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rC3w+YkcCvbuCCMxgtj3r6r80Rc=
-			</data>
-			<key>hash2</key>
-			<data>
-			ecNAwKPSI9kmRc6mSf6McFBSv64e9Yp4afdpRS6woa8=
-			</data>
-		</dict>
 		<key>Resources/IMBImageObjectViewController.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			V9n4MaCTZ+isTPRJF0oiErBU728=
-			</data>
 			<key>hash2</key>
 			<data>
 			j/Lo7EU7BIURGF3rI/FK57O4o+ylgxhH46HgofLeLVA=
@@ -1962,10 +1449,6 @@
 		</dict>
 		<key>Resources/IMBImageObjectViewController.nib/keyedobjects.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vWSk6JLFU4XVfGBCIvuImhhlnrY=
-			</data>
 			<key>hash2</key>
 			<data>
 			C8QsbLA5CtbgKBLlbnMqVMqoOO5m63v6cE37mj68a78=
@@ -1973,10 +1456,6 @@
 		</dict>
 		<key>Resources/IMBLinkObjectViewController.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UsFYmGx/quhuymj6/pGJX43Wqno=
-			</data>
 			<key>hash2</key>
 			<data>
 			5wkBxLokdwDf3OVIkEG2o/f6cO166j6xD8kv8B6vc0M=
@@ -1984,10 +1463,6 @@
 		</dict>
 		<key>Resources/IMBLinkObjectViewController.nib/keyedobjects.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lg1iYDpe8BKicalgrRa1u4rq0r4=
-			</data>
 			<key>hash2</key>
 			<data>
 			eC5LMCcl3abKVo9N+5hpPEVSXqJWKp7ydjp8N8vz31s=
@@ -1995,10 +1470,6 @@
 		</dict>
 		<key>Resources/IMBMovieObjectViewController.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			44GOU/HpphWTDReWbjIcEoB1mq4=
-			</data>
 			<key>hash2</key>
 			<data>
 			ws6jONBpU4pnT6i2kvyWhW8aHiSu83AEToUeyvyCwIo=
@@ -2006,10 +1477,6 @@
 		</dict>
 		<key>Resources/IMBMovieObjectViewController.nib/keyedobjects.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			W+Vg2NRjvJcYUnE2hjfiiE5Qh4w=
-			</data>
 			<key>hash2</key>
 			<data>
 			EpYWMyj4kGZ/GVd9UY7rmllyDDdXTiFf22zGeXOrB5c=
@@ -2017,10 +1484,6 @@
 		</dict>
 		<key>Resources/IMBNodeViewController.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5mZI9NAlLZozNQiOizwggi3UZM4=
-			</data>
 			<key>hash2</key>
 			<data>
 			tN5qTPBKyXKAzD/tkIAAjD+3dn003txzA+So170bH/Y=
@@ -2028,32 +1491,13 @@
 		</dict>
 		<key>Resources/IMBNodeViewController.nib/keyedobjects-110000.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mk387c6mqbK2VWb/6XSoubFCSMY=
-			</data>
 			<key>hash2</key>
 			<data>
 			ygnKNb6gOAIqOhOwzz51VjuusYw8M9j8V0Esuk7NsKk=
 			</data>
 		</dict>
-		<key>Resources/IMBNodeViewController.nib/keyedobjects.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			5dGTpJ8ew+ev2CM9lPfdK4C3bew=
-			</data>
-			<key>hash2</key>
-			<data>
-			NDgWe0IaRjViQEtvmz1e9iruw6dKPJqkFQVFR1uVJGU=
-			</data>
-		</dict>
 		<key>Resources/IMBNoteIcon.icns</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZlP4L1X+QDezyEC3BIWAyhfZWZ0=
-			</data>
 			<key>hash2</key>
 			<data>
 			alu957aq5Wx3M8ohAQHQPci8WqZC51AkJBqH84YamjU=
@@ -2061,10 +1505,6 @@
 		</dict>
 		<key>Resources/IMBObjectCollectionViewItem.nib/keyedobjects-101300.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VsM+E0vxNf59i84pCgXxu+BqSvo=
-			</data>
 			<key>hash2</key>
 			<data>
 			FRWDgs0LzkB+vG78poW7TmHzLIyJfWkuegVjKkEg1OA=
@@ -2072,65 +1512,27 @@
 		</dict>
 		<key>Resources/IMBObjectCollectionViewItem.nib/keyedobjects.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gn3nHNYntK8EoxU98/X5d4fjp8Y=
-			</data>
 			<key>hash2</key>
 			<data>
 			b8yqSx+W7Ps6z+6Lmjdd4NDe1IQnr/k1HVqgM0sQpJc=
 			</data>
 		</dict>
-		<key>Resources/IMBPanel.nib/keyedobjects-101300.nib</key>
+		<key>Resources/IMBPanel.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nft8u8oSiYLFTfut/QYFtinN+6U=
-			</data>
 			<key>hash2</key>
 			<data>
 			onRJNsNMNQMYBELtktQn08GtODLjfqOtEpi1i0tIbEs=
 			</data>
 		</dict>
-		<key>Resources/IMBPanel.nib/keyedobjects.nib</key>
+		<key>Resources/IMBProgress.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wET32QfjuDee1JtHToBllDVblwE=
-			</data>
-			<key>hash2</key>
-			<data>
-			X6GDOpMwPRE3JQRx6R3wdxTItgAaisYyJfGhIHShnE8=
-			</data>
-		</dict>
-		<key>Resources/IMBProgress.nib/keyedobjects-101300.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dUvWxsF3hVn2s000tXX7/W6h7DA=
-			</data>
 			<key>hash2</key>
 			<data>
 			ASh09O+y0vS+t1xBVoGo+EgZjCG+gvVjwQEufAt1EkY=
 			</data>
 		</dict>
-		<key>Resources/IMBProgress.nib/keyedobjects.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			g5aO7WlbdC/+BkqVQBbJ3BbHZ9Y=
-			</data>
-			<key>hash2</key>
-			<data>
-			caNO1gMEnDPTSaSlptaMrEvyJNXA27yhcwJYtheaj+Q=
-			</data>
-		</dict>
 		<key>Resources/IMBStopIcon.icns</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			wSVUjdP6X8z9qa7ll1XlsWZey7Q=
-			</data>
 			<key>hash2</key>
 			<data>
 			scDgjb07afk+v7bhMPG+Idbqiiykyr2PXR33GdQSKjY=
@@ -2138,21 +1540,13 @@
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			77OusycEcYAEc+nLH3oPoBYg8Ds=
-			</data>
 			<key>hash2</key>
 			<data>
-			0pkVLmxM0ysHvaOb0c7zAm6x3YOnBkrP98xrI8wi4Tw=
+			3xxGh9fEXBvGjUW4+tN8sI0ZFiKWS7flxq+H6plmVDQ=
 			</data>
 		</dict>
 		<key>Resources/OmniwebBookmarksToXBEL.xslt</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DNOSxAdv0tjlffW9LFcGniJ2Bkk=
-			</data>
 			<key>hash2</key>
 			<data>
 			LcweGi0lG7/0Q5UeCkrh753R3F0B1FpqFq2hJuUTrZ8=
@@ -2160,10 +1554,6 @@
 		</dict>
 		<key>Resources/ToolbarMovieFolderIcon.icns</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			R6ekGPXwOiBqFilJJvBGLdwh1eU=
-			</data>
 			<key>hash2</key>
 			<data>
 			Asip0YMasUtzMEAZx/+kSmEGDMNP//MzSaY0e2X16yI=
@@ -2171,10 +1561,6 @@
 		</dict>
 		<key>Resources/album.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			IhDfPfJVCUTpwj6U8vGVA3moQeM=
-			</data>
 			<key>hash2</key>
 			<data>
 			+tw2qrpOzNPlo3BTxx0h1ZQNu/xVwhEWOMIT8diObH0=
@@ -2182,10 +1568,6 @@
 		</dict>
 		<key>Resources/album_512x512.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mXDiVZq+i5P+xtKqKqauzuWuso4=
-			</data>
 			<key>hash2</key>
 			<data>
 			EQCrVGizzIWgtSAhYi/dAlP/7W3YBrdnDm1zegHc8jY=
@@ -2193,10 +1575,6 @@
 		</dict>
 		<key>Resources/album_sel.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Qv2GDPV+GJ+x2h+LdQxDdv5eNoY=
-			</data>
 			<key>hash2</key>
 			<data>
 			EAeb9lVedzLQz1U9iwU7FVJwgPKTYlGdJYj7+VHcVME=
@@ -2204,10 +1582,6 @@
 		</dict>
 		<key>Resources/any.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JheLjVmwtK2eL7YPJjCO1Za7fv0=
-			</data>
 			<key>hash2</key>
 			<data>
 			SHAZ0GlZKxC/LZKTds92DA4PKi+ZVv7Dm8ecylpiXHg=
@@ -2215,10 +1589,6 @@
 		</dict>
 		<key>Resources/badge_checkbox.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NX0RFfCQdLb0uBFJLwz4cumdem0=
-			</data>
 			<key>hash2</key>
 			<data>
 			Yo6ViM+/LCDHSRzmXaUJfBuz9vpOPbotJwKDZ6FtfPA=
@@ -2226,10 +1596,6 @@
 		</dict>
 		<key>Resources/commercial.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XQ/Fb19IdFCJSba3lSsXLhL9jXA=
-			</data>
 			<key>hash2</key>
 			<data>
 			kRap8vonZ0lc1eRZiMgPKwseUdeNIFGbta4HaAQ6lVA=
@@ -2237,10 +1603,6 @@
 		</dict>
 		<key>Resources/cork-background.jpg</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Q1AUsdBM+A/wew0ki6thUQVDYNw=
-			</data>
 			<key>hash2</key>
 			<data>
 			VWjKtwpBhp/2fXMuI09vb27Wl0Xz92sawaWU6ZjRhI8=
@@ -2248,10 +1610,6 @@
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oY02NIoTp1TkXcv8LR5iJEG49io=
-			</data>
 			<key>hash2</key>
 			<data>
 			zbs8ctdmWp7zTJf15m8PPcidUZ5jK5vU5mN2wOeAtG0=
@@ -2261,10 +1619,6 @@
 		</dict>
 		<key>Resources/cs.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -2274,10 +1628,6 @@
 		</dict>
 		<key>Resources/de.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oZBkbj46/+ujOOPofgzjP9sSQkg=
-			</data>
 			<key>hash2</key>
 			<data>
 			j8wmIfnkBw2GOqlwMaMNCeqY6GzS/nTUeBpEu8C87Bc=
@@ -2287,10 +1637,6 @@
 		</dict>
 		<key>Resources/de.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8Ao9aEIgUMQK0gS6Zd4piiqOQTk=
-			</data>
 			<key>hash2</key>
 			<data>
 			9KPEccqtzPS0YhdndfPOkM49HoCHrMwzIqqWzXgkbxQ=
@@ -2300,10 +1646,6 @@
 		</dict>
 		<key>Resources/en.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vvbZkbuWKztoi91S1S8GA9D/NyQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			loUx4qmutPulHsnORD3YHgdZJhdd+/2QTl+DzLBBq8k=
@@ -2313,10 +1655,6 @@
 		</dict>
 		<key>Resources/en.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5BiuCShvdqPwdF9j5oXJN2+JLsA=
-			</data>
 			<key>hash2</key>
 			<data>
 			zQ9HULJ2Imbi4GKDnqbks0CMzbItHbDCMbJn1BU5Q4E=
@@ -2326,10 +1664,6 @@
 		</dict>
 		<key>Resources/es.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jqm0F/pu4LTtYjA3wbUSqxXFa3U=
-			</data>
 			<key>hash2</key>
 			<data>
 			mu8X0gQt3Tk98Ygnl3rveqshnlKe8gmYphOaTiLB9vg=
@@ -2339,10 +1673,6 @@
 		</dict>
 		<key>Resources/es.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -2352,10 +1682,6 @@
 		</dict>
 		<key>Resources/firefox_allBookmarks.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rTSz0TUsAGA087Psb9hqEiv62BM=
-			</data>
 			<key>hash2</key>
 			<data>
 			+W5CTLwqC5zCX5E9AmCKAuimilZ/xvdoCzY2oiyVA9k=
@@ -2363,10 +1689,6 @@
 		</dict>
 		<key>Resources/firefox_bookmarksMenu.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+UtIog3xnqpe4kJ4Zo0mS0m/1ig=
-			</data>
 			<key>hash2</key>
 			<data>
 			9+BNt4IwCVkScjNIJH4bGwAcKjwzJa8AyCfdMNnLufE=
@@ -2374,10 +1696,6 @@
 		</dict>
 		<key>Resources/firefox_bookmarksToolbar.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pOKTernc4T1w7BtPpv29xczYEYE=
-			</data>
 			<key>hash2</key>
 			<data>
 			X16U7S3mKl2bO4ZUgdT4khMZEmqe3SKoN81Vv5HxuUE=
@@ -2385,10 +1703,6 @@
 		</dict>
 		<key>Resources/firefox_tag.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tGrYE9f46VQfLxi5M0eTc8eBwPM=
-			</data>
 			<key>hash2</key>
 			<data>
 			VCFe6vYaJA4OKEiWBI+VfeaQti2H4Yf+b26XCAJppUo=
@@ -2396,10 +1710,6 @@
 		</dict>
 		<key>Resources/firefox_unfiledBookmarks.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KWnbqDf4OB2oiv/jjX1c6aLwAeM=
-			</data>
 			<key>hash2</key>
 			<data>
 			g7+pfSZZabK92DYZmQc77kJeqsgOFAmAytzErJd+v3U=
@@ -2407,10 +1717,6 @@
 		</dict>
 		<key>Resources/fr.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kTQfnsvRx1XZ0uglxgru2knjswI=
-			</data>
 			<key>hash2</key>
 			<data>
 			Oen/YjSnfLHau3y3w2kqPvHBk5iFxvV/of6GY2pVmDM=
@@ -2420,10 +1726,6 @@
 		</dict>
 		<key>Resources/fr.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lYYisIs5eJVxBvlIN7YTP4DEpao=
-			</data>
 			<key>hash2</key>
 			<data>
 			12ovnS8pE8Y8O/1kTc5PM1LRvVDDn/imTfCJJrbq3Bc=
@@ -2433,10 +1735,6 @@
 		</dict>
 		<key>Resources/i.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			6TDhwgFHjKxHrxcu9ujmVeSHPZg=
-			</data>
 			<key>hash2</key>
 			<data>
 			pTvT4w4ao6Ac1FzX1gdrmpxgbFz9l8uSrclhYRlUEsk=
@@ -2444,10 +1742,6 @@
 		</dict>
 		<key>Resources/i2.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+FmvbikuXPcrWv8VXJhjS7QktvU=
-			</data>
 			<key>hash2</key>
 			<data>
 			KUHxzifnmxSc1gWazubY71uXjv8JdphZSi+K1PULmzE=
@@ -2455,10 +1749,6 @@
 		</dict>
 		<key>Resources/iMedia.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			urAq+FDS/tQSxKIGONuK+ffpHZE=
-			</data>
 			<key>hash2</key>
 			<data>
 			Scaa/5CDCRZ/euBOU7BRG3qKG5IsOJ0awsC/qvm97+0=
@@ -2466,10 +1756,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-01.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cOMHUxxJ5386jj2WeVSklsdmCPY=
-			</data>
 			<key>hash2</key>
 			<data>
 			guguFhO5R9gPHB6HbQ5rhs6D61EpzsdB5NQ583KmoPs=
@@ -2477,10 +1763,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-02.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fa0LXGAHzreODN8c/gy5I+atMY4=
-			</data>
 			<key>hash2</key>
 			<data>
 			ztdcY7P5Du/A4/3DXBzBNYqT6clLYbjdpLbo2r6ikQY=
@@ -2488,10 +1770,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-03.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DUAun77qrIvKqhSFERBySFE0jlE=
-			</data>
 			<key>hash2</key>
 			<data>
 			kgqHx/Wa5lsr+Oe6ISwCcuDoaD+FG9dnpcDu2PMq0Qw=
@@ -2499,10 +1777,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-04.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Wl3Oh1TqEr1rOPv+hOGgLeG8aPY=
-			</data>
 			<key>hash2</key>
 			<data>
 			QoXW6RfY3qz0iGENbw3f4YPue+RIPDo1/3Dqu1102X8=
@@ -2510,10 +1784,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-05.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YeuKL7PAjBOZ3e83zAjNrLPHG34=
-			</data>
 			<key>hash2</key>
 			<data>
 			nDk0XW7yqXoMRwfm6HjQDb0kmItqGu2lvDX3DtE0+B4=
@@ -2521,10 +1791,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-06.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fXArelloEvpza46y6w62lUX1fQc=
-			</data>
 			<key>hash2</key>
 			<data>
 			uMdpFhHTJswC2CSa/fSfJO1UcqU3+X0WFE/xDZnMHds=
@@ -2532,10 +1798,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-07.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uim087Yn2AesAuxKAGinbUHhUzI=
-			</data>
 			<key>hash2</key>
 			<data>
 			DP5Poagyct9YzSxdZ8Yes7r+wZ5SsWdMLirJdeY8ea0=
@@ -2543,10 +1805,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-18.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KA453W5qWKqCgJAq7aapTcgyPb0=
-			</data>
 			<key>hash2</key>
 			<data>
 			Kx443n/HUwZvRAh2yEGr+eVsS2wL5HbkYbZmFphEzI4=
@@ -2554,10 +1812,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-19.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q2Cw5q7TplrsA9wyzZ9CLIf9+Do=
-			</data>
 			<key>hash2</key>
 			<data>
 			OCo6009jyQA81W9L9rRO8VZ/IEL3EgcPu0BCPlUMagw=
@@ -2565,10 +1819,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-20.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QpOKo468si4sCbfxrx262HZAAso=
-			</data>
 			<key>hash2</key>
 			<data>
 			5FA6zyo6o14zA10TCKaE++0XHy9nnJRSPMnyo5z6wrw=
@@ -2576,10 +1826,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-21.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rCce0hAKl6u/Vonua1O3fV72OEM=
-			</data>
 			<key>hash2</key>
 			<data>
 			nS4V8LmNW4i7GW17jYuNczI4HHSqz8KkKAp051okdx4=
@@ -2587,10 +1833,6 @@
 		</dict>
 		<key>Resources/iTunes10-icon-30.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cTWFfZ2AzpSmk8D7pRvwwDWZk5A=
-			</data>
 			<key>hash2</key>
 			<data>
 			uah/BhfE9mmEbmrkDAT48dInjTt0wRB/mSpXLysgWX8=
@@ -2598,10 +1840,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-01.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vp0I2XbWrm/Lk+yMBrxlNzKvyHA=
-			</data>
 			<key>hash2</key>
 			<data>
 			dTNgIdVz6lQZy4jSHKhqzX9HrOahJwIuVdV69ZQ9xEM=
@@ -2609,10 +1847,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-02.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			O0L1m+d/t9XBaUAUt/fcHVyx0H4=
-			</data>
 			<key>hash2</key>
 			<data>
 			mC0fBrG+LHIp3V2uZ2cMxQPeJO2cLBfiiu5STHfJuRU=
@@ -2620,10 +1854,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-03.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			A+7eFppHYrpEcOF2ul4BB560oUQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			IepZWxPN5KNx4fw4woqrHQFpr2rvoiDgzeEI0ORnoe0=
@@ -2631,10 +1861,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-04.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tEDQh/ZoaV0TdEZogUmE+0cRN6E=
-			</data>
 			<key>hash2</key>
 			<data>
 			VuE72Q57l5F+7DOd0mZpSqmrpiwnCu1w0PrDsMdYL4w=
@@ -2642,10 +1868,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-05.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AEKmU6rOcDE0yWMRjlXEVPlaCiI=
-			</data>
 			<key>hash2</key>
 			<data>
 			YdHU45R2PBjPFZmK/rsRX/Igua0Z0cbwNyqzHi93mqo=
@@ -2653,10 +1875,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-06.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			58Vw0PCoA8Vn2dz37ujuXKxOXPU=
-			</data>
 			<key>hash2</key>
 			<data>
 			tyIn6MdmJt+ZXFOM4FGX/ZdPX/AX7qiPzSqVA6riOV0=
@@ -2664,10 +1882,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-07.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8kG0v4mAZu8+P5Fq3424ncgVTg0=
-			</data>
 			<key>hash2</key>
 			<data>
 			n3yVqbjuLikuhFTe5JwCdfw5DtY4qPOzysiEeJOOMWY=
@@ -2675,10 +1889,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-18.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Xb1cn94ZfqVZLsmHyRoxmHUuajQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			UWgrLzTOkdJEExtp/4iHyU20+R01fLuyms7X6l9oF14=
@@ -2686,10 +1896,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-19.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			a6XebAhUSq5Au8md+9jbNF07xsg=
-			</data>
 			<key>hash2</key>
 			<data>
 			mwwY5N5HjxLQx2CFW1IJTy4neyZZsMoMdbTSscvNmtg=
@@ -2697,10 +1903,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-20.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BrwkAXw3YtgYMKGSmC0p9DBzmbo=
-			</data>
 			<key>hash2</key>
 			<data>
 			y8p/78hfcWHIw2q7YMDQ7I7DBQ7B1kKIT9MZOtLyAQ0=
@@ -2708,10 +1910,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-21.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			sI9TUnuE3mtcc0hEZdHJEEpBc3I=
-			</data>
 			<key>hash2</key>
 			<data>
 			uWhRAIMi0XjbHn7HCPazM2Pbczh+FyVHh5L0NVwb7zs=
@@ -2719,10 +1917,6 @@
 		</dict>
 		<key>Resources/iTunes11-icon-30.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uSO8qj5N1i1sFZMm9J5vvecCKcA=
-			</data>
 			<key>hash2</key>
 			<data>
 			C78EJwHV+SVoiLj7PP6mzSBRx9kVcZScu/XHhypbop8=
@@ -2730,10 +1924,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-01.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/hrU/p+APoFcsvUyQ3cdp+HLKCQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			uOTznlbuxpTAHi1kC8uwmEtd+45TBDJMNqbIpBNCYUw=
@@ -2741,10 +1931,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-02.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			S/gd6RC8zLDHC0YCjuCIQqV6XE4=
-			</data>
 			<key>hash2</key>
 			<data>
 			/ZwsL9vQdikNv4Wi2sSTyswF400ooFocrBuTPTDPg9I=
@@ -2752,10 +1938,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-03.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xRcM/v4KglsQHUvQwCbMuk9EqJw=
-			</data>
 			<key>hash2</key>
 			<data>
 			oldrdEt5TIAMDaqOoen2pcTDw001w30dxQshNzz63K8=
@@ -2763,10 +1945,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-04.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			j8ca3NET0l3ODJwyTceM3DoadWA=
-			</data>
 			<key>hash2</key>
 			<data>
 			X1zKCpuxXMsPqomo0ANLAQmYg06gK2U+ugJewoE0e4Q=
@@ -2774,10 +1952,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-05.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nuuQFaYqyu0VimLs+Uv94cijZHo=
-			</data>
 			<key>hash2</key>
 			<data>
 			mwlX1QwR+QAVukqNWIs6nrm1ia6P8n12ZEwDZB9btvw=
@@ -2785,10 +1959,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-06.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			rT/ZEfQ46yjB6Q2dgPBRcB6ANXI=
-			</data>
 			<key>hash2</key>
 			<data>
 			WchsleNdHPJN3L339KbW5pCgeAPeh4Npflc6xIBHTKs=
@@ -2796,10 +1966,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-07.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			r46ZFd1454/H7fE7isZfAAZ3FjU=
-			</data>
 			<key>hash2</key>
 			<data>
 			Q9UoLtZldIG0STAAWP2RwDaFuZLCirauQT4ED6FE0gk=
@@ -2807,10 +1973,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-18.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MMHAcfyIB5hSFlqQzw2mr++I7R8=
-			</data>
 			<key>hash2</key>
 			<data>
 			lCBWc8DUF2XiyOydtqQLDRcgjgssiVqMpK7jLZERYow=
@@ -2818,10 +1980,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-19.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FLFhbpJhl0ignFUyk25rhZuN79I=
-			</data>
 			<key>hash2</key>
 			<data>
 			jrczJ+hGOWB99M2wXvn6Ls9ICaKpwA+GpLqYz0vrIaI=
@@ -2829,10 +1987,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-20.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jdDoKh0T4zUi5e8+74w6qTzUJ34=
-			</data>
 			<key>hash2</key>
 			<data>
 			yS583BFNIyDzZSK+wwRREEVQWs3sRHjNyKSAGg+pcXE=
@@ -2840,10 +1994,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-21.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qQR8QQ42bOU+MNH0kFBh05MmRoA=
-			</data>
 			<key>hash2</key>
 			<data>
 			Da03twUnKzXMMI1qh1qI+630c7EJTxJ98Dkj18VcB/E=
@@ -2851,10 +2001,6 @@
 		</dict>
 		<key>Resources/iTunes9-icon-30.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dwt45j/egDE3HJ003F/hEggcLug=
-			</data>
 			<key>hash2</key>
 			<data>
 			efFVvUYHWW1wcpm7HqhisCs34fYFspZWOrbEezuVlqw=
@@ -2862,10 +2008,6 @@
 		</dict>
 		<key>Resources/it.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MCloVLLl5sWwUXsNEeL8YtklNx4=
-			</data>
 			<key>hash2</key>
 			<data>
 			aBMMhdIXjvgP5BlYJG3Ci4dWV4ShMrtJK46DtaDdlgM=
@@ -2875,10 +2017,6 @@
 		</dict>
 		<key>Resources/it.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -2888,10 +2026,6 @@
 		</dict>
 		<key>Resources/itunes-icon-audiobooks.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JkPU1mctV+G3gBo+01/VEk01nEc=
-			</data>
 			<key>hash2</key>
 			<data>
 			8MqfTpyb+F+okSx+5SjQYpSLBLI3psqtd8bpQU8Yyyk=
@@ -2899,10 +2033,6 @@
 		</dict>
 		<key>Resources/itunes-icon-folder7.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SWlkQM5IAhWx6nLDTFUKVqA9uXI=
-			</data>
 			<key>hash2</key>
 			<data>
 			+WdLoJmPtGZjGhVTNd+nRlTz4uC1uDaqqAuNLZf9NP4=
@@ -2910,10 +2040,6 @@
 		</dict>
 		<key>Resources/itunes-icon-library.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4OnbHd6nbar9YMLfbvOK4X/gimg=
-			</data>
 			<key>hash2</key>
 			<data>
 			ifpqC5R8Tx1BGJTOaa4m40rjhqGZ9Zy7S/dX1lN8jJ8=
@@ -2921,10 +2047,6 @@
 		</dict>
 		<key>Resources/itunes-icon-movies.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			79HsQ/15KEjsT/9fhJTCaH9eYPs=
-			</data>
 			<key>hash2</key>
 			<data>
 			GzrdXC42H+KoxV8mPJOnx6P1w9jS1xrNhHMsTtKWk8k=
@@ -2932,10 +2054,6 @@
 		</dict>
 		<key>Resources/itunes-icon-music.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			M/NwUhftp8d8B7TF4cs+DymIfNg=
-			</data>
 			<key>hash2</key>
 			<data>
 			w6VgjqXnJxW97a0tLEgCn7EuC0uFA0jerywKJbQkM54=
@@ -2943,10 +2061,6 @@
 		</dict>
 		<key>Resources/itunes-icon-partyshuffle.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3iDlckL7KE3syMRH550nLRFHins=
-			</data>
 			<key>hash2</key>
 			<data>
 			3jz+mX3UfVkv5FhgJ7F2qVylNdxbdvXHJP7aTk80wSM=
@@ -2954,10 +2068,6 @@
 		</dict>
 		<key>Resources/itunes-icon-partyshuffle7.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xTJ2nU9PeuVMqm5debdq1ZK5oWc=
-			</data>
 			<key>hash2</key>
 			<data>
 			GcHuqiEpEhuQo59XL7NoZ91Z0nxjU9/wEtLubjbVCcs=
@@ -2965,10 +2075,6 @@
 		</dict>
 		<key>Resources/itunes-icon-playlist-normal.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			taF3DPywzjAZA8bqPukSv2+dkgU=
-			</data>
 			<key>hash2</key>
 			<data>
 			S53t/Kk+bsLwWZ5/BWumpJiquT0ZRlfWvx7LGokpzVc=
@@ -2976,10 +2082,6 @@
 		</dict>
 		<key>Resources/itunes-icon-playlist-normal7.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9TZr/qUyLuUzyBrKTZ9XRoVpy3A=
-			</data>
 			<key>hash2</key>
 			<data>
 			6kXbMzO2GJgjdd36L6AcnFuAEQ2DdgVSbFSuynqNlMk=
@@ -2987,10 +2089,6 @@
 		</dict>
 		<key>Resources/itunes-icon-playlist-purchased.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ji/aZGRfPlnS2PqH1X5zfUv3dYw=
-			</data>
 			<key>hash2</key>
 			<data>
 			AD784SVDcV1aQXfeyhMaP/Y+79OzGdZlU1O93qkB/FI=
@@ -2998,10 +2096,6 @@
 		</dict>
 		<key>Resources/itunes-icon-playlist-smart.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UrBp2+YBiIB+I407NUTuMyAySeY=
-			</data>
 			<key>hash2</key>
 			<data>
 			YiuMWeybzHqr9TkclJvMYKzSlPPHMF8kxt7QdjqWbFg=
@@ -3009,10 +2103,6 @@
 		</dict>
 		<key>Resources/itunes-icon-playlist-smart7.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/siFOPmSC1GCvLAzyQe5m0KhJUY=
-			</data>
 			<key>hash2</key>
 			<data>
 			5tNhzrXkW38FaQFuefKd2S3n0yvjMQALk5FGPeSFSGE=
@@ -3020,10 +2110,6 @@
 		</dict>
 		<key>Resources/itunes-icon-podcasts.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q08fAuZ/Kq7Su36XnTnhqd3Hl9U=
-			</data>
 			<key>hash2</key>
 			<data>
 			grNc9qwjrNFPmSpBNLajMp3Mm12X4GKhjuremYjl9NE=
@@ -3031,10 +2117,6 @@
 		</dict>
 		<key>Resources/itunes-icon-podcasts7.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tynESL/ew0ddTg58bVsZ5P47yZU=
-			</data>
 			<key>hash2</key>
 			<data>
 			vwsnEAhpc1f/qQYPHlFPf+0qGERLJEMxP6V+o1jkOlI=
@@ -3042,10 +2124,6 @@
 		</dict>
 		<key>Resources/itunes-icon-purchased7.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KL6iszkBUDLfSesz4+58/xE+t3w=
-			</data>
 			<key>hash2</key>
 			<data>
 			BszVyf7hxjIAteDecawfOo4Rt+WLHQkDQo54yhQWGVE=
@@ -3053,10 +2131,6 @@
 		</dict>
 		<key>Resources/itunes-icon-tvshows.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/O/FJhX7A7mingpNw96dkIZvftY=
-			</data>
 			<key>hash2</key>
 			<data>
 			p3voKaE2AD8vI0YWy6rB82j+r0kQizDWmSMmm3WyVno=
@@ -3064,10 +2138,6 @@
 		</dict>
 		<key>Resources/ja.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			m76YasypzjV+1I8We6hMQCnkJEU=
-			</data>
 			<key>hash2</key>
 			<data>
 			f3ZbcEUNUGPGMopeM81V6479amWcWs8U1R8PywguBoQ=
@@ -3077,10 +2147,6 @@
 		</dict>
 		<key>Resources/ja.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -3090,10 +2156,6 @@
 		</dict>
 		<key>Resources/js.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KFv0jKepO+HkOX8uY3wFES8O48s=
-			</data>
 			<key>hash2</key>
 			<data>
 			Xq+ZFyY7wuntv4hJbWOBZtiqfWBL0w/t3XsBF28gn30=
@@ -3101,10 +2163,6 @@
 		</dict>
 		<key>Resources/load-more-normal.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8/f5Hh6LHwkOZY8ecyl04K9QOuw=
-			</data>
 			<key>hash2</key>
 			<data>
 			jPr/EwqRJ2faNra5RPC+dhS9ffRlkZH+rd8yCFzIhJk=
@@ -3112,10 +2170,6 @@
 		</dict>
 		<key>Resources/load-more-pressed.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			behivjg6/VQPbesWC4WQUDiWAeo=
-			</data>
 			<key>hash2</key>
 			<data>
 			f0oZTMKAxBuQV46ohos/ZQL+PL7oI4eoOmXXtctniZk=
@@ -3123,10 +2177,6 @@
 		</dict>
 		<key>Resources/logout.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MhbjNbKVOyafFRCN/+/cGwtg/pE=
-			</data>
 			<key>hash2</key>
 			<data>
 			qC3KgdtKCgvqZuJ3+xhxFIBAVpOdDaPYCQJ1mtf8nfs=
@@ -3134,10 +2184,6 @@
 		</dict>
 		<key>Resources/logout_sel.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2imO5Ix+HbvnGYPPzB9hqqMJBhY=
-			</data>
 			<key>hash2</key>
 			<data>
 			/Bevx2WO2PIKwwB8yDqXg9eAkjlZBy1SbGB8kBgCrNw=
@@ -3145,10 +2191,6 @@
 		</dict>
 		<key>Resources/missing-thumbnail.jpg</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GiXIjpHVw1vaXGIrwNNtcYV0Ieg=
-			</data>
 			<key>hash2</key>
 			<data>
 			+k0bX/231/SPSZL8GsdXiZG707Vg8TOe78b/difk28M=
@@ -3156,10 +2198,6 @@
 		</dict>
 		<key>Resources/nb.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -3169,10 +2207,6 @@
 		</dict>
 		<key>Resources/nl.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			e8kKG74h3UpNm7sgg5cZcjJH10M=
-			</data>
 			<key>hash2</key>
 			<data>
 			re4oU5IZeFe4Z0hgKdBlSHfTBiUkgqyMP04nzY6JrUY=
@@ -3182,10 +2216,6 @@
 		</dict>
 		<key>Resources/nl.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -3195,10 +2225,6 @@
 		</dict>
 		<key>Resources/no.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4zTE5mDhJfQt+o37uRtHw6q53zU=
-			</data>
 			<key>hash2</key>
 			<data>
 			/7R9gikQl9dAJH9Ln9FDKwj9SlgeYFv+ZQUvi92inDA=
@@ -3208,10 +2234,6 @@
 		</dict>
 		<key>Resources/noderivatives.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bmN3DCTCZ0ViIRx5TJru0KYKQpU=
-			</data>
 			<key>hash2</key>
 			<data>
 			dvnBlwD0iQcbOMtuseng34hVn1K3+bP02IjfjMTepWw=
@@ -3219,10 +2241,6 @@
 		</dict>
 		<key>Resources/noncommercial.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DbYAwuf/33SIXslEKTGB3fHByuM=
-			</data>
 			<key>hash2</key>
 			<data>
 			dxsVcLTE6l5QEXDeUcc5tjlFdvPwYcn9gUcrVlhIODY=
@@ -3230,10 +2248,6 @@
 		</dict>
 		<key>Resources/person.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8nsx+LDucavJMMZquv5alB0XAUw=
-			</data>
 			<key>hash2</key>
 			<data>
 			KuLnrmFsLW69RxICEmBcMji2IEKPBlpo8IRX4ei7Y48=
@@ -3241,10 +2255,6 @@
 		</dict>
 		<key>Resources/person_512x512.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+bIZO+QG2QF7GKOannK9CnGI7lo=
-			</data>
 			<key>hash2</key>
 			<data>
 			O1VQtBKYAZpfAp4WRkp9XgWJb32mHC5c0Wbnx/G9HkQ=
@@ -3252,10 +2262,6 @@
 		</dict>
 		<key>Resources/person_sel.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5+AC8CXlO0a0yzgl+I4Tsd9byZA=
-			</data>
 			<key>hash2</key>
 			<data>
 			akJptKhYpd8emVM0kFPuzYnVnXpfF/AX2NCZXISzl2E=
@@ -3263,10 +2269,6 @@
 		</dict>
 		<key>Resources/pt-BR.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -3276,10 +2278,6 @@
 		</dict>
 		<key>Resources/pt_BR.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			uvNRi1RctShiiLfXbNhvDAMq8qY=
-			</data>
 			<key>hash2</key>
 			<data>
 			FB0jHB3AO2PdyK5MSWVbgdggydyCjRPJdfglHkZupmI=
@@ -3289,10 +2287,6 @@
 		</dict>
 		<key>Resources/remix.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			K+0C+nYr6kGCEqG0cP9piHTn1BU=
-			</data>
 			<key>hash2</key>
 			<data>
 			V4C9Yi7d+MuJilWUySvLQW7eUX1dYFHCwYziGS3NMxE=
@@ -3300,10 +2294,6 @@
 		</dict>
 		<key>Resources/sharealike.pdf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			oP2CLvwGUAk8UeAHjtyYoAAYCPI=
-			</data>
 			<key>hash2</key>
 			<data>
 			jwdXlu6WKIRzkW+WZjeHBQrXU4iGLzFkx2YIJCOB418=
@@ -3311,10 +2301,6 @@
 		</dict>
 		<key>Resources/url_icon.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hqACfoXZCJLcYAUOfR6EspUSzqg=
-			</data>
 			<key>hash2</key>
 			<data>
 			aeBPjzPr/oeJzoxiJ4tCZ49bkP2uxaRakJhX34arsio=
@@ -3322,10 +2308,6 @@
 		</dict>
 		<key>Resources/warning.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fFgO685ySiQUtfQW/+MPk4/jSKE=
-			</data>
 			<key>hash2</key>
 			<data>
 			a0k9mcA5X8ofsp6bErsba83HG5A6ImdyHtyAE7WfmM0=
@@ -3333,10 +2315,6 @@
 		</dict>
 		<key>Resources/zh-Hans.lproj/SandboxingKit.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xj2BldQXIvirukxfioYngEjg9C0=
-			</data>
 			<key>hash2</key>
 			<data>
 			UcbjZMzW6ok7rgni86WQkPv74F8AU5KQPtHjFq7CKy4=
@@ -3346,10 +2324,6 @@
 		</dict>
 		<key>Resources/zh_CN.lproj/Localizable.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TUsMR5Tt7MByjdHqp0UkgiQXSUw=
-			</data>
 			<key>hash2</key>
 			<data>
 			aO6/mEVBkTM9mhV9vrUidHSFWViZwfN5VnCl6N1IQPk=
