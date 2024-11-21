@@ -15,5 +15,6 @@ FOUNDATION_EXPORT const unsigned char BXMediaBrowserVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <BXMediaBrowser/PublicHeader.h>
 
+#import <BXMediaBrowser/IMBLightroomModernParser+ExtendedMetadata.h>
 #import <BXMediaBrowser/IMBLightroomParser+ExtendedMetadata.h>
 #import <BXMediaBrowser/Photos-BXPrivate.h>

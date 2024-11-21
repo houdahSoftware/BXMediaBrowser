@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F23C5D02CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F23C5CF2CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.m */; };
+		8F23C5D12CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F23C5CE2CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F3CA2152BB230C400572AD5 /* LightroomClassicFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */; };
 		8FCE63832BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FCE63842BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */; };
@@ -182,6 +184,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F23C5CE2CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMBLightroomModernParser+ExtendedMetadata.h"; sourceTree = "<group>"; };
+		8F23C5CF2CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMBLightroomModernParser+ExtendedMetadata.m"; sourceTree = "<group>"; };
 		8F3CA2142BB230C400572AD5 /* LightroomClassicFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightroomClassicFilterBar.swift; sourceTree = "<group>"; };
 		8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMBLightroomParser+ExtendedMetadata.h"; sourceTree = "<group>"; };
 		8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMBLightroomParser+ExtendedMetadata.m"; sourceTree = "<group>"; };
@@ -783,6 +787,8 @@
 				D0CBC14F283299EF00C6BABB /* LightroomClassicObject.swift */,
 				8FCE63812BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h */,
 				8FCE63822BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.m */,
+				8F23C5CE2CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.h */,
+				8F23C5CF2CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.m */,
 			);
 			path = "Lightroom Classic";
 			sourceTree = "<group>";
@@ -795,6 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD9141B2BC48D26007D5FBD /* Photos-BXPrivate.h in Headers */,
+				8F23C5D12CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.h in Headers */,
 				8FCE63832BA795E100D49374 /* IMBLightroomParser+ExtendedMetadata.h in Headers */,
 				D01B48B527CA1313008249C0 /* BXMediaBrowser.h in Headers */,
 			);
@@ -1000,6 +1007,7 @@
 				D0DEF7D527D5E0BD00601E3F /* PexelsVideoSource.swift in Sources */,
 				D01B495227CA1378008249C0 /* String+UTI.swift in Sources */,
 				D01B496327CA1378008249C0 /* Section+UI.swift in Sources */,
+				8F23C5D02CEE13FD0018ED3A /* IMBLightroomModernParser+ExtendedMetadata.m in Sources */,
 				D01B497627CA1378008249C0 /* ITLibArtist+Hashable.swift in Sources */,
 				D01B497F27CA1378008249C0 /* UnsplashContainer.swift in Sources */,
 				D0BAD10A27D392D700B749FD /* PexelsFilter.swift in Sources */,

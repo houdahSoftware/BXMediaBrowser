@@ -360,6 +360,20 @@ extension LightroomClassicObject {
 		return nil
 
 	}
+
+	@objc public var databaseVersion: NSNumber? {
+		guard let data = data as? LRCData else { return nil }
+		let parserMessenger = data.parserMessenger
+		let imbObject = data.imbObject
+
+		if let parser = parserMessenger.parser(withIdentifier: imbObject.parserIdentifier) as? IMBLightroomModernParser {
+			return parser.databaseVersion()
+		}
+
+		return nil
+
+	}
+
 }
 
 //----------------------------------------------------------------------------------------------------------------------
