@@ -92,11 +92,11 @@ public struct MusicSourceView : View
 		
 			.onReceive(source.$isExpanded)
 			{
-				_ in library.saveState()
+				_ in library.setNeedsSaveState()
 			}
 			.onReceive(source.$containers)
 			{
-				_ in library.saveState()
+				_ in library.setNeedsSaveState()
 			}
     }
     
@@ -109,7 +109,7 @@ public struct MusicSourceView : View
 			BXMenuItemSpec.action(title: NSLocalizedString("Revoke Access", tableName:"Music", bundle:.BXMediaBrowser, comment:"Menu Item"))
 			{
 				musicApp.revokeReadAccessRights()
-				library.saveState()
+				library.setNeedsSaveState()
 			}
 		]
 		
@@ -199,8 +199,8 @@ public struct MusicAccessAlertView : View
 				{
 					if $0
 					{
-						source.load()
-						library.saveState()
+						source.load(in:library)
+						library.setNeedsSaveState()
 					}
 				}
 			}

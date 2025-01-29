@@ -34,7 +34,7 @@ public class PhotosContainer : Container
 {
 	/// Create a new PhotosContainer
 	
- 	public init(identifier:String, icon:String, name:String, data:Any, filter:Object.Filter)
+ 	public init(identifier:String, icon:String, name:String, data:Any, filter:Object.Filter, in library:Library?)
 	{
 		Photos.log.debug {"\(Self.self).\(#function) \(identifier)"}
 		
@@ -45,7 +45,8 @@ public class PhotosContainer : Container
 			data:data,
 			filter:filter,
 			loadHandler:Self.loadContents,
-			removeHandler:nil)
+			removeHandler:nil,
+			in:library)
 
 		observer.didChangeHandler =
 		{
@@ -117,7 +118,7 @@ public class PhotosContainer : Container
 	
 	/// Loads the (shallow) contents of this Container
 	
-	class func loadContents(for identifier:String, data:Any, filter:Object.Filter) async throws -> Loader.Contents
+	class func loadContents(for identifier:String, data:Any, filter:Object.Filter, in library:Library?) async throws -> Loader.Contents
 	{
 		guard let data = data as? PhotosData else { return ([],[]) }
  		guard let filter = filter as? PhotosFilter else { return ([],[]) }
@@ -171,7 +172,8 @@ public class PhotosContainer : Container
 							icon: icon,
 							name: name,
 							data: PhotosData.album(collection:assetCollection),
-							filter: filter)
+							filter: filter,
+							in: library)
 						
 						containers += container
 					}
@@ -190,7 +192,8 @@ public class PhotosContainer : Container
 							icon: "folder",
 							name: name,
 							data: PhotosData.folder(collections:collections, fetchResult:fetchResult),
-							filter: filter)
+							filter: filter,
+							in: library)
 						
 						containers += container
 					}
@@ -218,7 +221,8 @@ public class PhotosContainer : Container
 								icon: "folder",
 								name: collection.localizedTitle ?? id,
 								data: PhotosData.dateInterval(unit:.year, assetCollection:collection, subCollections:monthCollections),
-								filter: filter)
+								filter: filter,
+								in: library)
 						}
 
 					case .year:
@@ -238,7 +242,8 @@ public class PhotosContainer : Container
 								icon: "folder",
 								name: collection.localizedTitle ?? id,
 								data: PhotosData.dateInterval(unit:.month, assetCollection:collection, subCollections:dayCollections),
-								filter: filter)
+								filter: filter,
+								in: library)
 						}
 					
 					case .month:
@@ -255,7 +260,8 @@ public class PhotosContainer : Container
 								icon: "folder",
 								name: collection.localizedTitle ?? id,
 								data: PhotosData.dateInterval(unit:.day, assetCollection:collection, subCollections:[]),
-								filter: filter)
+								filter: filter,
+								in: library)
 						}
 					
 					default: break
@@ -280,11 +286,11 @@ public class PhotosContainer : Container
 
 				if mediaType == .image
 				{
-					objects += PhotosImageObject(with:asset)
+					objects += PhotosImageObject(with:asset, in:library)
 				}
 				else
 				{
-					objects += PhotosVideoObject(with:asset)
+					objects += PhotosVideoObject(with:asset, in:library)
 				}
 			}
 		}

@@ -33,7 +33,7 @@ import Foundation
 
 extension Library
 {
-	/// This helper object is reponsible for coalescing (debouncing) requests to save the Library state.
+	/// This helper object is responsible for coalescing (debouncing) requests to save the Library state.
 	/// That way unnecessary duplicate work is avoided.
 	
 	class StateSaver
@@ -50,7 +50,7 @@ extension Library
 		
 		@Published internal var requestCounter = 0
 	
-		/// Reference to the Combine debounding pipeline
+		/// Reference to the Combine debouncing pipeline
 		
 		private var observers:[Any] = []
 		
@@ -64,14 +64,6 @@ extension Library
 				{
 					[weak self] _ in self?.saveStateHandler?()
 				}
-				
-			self.observers += NotificationCenter.default.publisher(for:Container.didCreateNotification, object:nil).sink
-			{
-				[weak self] notification in
-				guard let self = self else { return }
-				guard let container = notification.object as? Container else { return }
-				self.restoreSelectedContainerHandler?(container)
-			}
 		}
 		
 		/// Calling this function will cause the state saving action closure to be called shortly.
@@ -86,21 +78,21 @@ extension Library
 //----------------------------------------------------------------------------------------------------------------------
 
 
-	/// Calling this function causes the state of this Library to be saved to persistent storage. Please note
-	/// that multiple consecutive calls of this function will be coalesced (debounced) so that the heavy duty
-	/// work is only performed once (per debounce interval).
+	/// Calling this function causes the state of this Library to be saved to persistent storage. Please note that multiple consecutive calls
+	/// of this function will be coalesced (debounced) so that the heavy duty work is only performed once (per debounce interval).
 	
-	public func saveState()
+	public func setNeedsSaveState()
 	{
 		self.stateSaver.request()
 	}
 	
-	
-	// Since getting the state is an async function that accesses @MainActor properties, this work has to be
-	// wrapped in a Task.
+	/// This function gathers the current state of all Containers and persists them to storage (usually NSUserDefaults)
 	
 	internal func asyncSaveState()
 	{
+		// Since getting the state is an async function that accesses @MainActor properties,
+		// this work has to be wrapped in a Task.
+	
 		Task
 		{
 			BXMediaBrowser.logDataModel.debug {"\(Self.self).\(#function) \(identifier)"}

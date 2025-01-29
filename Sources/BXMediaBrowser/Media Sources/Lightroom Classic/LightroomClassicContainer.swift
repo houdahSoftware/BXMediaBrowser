@@ -50,7 +50,7 @@ open class LightroomClassicContainer : Container, AppLifecycleMixin
 	
 	/// Creates a new Container for the folder at the specified URL
 	
-	public required init(node:IMBNode, mediaType:Object.MediaType, parserMessenger:IMBLightroomParserMessenger, filter:FolderFilter)
+	public required init(node:IMBNode, mediaType:Object.MediaType, parserMessenger:IMBLightroomParserMessenger, filter:FolderFilter, in library:Library?)
 	{
 		let data = LRCData(node:node, mediaType:mediaType, parserMessenger:parserMessenger)
 		let identifier = node.identifier ?? "LightroomClassic:Node:xxx"
@@ -63,7 +63,8 @@ open class LightroomClassicContainer : Container, AppLifecycleMixin
 			name: name,
 			data: data,
 			filter: filter,
-			loadHandler: Self.loadContents)
+			loadHandler: Self.loadContents,
+			in: library)
 
 		// Since Lightroom CC does not have and change notification mechanism yet, we need to poll for changes.
 		// Whenever the app is brought to the foreground (activated), we just assume that a change was made in
@@ -126,7 +127,7 @@ open class LightroomClassicContainer : Container, AppLifecycleMixin
 	
 	/// Loads the (shallow) contents of this folder
 	
-	class func loadContents(for identifier:String, data:Any, filter:Object.Filter) async throws -> Loader.Contents
+	class func loadContents(for identifier:String, data:Any, filter:Object.Filter, in library:Library?) async throws -> Loader.Contents
 	{
 		guard let data = data as? LRCData else { throw Error.loadContentsFailed }
 		guard let filter = filter as? FolderFilter else { throw Error.loadContentsFailed }
@@ -159,10 +160,12 @@ open class LightroomClassicContainer : Container, AppLifecycleMixin
 			{
 				guard let node = node as? IMBNode else { continue }
 				guard knownNodes[node.identifier] == nil else { continue }
-				
+                if node.name.lowercased() == "smart collections" { continue }   // Filter out some nodes that aren't populated
+                if node.name.lowercased() == "quick collection" { continue }    // by iMedia and are thus pretty useless anyway
+
 				try await Tasks.canContinue()
 		
-				let container = LightroomClassicContainer(node:node, mediaType:mediaType, parserMessenger:parserMessenger, filter:filter)
+				let container = LightroomClassicContainer(node:node, mediaType:mediaType, parserMessenger:parserMessenger, filter:filter, in:library)
 				knownNodes[node.identifier] = true
 				containers += container
 			}
@@ -189,7 +192,7 @@ open class LightroomClassicContainer : Container, AppLifecycleMixin
 				
 				// Convert to LightroomClassicObject
 				
-				let object = LightroomClassicObject(with:imbObject, mediaType:mediaType, parserMessenger:parserMessenger)
+				let object = LightroomClassicObject(with:imbObject, mediaType:mediaType, parserMessenger:parserMessenger, in:library)
 				knownObjects[identifier] = true
 				objects += object
 			}

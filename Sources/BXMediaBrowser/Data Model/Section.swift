@@ -33,6 +33,10 @@ import SwiftUI
 
 open class Section : ObservableObject, Identifiable, StateSaving
 {
+	/// Reference to the owning library
+	
+	public private(set) weak var library:Library? = nil
+
 	/// A unique identifier for this Section
 	
 	public let identifier:String
@@ -60,8 +64,9 @@ open class Section : ObservableObject, Identifiable, StateSaving
 
 	/// Create a new Section with the specified name
 	
-	public init(identifier:String, name:String?)
+	public init(identifier:String, name:String?, in library:Library?)
 	{
+		self.library = library
 		self.identifier = identifier
 		self.name = name
 		self.sources = []
@@ -77,7 +82,7 @@ open class Section : ObservableObject, Identifiable, StateSaving
 
 	/// Loads all Sources in this Section
 	
-	public func load(with sectionState:[String:Any]? = nil)
+	public func load(with sectionState:[String:Any]? = nil, in library:Library?)
 	{
 		if let isExpanded = sectionState?[isExpandedKey] as? Bool
 		{
@@ -88,7 +93,7 @@ open class Section : ObservableObject, Identifiable, StateSaving
 		{
 			let key = source.stateKey
 			let sourceState = sectionState?[key] as? [String:Any]
-			source.load(with:sourceState)
+			source.load(with:sourceState, in:library)
 		}
 	}
 

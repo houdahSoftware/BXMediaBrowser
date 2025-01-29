@@ -44,7 +44,7 @@ public class PhotosSource : Source, AccessControl
 	
 	/// Creates a new Source for local file system directories
 	
-	public init(allowedMediaTypes:[Object.MediaType])
+	public init(allowedMediaTypes:[Object.MediaType], in library:Library?)
 	{
 		Photos.log.verbose {"\(Self.self).\(#function) \(Photos.identifier)"}
 
@@ -54,7 +54,8 @@ public class PhotosSource : Source, AccessControl
 			identifier:Photos.identifier,
 			icon:Photos.icon,
 			name:Photos.name,
-			filter:filter)
+			filter:filter,
+			in:library)
 		
 		self.loader = Loader(loadHandler:self.loadContainers)
 
@@ -69,7 +70,7 @@ public class PhotosSource : Source, AccessControl
 					self.grantAccess()
 					{
 						[weak self] isGranted in
-						if isGranted { self?.load() }
+						if isGranted { self?.load(in:library) }
 					}
 				}
 			}
@@ -112,7 +113,7 @@ public class PhotosSource : Source, AccessControl
 	///
 	/// Subclasses can override this function, e.g. to load top level folder from the preferences file
 	
-	private func loadContainers(with sourceState:[String:Any]? = nil, filter:Object.Filter) async throws -> [Container]
+	private func loadContainers(with sourceState:[String:Any]? = nil, filter:Object.Filter, in library:Library?) async throws -> [Container]
 	{
 		Photos.log.debug {"\(Self.self).\(#function) \(identifier)"}
 
@@ -134,7 +135,8 @@ public class PhotosSource : Source, AccessControl
 			icon: "photo.on.rectangle",
 			name: title,
 			data: libraryData,
-			filter: filter)
+			filter: filter,
+			in: library)
 
 		// Favorites
 
@@ -169,13 +171,14 @@ public class PhotosSource : Source, AccessControl
 				icon: "clock",
 				name: recentsCollection.localizedTitle ?? "Recents",
 				data: recentsData,
-				filter: filter)
+				filter: filter,
+				in: library)
 		}
 
 		// Albums
 		
 		try await Tasks.canContinue()
-
+		
 		let fetchOptions = PHFetchOptions()
 
 		fetchOptions.includeUserSmartAlbums = Photos.allowUserSmartAlbums
@@ -197,25 +200,27 @@ public class PhotosSource : Source, AccessControl
 			icon: "folder",
 			name: NSLocalizedString("Albums", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Container Name"),
 			data: albumsData,
-			filter: filter)
+			filter: filter,
+			in: library)
 		
 		// Shared Albums
 		
 		try await Tasks.canContinue()
-
+		
 		if Photos.allowSharedAlbums {
 			let fetchOptions = PHFetchOptions()
 			fetchOptions.predicate = NSPredicate(format: "estimatedAssetCount > 0")
 			let sharedFetchResult = PHAssetCollection.fetchAssetCollections(with:.album, subtype:.albumCloudShared, options:fetchOptions)
 			let sharedCollections = PhotosData.items(for:sharedFetchResult)
 			let sharedData = PhotosData.folder(collections:sharedCollections, fetchResult:sharedFetchResult)
-
+	
 			containers += PhotosContainer(
 				identifier: "Photos:SharedAlbums",
 				icon: "folder",
 				name: NSLocalizedString("Shared Albums", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Container Name"),
 				data: sharedData,
-				filter: filter)
+				filter: filter,
+				in: library)
 		}
 		
 		// Years
@@ -230,7 +235,8 @@ public class PhotosSource : Source, AccessControl
 			icon: "folder",
 			name: NSLocalizedString("Years", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Container Name"),
 			data: yearsData,
-			filter: filter)
+			filter: filter,
+			in: library)
 
 		// Smart Albums
 
@@ -252,7 +258,8 @@ public class PhotosSource : Source, AccessControl
 				icon: "folder",
 				name: NSLocalizedString("Smart Albums", tableName:"Photos", bundle:.BXMediaBrowser, comment:"Container Name"),
 				data: smartAlbumsData,
-				filter: filter)
+				filter: filter,
+				in: library)
 		}
 		
 		return containers

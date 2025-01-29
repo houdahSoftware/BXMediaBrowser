@@ -61,7 +61,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 	
 	/// Creates a new Container for the folder at the specified URL
 	
-	public required init(album:LightroomCC.Albums.Resource, allowedMediaTypes:[Object.MediaType], filter:LightroomCCFilter)
+	public required init(album:LightroomCC.Albums.Resource, allowedMediaTypes:[Object.MediaType], filter:LightroomCCFilter, in library:Library?)
 	{
 		let data = LightroomCCData(with:album, allowedMediaTypes:allowedMediaTypes)
 		let identifier = "LightroomCC:Album:\(album.id)"
@@ -74,7 +74,8 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 			name: name,
 			data: data,
 			filter: filter,
-			loadHandler: Self.loadContents)
+			loadHandler: Self.loadContents,
+			in: library)
 
 		// If there is another page of assets to be retrieved from the Lightroom server, then reload this container
 		
@@ -84,7 +85,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 			
 			if let id = notification.object as? String, id == identifier
 			{
-				self?.load(with:nil)
+				self?.load(with:nil, in:library)
 			}
 		}
 		
@@ -183,7 +184,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 	
 	/// Loads the (shallow) contents of this folder
 	
-	class func loadContents(for identifier:String, data:Any, filter:Object.Filter) async throws -> Loader.Contents
+	class func loadContents(for identifier:String, data:Any, filter:Object.Filter, in library:Library?) async throws -> Loader.Contents
 	{
 		guard let data = data as? LightroomCCData else { throw Error.loadContentsFailed }
 		guard let filter = filter as? LightroomCCFilter else { throw Error.loadContentsFailed }
@@ -212,7 +213,8 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 					LightroomCCContainer(
 						album:album,
 						allowedMediaTypes:data.allowedMediaTypes,
-						filter:filter))
+						filter:filter,
+						in:library))
 			}
 		}
 
@@ -227,7 +229,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 			let accessPoint = Self.intialAccessPoint(with:data,filter)
 			
 			let (assets,nextAccessPoint) = try await self.nextPageAssets(for:accessPoint)
-			self.add(assets, to:data)
+			self.add(assets, to:data, in:library)
 			data.nextAccessPoint = nextAccessPoint
 		}
 		
@@ -238,7 +240,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 			LightroomCC.log.debug {"\(Self.self).\(#function) accessPoint = \(accessPoint)"}
 			
 			let (assets,nextAccessPoint) = try await self.nextPageAssets(for:accessPoint)
-			self.add(assets, to:data)
+			self.add(assets, to:data, in:library)
 			data.nextAccessPoint = nextAccessPoint
 		}
 
@@ -301,7 +303,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 
 	/// Adds a pages of assets to the Object cache of this Container
 	
-	private class func add(_ assets:[LightroomCC.Asset], to data:LightroomCCData)
+	private class func add(_ assets:[LightroomCC.Asset], to data:LightroomCCData, in library:Library?)
 	{
 		let allowedMediaTypes = data.allowedMediaTypes
 		let allowImages = allowedMediaTypes.contains(.image)
@@ -313,7 +315,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 
 			if subtype == "image" && allowImages
 			{
-				let object = LightroomCCImageObject(with:asset)
+				let object = LightroomCCImageObject(with:asset, in:library)
 				let id = object.identifier
 				
 				if data.objectMap[id] == nil
@@ -324,7 +326,7 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 			}
 			else if subtype == "video" && allowVideos
 			{
-				let object = LightroomCCVideoObject(with:asset)
+				let object = LightroomCCVideoObject(with:asset, in:library)
 				let id = object.identifier
 				
 				if data.objectMap[id] == nil

@@ -37,7 +37,7 @@ public class PhotosObject : Object
 {
 	/// Creates a new PhotosObject. Please note that this is an abstract base class that should never be instantiated.
 	
-	public init(with asset:PHAsset)
+	public init(with asset:PHAsset, in library:Library?)
 	{
 		super.init(
 			identifier: Self.identifier(for:asset),
@@ -45,7 +45,8 @@ public class PhotosObject : Object
 			data: asset,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in:library)
 
 		self.observer.didChangeHandler =
 		{
@@ -290,13 +291,14 @@ public class PhotosObject : Object
 			{
 				// Download the file (hires)
 				
-				let url = try await Self.downloadFile(for:identifier, data:data)
-				
-				// Store it in the TempFilePool and update the QLPreviewPanel
+				let url1 = try await Self.downloadFile(for:identifier, data:data)
+                let url2 = url1.rebuiltFromString   // Workaround: trying to use url1 directly sometimes fails for videos from Photos.app => however using the rebuilt url2 works!
+ 
+ 				// Store the URL and update the QLPreviewPanel
 				
 				await MainActor.run
 				{
-					self._previewItemURL = url
+					self._previewItemURL = url2
 					self.isDownloadingPreview = false
 					
 					#if os(macOS)

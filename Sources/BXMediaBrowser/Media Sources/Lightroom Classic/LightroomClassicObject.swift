@@ -55,7 +55,7 @@ open class LightroomClassicObject : Object, AppLifecycleMixin
 
 	/// Creates a new Object for the file at the specified URL
 
-	public required init(with imbObject:IMBLightroomObject, mediaType:Object.MediaType, parserMessenger:IMBLightroomParserMessenger)
+	public required init(with imbObject:IMBLightroomObject, mediaType:Object.MediaType, parserMessenger:IMBLightroomParserMessenger, in library:Library?)
 	{
 		super.init(
 			identifier: Self.identifier(for:imbObject),
@@ -63,7 +63,8 @@ open class LightroomClassicObject : Object, AppLifecycleMixin
 			data: LRCData(imbObject:imbObject, mediaType:mediaType, parserMessenger:parserMessenger),
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 	}
 
 	static func identifier(for imbObject:IMBLightroomObject) -> String

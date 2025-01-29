@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2025 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,35 +23,27 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 
-import Foundation
+import SwiftUI
 
 
 //----------------------------------------------------------------------------------------------------------------------
 
 
-extension Source
+extension Library
 {
-	public actor Loader
+	public class Selection : ObservableObject
 	{
-		public typealias LoadHandler = ([String:Any]?,Object.Filter,Library?) async throws -> [Container]
+		/// The Objects of the currently selected Container are displayed in the ObjectView
+		///
+		/// Selection is a separate class that provides more granular SwiftUI updating than the monolithic Library class
 		
-		let loadHandler:LoadHandler
-		
-		/// Creates the thread-safe Loader for a Source
-		
-		public init(loadHandler:@escaping LoadHandler)
-		{
-			self.loadHandler = loadHandler
-		}
-		
-		/// Loads the top-level containers of this source
-		
-		public func containers(with sourceState:[String:Any]? = nil, filter:Object.Filter, in library:Library?) async throws -> [Container]
-		{
-			try await Tasks.canContinue()
-			
-			return try await self.loadHandler(sourceState,filter,library)
-		}
+		@Published public var container:Container? = nil
+
+		/// The identifier of the currently selected Library
+		///
+		/// This property can be set externally to trigger SwiftUI rebuilding of various views as necessary.
+
+		@Published public var libraryIdentifier:String? = nil
 	}
 }
 

@@ -35,7 +35,7 @@ open class UnsplashObject : Object
 {
 	/// Creates a new Object for the file at the specified URL
 	
-	public init(with photo:UnsplashPhoto)
+	public init(with photo:UnsplashPhoto, in library:Library?)
 	{
 		let format = NSLocalizedString("%@ on Unsplash", tableName:"Unsplash", bundle:.BXMediaBrowser, comment:"Value String")
 		let username = photo.user.name ?? photo.user.username
@@ -47,7 +47,8 @@ open class UnsplashObject : Object
 			data: photo,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 	}
 
 	override nonisolated open var mediaType:MediaType

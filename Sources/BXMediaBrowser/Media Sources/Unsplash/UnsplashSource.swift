@@ -44,12 +44,12 @@ open class UnsplashSource : Source, AccessControl
 
 	/// Creates a new Source for local file system directories
 	
-	public init()
+	public init(in library:Library?)
 	{
 		Unsplash.log.verbose {"\(Self.self).\(#function) \(Self.identifier)"}
 		
 		let icon = CGImage.image(named:"Unsplash", in:.BXMediaBrowser)
-		super.init(identifier:Self.identifier, icon:icon, name:"Unsplash.com", filter:UnsplashFilter())
+		super.init(identifier:Self.identifier, icon:icon, name:"Unsplash.com", filter:UnsplashFilter(), in:library)
 		self.loader = Loader(loadHandler:self.loadContainers)
 	}
 
@@ -61,7 +61,7 @@ open class UnsplashSource : Source, AccessControl
 	///
 	/// Subclasses can override this function, e.g. to load top level folder from the preferences file
 	
-	private func loadContainers(with sourceState:[String:Any]? = nil, filter:Object.Filter) async throws -> [Container]
+	private func loadContainers(with sourceState:[String:Any]? = nil, filter:Object.Filter, in library:Library?) async throws -> [Container]
 	{
 		Unsplash.log.debug {"\(Self.self).\(#function) \(identifier)"}
 
@@ -73,7 +73,8 @@ open class UnsplashSource : Source, AccessControl
 		containers += UnsplashContainer(identifier:"Unsplash:Search", icon:"magnifyingglass", name:name, filter:UnsplashFilter(), saveHandler:
 		{
 			[weak self] in self?.saveContainer($0)
-		})
+		},
+		in:library)
 
 		// Add Saved Searches
 		
@@ -154,7 +155,8 @@ open class UnsplashSource : Source, AccessControl
 			#warning("TODO: implement for iOS")
 			
 			#endif
-		})
+		},
+		in:library)
 	}
 
 

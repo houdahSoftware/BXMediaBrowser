@@ -52,7 +52,7 @@ open class LightroomCCObject : Object, AppLifecycleMixin
 
 	/// Creates a new Object for the file at the specified URL
 
-	public required init(with asset:LightroomCC.Asset)
+	public required init(with asset:LightroomCC.Asset, in library:Library?)
 	{
 		super.init(
 			identifier: Self.identifier(for:asset),
@@ -60,7 +60,8 @@ open class LightroomCCObject : Object, AppLifecycleMixin
 			data: asset,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 		
 		// If we received a rating from Lightroom, then store it in our database
 		

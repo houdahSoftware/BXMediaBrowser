@@ -31,6 +31,10 @@ import SwiftUI
 
 open class Source : ObservableObject, Identifiable, StateSaving
 {
+	/// Reference to the owning library
+	
+	public private(set) weak var library:Library? = nil
+
 	/// A unique (and persistent) identifier for this Source
 	
 	public let identifier:String
@@ -82,10 +86,11 @@ open class Source : ObservableObject, Identifiable, StateSaving
 	
 	/// Creates a Source with the specified identifier and name
 	
-	public init(identifier:String, icon:CGImage? = nil, name:String, filter:Object.Filter)
+	public init(identifier:String, icon:CGImage? = nil, name:String, filter:Object.Filter, in library:Library?)
 	{
 		BXMediaBrowser.logDataModel.verbose {"\(Self.self).\(#function) \(identifier)"}
 
+		self.library = library
 		self.identifier = identifier
 		self.icon = icon
 		self.name = name
@@ -105,7 +110,7 @@ open class Source : ObservableObject, Identifiable, StateSaving
 	/// Loads the top-level containers of this source. If a previous load is still in progress it is cancelled,
 	/// so that the new load can be started sooner.
 	
-	public func load(with sourceState:[String:Any]? = nil)
+	public func load(with sourceState:[String:Any]? = nil, in library:Library?)
 	{
 		self.loadTask?.cancel()
 		self.loadTask = nil
@@ -127,7 +132,7 @@ open class Source : ObservableObject, Identifiable, StateSaving
 
 				// Get new list of containers
 				
-				let containers = try await self.loader.containers(with:sourceState, filter:filter)
+				let containers = try await self.loader.containers(with:sourceState, filter:filter, in:library)
 				let names = containers.map { $0.name }.joined(separator:", ")
 				BXMediaBrowser.logDataModel.verbose {"    containers = \(names)"}
 
@@ -150,7 +155,7 @@ open class Source : ObservableObject, Identifiable, StateSaving
 						if isExpanded
 						{
 							container.isExpanded = true
-							container.load(with:containerState)
+							container.load(with:containerState, in:library)
 						}
 					}
 					
@@ -265,7 +270,7 @@ open class Source : ObservableObject, Identifiable, StateSaving
 				for container in containers
 				{
 					container.isVisible = isExpanded
-					if container.isSelected && !container.isLoaded { container.load() }
+					if container.isSelected && !container.isLoaded { container.load(in:library) }
 				}
 			}
 		}

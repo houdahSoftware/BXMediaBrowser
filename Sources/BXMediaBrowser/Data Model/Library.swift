@@ -44,23 +44,36 @@ open class Library : ObservableObject, StateSaving
 	
 	/// The Objects of the currently selected Container are displayed in the ObjectView
 	
-	@Published public var selectedContainer:Container? = nil
+	public var selectedContainer:Container?
 	{
-		willSet
+		set
 		{
-			selectedContainer?.isSelected = false
-			selectedContainer?.purgeCachedDataOfObjects()
+			BXMediaBrowser.logDataModel.debug {"\(Self.self).\(#function) = \(selection.container?.identifier ?? "nil")"}
+
+			// Request purging of thumbnails of previously selected Container
 			
-			newValue?.isSelected = true
-			newValue?.cancelPurgeCachedDataOfObjects()
+			selection.container?.isSelected = false
+			selection.container?.purgeCachedDataOfObjects()
+
+			// Select new container
+			
+			self.objectWillChange.send()
+			selection.container = newValue
+			selection.container?.validateSortType()
+			
+			// Cancel purging if it was requested before
+			
+			selection.container?.isSelected = true
+			selection.container?.cancelPurgeCachedDataOfObjects()
 		}
 		
-		didSet
+		get
 		{
-			BXMediaBrowser.logDataModel.debug {"\(Self.self).\(#function) = \(selectedContainer?.identifier ?? "nil")"}
-			selectedContainer?.validateSortType()
+			selection.container
 		}
 	}
+	
+	public let selection = Selection()
 	
 	/// This externally supplied handler will be called when file URLs are dropped onto a LibraryView
 	
@@ -130,22 +143,14 @@ open class Library : ObservableObject, StateSaving
 
 		// Restore the selectedContainer. Please note that loading the library is an async operation.
 		// we do not know when the Container in question will be created. For this reason we will
-		// listen to the Container.didCreateNotification and check if the identifier matches the one
-		// we are interested in. If yes, then select and load this container.
+		// have to check each newly created Container if it is the one in question.
 		
 		if let identifier = libraryState?[selectedContainerIdentifierKey] as? String
 		{
 			self.stateSaver.restoreSelectedContainerHandler =
 			{
 				[weak self] container in
-				guard let self = self else { return }
-				guard container.identifier == identifier else { return }
-				
-				DispatchQueue.main.async
-				{
-					self.selectedContainer = container
-					container.load()
-				}
+				self?.restoreSelectedContainer(container, with:identifier)
 			}
 		}
 
@@ -155,7 +160,7 @@ open class Library : ObservableObject, StateSaving
 		{
 			let key = section.stateKey
 			let sectionState = libraryState?[key] as? [String:Any]
-			section.load(with:sectionState)
+			section.load(with:sectionState, in:self)
 		}
 	}
 
@@ -176,6 +181,25 @@ open class Library : ObservableObject, StateSaving
 		UserDefaults.standard.set(state, forKey:stateKey)
 	}
 
+
+	/// If the specified Container is the one that was selected before (as specified by the identifier) then select it again.
+	/// If the Container is not loaded yet, then it will be loaded now.
+	
+	public func restoreSelectedContainer(_ container:Container, with identifier:String)
+	{
+		guard container.library != nil && container.library == self else { return }
+		guard container.identifier == identifier else { return }
+		
+		DispatchQueue.main.async
+		{
+			self.selectedContainer = container
+			
+			if !container.isLoading && !container.isLoaded
+			{
+				container.load(in:self)
+			}
+		}
+	}
 }
 
 

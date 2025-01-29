@@ -55,7 +55,7 @@ open class LightroomClassicSource : Source, AccessControl
 
 	/// Creates a new Source for local file system directories
 	
-	public init(mediaType:Object.MediaType)
+	public init(mediaType:Object.MediaType, in library:Library?)
 	{
 		LightroomClassic.log.debug {"\(Self.self).\(#function)"}
 		
@@ -74,7 +74,8 @@ open class LightroomClassicSource : Source, AccessControl
 			identifier: Self.identifier,
 			icon: LightroomClassic.shared.icon,
 			name: LightroomClassic.shared.name,
-			filter: FolderFilter())
+			filter: FolderFilter(),
+			in: library)
 		
 		self.loader = Loader(loadHandler:self.loadContainers)
 	}
@@ -112,7 +113,7 @@ open class LightroomClassicSource : Source, AccessControl
 					LightroomClassic.shared.libraryBookmark = bookmark
 				}
 				
-				self.load()
+				self.load(in:library)
 				completionHandler(true)
 			}
 			else
@@ -126,7 +127,7 @@ open class LightroomClassicSource : Source, AccessControl
 	@MainActor public func revokeAccess(_ completionHandler:@escaping (Bool)->Void = { _ in })
 	{
 		LightroomClassic.shared.libraryBookmark = nil
-		self.load()
+		self.load(in:library)
 	}
 
 
@@ -178,7 +179,7 @@ open class LightroomClassicSource : Source, AccessControl
 	///
 	/// Subclasses can override this function, e.g. to load top level folder from the preferences file
 	
-	private func loadContainers(with sourceState:[String:Any]? = nil, filter:Object.Filter) async throws -> [Container]
+	private func loadContainers(with sourceState:[String:Any]? = nil, filter:Object.Filter, in library:Library?) async throws -> [Container]
 	{
 		LightroomClassic.log.debug {"\(Self.self).\(#function)"}
 
@@ -206,7 +207,7 @@ open class LightroomClassicSource : Source, AccessControl
 			let containers:[LightroomClassicContainer] = rootNode.subnodes.compactMap
 			{
 				guard let node = $0 as? IMBNode else { return nil }
-				return LightroomClassicContainer(node:node, mediaType:mediaType, parserMessenger:parserMessenger, filter:filter)
+				return LightroomClassicContainer(node:node, mediaType:mediaType, parserMessenger:parserMessenger, filter:filter, in:library)
 			}
 			
 			await MainActor.run

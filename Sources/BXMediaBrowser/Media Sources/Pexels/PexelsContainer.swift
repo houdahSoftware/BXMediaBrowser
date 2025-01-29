@@ -56,7 +56,7 @@ open class PexelsContainer : Container
 	
 	/// Creates a new Container for the folder at the specified URL
 	
-	public required init(identifier:String, icon:String, name:String, filter:PexelsFilter, saveHandler:SaveContainerHandler? = nil, removeHandler:((Container)->Void)? = nil)
+	public required init(identifier:String, icon:String, name:String, filter:PexelsFilter, saveHandler:SaveContainerHandler? = nil, removeHandler:((Container)->Void)? = nil, in library:Library?)
 	{
 		Pexels.log.verbose {"\(Self.self).\(#function) \(identifier)"}
 
@@ -67,7 +67,8 @@ open class PexelsContainer : Container
 			data: PexelsData(),
 			filter: filter,
 			loadHandler: Self.loadContents,
-			removeHandler: removeHandler)
+			removeHandler: removeHandler,
+			in: library)
 		
 		self.saveHandler = saveHandler
 
@@ -131,11 +132,11 @@ open class PexelsContainer : Container
 	
 	// Only load and talk to the internet if this Container is actually selected AND visible
 	
-	override public func load(with containerState:[String:Any]? = nil)
+	override public func load(with containerState:[String:Any]? = nil, in library:Library?)
 	{
 		guard self.isVisible else { return }
 		guard self.isSelected else { return }
-		super.load(with:containerState)
+		super.load(with:containerState, in:library)
 	}
 
 
@@ -153,14 +154,14 @@ open class PexelsContainer : Container
 		if !pexelsData.didReachEnd
 		{
 			pexelsData.loadNextPage = true
-			self.load(with:nil)
+			self.load(with:nil, in:library)
 		}
 	}
 	
 	
 	// To be overridden by subclasses
 	
-	class func loadContents(for identifier:String, data:Any, filter:Object.Filter) async throws -> Loader.Contents
+	class func loadContents(for identifier:String, data:Any, filter:Object.Filter, in library:Library?) async throws -> Loader.Contents
 	{
 		return ([],[])
 	}

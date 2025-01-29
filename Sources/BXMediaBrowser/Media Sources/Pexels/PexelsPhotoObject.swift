@@ -47,7 +47,7 @@ open class PexelsPhotoObject : Object
 {
 	/// Creates a new Object for the file at the specified URL
 	
-	public required init(with photo:Pexels.Photo)
+	public required init(with photo:Pexels.Photo, in library:Library?)
 	{
 		super.init(
 			identifier: "PexelsSource:Photo:\(photo.id)",
@@ -55,7 +55,8 @@ open class PexelsPhotoObject : Object
 			data: photo,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 	}
 
 	override nonisolated public var mediaType:MediaType

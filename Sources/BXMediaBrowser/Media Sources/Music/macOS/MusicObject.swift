@@ -41,7 +41,7 @@ public class MusicObject : Object
 	
 	/// Creates a new MusicObject with the specified ITLibMediaItem
 	
-	public init(with item:ITLibMediaItem)
+	public init(with item:ITLibMediaItem, in library:Library?)
 	{
 		let identifier = "MusicSource:ITLibMediaItem:\(item.persistentID)"
 		let name = item.title
@@ -52,7 +52,8 @@ public class MusicObject : Object
 			data: item,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 		
 		// Get status for this audio file
 		

@@ -39,7 +39,7 @@ open class FolderObject : Object
 {
 	/// Creates a new Object for the file at the specified URL
 	
-	public init(url:URL, name:String? = nil)
+	public init(url:URL, name:String? = nil, in library:Library?)
 	{
 		FolderSource.log.verbose {"\(Self.self).\(#function) url = \(url)"}
 
@@ -49,7 +49,8 @@ open class FolderObject : Object
 			data: url,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 
 		// File in a Finder folder are always local, non-download
 		

@@ -47,7 +47,7 @@ open class PexelsVideoObject : Object
 {
 	/// Creates a new Object for the file at the specified URL
 	
-	public required init(with video:Pexels.Video)
+	public required init(with video:Pexels.Video, in library:Library?)
 	{
 		let format = NSLocalizedString("%@ on Pexels", tableName:"Pexels", bundle:.BXMediaBrowser, comment:"Label")
 		let name = String(format:format, video.user.name)
@@ -58,7 +58,8 @@ open class PexelsVideoObject : Object
 			data: video,
 			loadThumbnailHandler: Self.loadThumbnail,
 			loadMetadataHandler: Self.loadMetadata,
-			downloadFileHandler: Self.downloadFile)
+			downloadFileHandler: Self.downloadFile,
+			in: library)
 	}
 
 	override nonisolated public var mediaType:MediaType

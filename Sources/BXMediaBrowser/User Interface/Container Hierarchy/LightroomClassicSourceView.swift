@@ -98,11 +98,11 @@ public struct LightroomClassicSourceView : View
 		
 			.onReceive(source.$isExpanded)
 			{
-				_ in library.saveState()
+				_ in library.setNeedsSaveState()
 			}
 			.onReceive(source.$containers)
 			{
-				_ in library.saveState()
+				_ in library.setNeedsSaveState()
 			}
     }
 }
@@ -164,7 +164,7 @@ extension LightroomClassicSourceView
 				{
 					_ in
 					source.isExpanded = true
-					source.load()
+					source.load(in:library)
 				}
 			}
 		}
