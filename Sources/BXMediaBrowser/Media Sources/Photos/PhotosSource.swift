@@ -153,7 +153,8 @@ public class PhotosSource : Source, AccessControl
 				icon: "heart",
 				name: favoritesCollection.localizedTitle ?? "Favorites",
 				data: favoritesData,
-				filter: filter)
+				filter: filter,
+				in: library)
 		}
 
 		// Recently Added
