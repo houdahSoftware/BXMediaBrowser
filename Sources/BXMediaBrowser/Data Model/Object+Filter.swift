@@ -175,6 +175,30 @@ extension Object
 //----------------------------------------------------------------------------------------------------------------------
 
 
+// MARK: - Filtering
+	
+extension Object.Filter
+{
+	/// Returns true if any filtering is active, possibly leading to an empty object list
+	
+	public var isFiltering:Bool
+	{
+		self.searchString.count > 0 || self.rating > 0
+	}
+	
+	/// Resets the filter, so that all objects in a Container are displayed again
+	
+	public func reset()
+	{
+		self.searchString = ""
+		self.rating = 0
+	}
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
 // MARK: - Sorting
 	
 extension Object.Filter
@@ -241,6 +265,8 @@ extension Object.Filter
 //----------------------------------------------------------------------------------------------------------------------
 
 
+// MARK: -
+	
 extension Object.Filter.SortType
 {
 	/// Special SortType that does not modify the ordering of Objects
@@ -259,7 +285,7 @@ extension Object.Filter.SortType
 	
 	public var localizedName:String
 	{
-		NSLocalizedString(self, tableName:"Object.Filter", bundle:Bundle.BXMediaBrowser, comment:"Sorting Kind Name")
+		NSLocalizedString(self, tableName:"Object.Filter", bundle:.BXMediaBrowser, comment:"Sorting Kind Name")
 	}
 }
 

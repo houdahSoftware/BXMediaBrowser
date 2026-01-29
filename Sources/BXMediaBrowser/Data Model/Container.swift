@@ -206,7 +206,6 @@ open class Container : ObservableObject, Identifiable, StateSaving, BXSignpostMi
 	
 	nonisolated public var id:String
 	{
-		
 		"\(identifier)-\(icon ?? "folder")-\(name)"
 	}
 	
@@ -306,6 +305,11 @@ open class Container : ObservableObject, Identifiable, StateSaving, BXSignpostMi
 					self.objects = uniqueObjects
 					self.objectCount = uniqueObjects.count
 					self.isExpanded = isExpanded
+
+					if self === self.library?.selection.container
+					{
+						self.library?.selection.loadCount += 1
+					}
 
 					// Restore isExpanded state of containers
 					
