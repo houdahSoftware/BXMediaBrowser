@@ -12,8 +12,8 @@ let package = Package(
     
     platforms:
     [
-		.macOS("10.15.2"), 	// First version that has reasonable SwiftUI support, NSCollectionViewDiffableDataSource
-		.iOS("13.2")		// First version that has reasonable SwiftUI support
+		.macOS("14.0"),		// Must match MACOSX_DEPLOYMENT_TARGET in BXMediaBrowser.xcconfig
+		.iOS("14.0")		// First version that has UniformTypeIdentifiers (UTType)
     ],
     
 	// Products define the executables and libraries a package produces, and make them visible to other packages
