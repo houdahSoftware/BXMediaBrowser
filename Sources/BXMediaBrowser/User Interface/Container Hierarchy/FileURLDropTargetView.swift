@@ -110,12 +110,12 @@ public extension FileURLDropTargetView
 		
 		for provider in itemProviders
 		{
-			if provider.hasItemConformingToTypeIdentifier(kUTTypeFileURL as String)
+			if provider.hasItemConformingToTypeIdentifier(String.fileUTI)
 			{
 				hasURL = true
 			}
 
-			provider.loadItem(forTypeIdentifier:kUTTypeFileURL as String, options:nil)
+			provider.loadItem(forTypeIdentifier:String.fileUTI, options:nil)
 			{
 				data,error in
 				guard error == nil else { return }

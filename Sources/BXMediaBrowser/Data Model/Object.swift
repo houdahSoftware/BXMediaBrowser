@@ -26,13 +26,7 @@
 import SwiftUI
 import BXSwiftUtils
 
-#if canImport(UniformTypeIdentifiers)
 import UniformTypeIdentifiers
-#endif
-
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -266,14 +260,7 @@ open class Object : NSObject, ObservableObject, Identifiable, BXSignpostMixin
 	
 	open var localFileUTI:String
 	{
-		if #available(macOS 12, iOS 14, *)
-		{
-			return UTType.fileURL.identifier
-		}
-		else
-		{
-			return kUTTypeFileURL as String // To be overridden by subclasses
-		}
+		return UTType.fileURL.identifier // To be overridden by subclasses
 	}
 	
 	

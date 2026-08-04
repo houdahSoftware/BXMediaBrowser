@@ -31,9 +31,7 @@ import ImageIO
 import QuickLookUI
 #endif
 
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
+import UniformTypeIdentifiers
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -179,7 +177,7 @@ open class LightroomCCVideoObject : LightroomCCObject
 
 	override public var localFileUTI:String
 	{
-		kUTTypeMovie as String
+		UTType.movie.identifier
 	}
 
 	/// Starts downloading an image file

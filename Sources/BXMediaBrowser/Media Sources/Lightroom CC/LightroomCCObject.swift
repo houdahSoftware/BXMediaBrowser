@@ -32,9 +32,7 @@ import Foundation
 import QuickLookUI
 #endif
 
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
+import UniformTypeIdentifiers
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -179,7 +177,7 @@ open class LightroomCCObject : Object, AppLifecycleMixin
 
 	override public var localFileUTI:String
 	{
-		kUTTypeJPEG as String
+		UTType.jpeg.identifier
 	}
 
 	// To be overridden in subclasses

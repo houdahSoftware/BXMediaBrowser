@@ -25,13 +25,7 @@
 
 import Foundation
 
-#if canImport(UniformTypeIdentifiers)
 import UniformTypeIdentifiers
-#endif
-
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -41,50 +35,22 @@ public extension String
 {
 	static var fileUTI:String
 	{
-		if #available(macOS 11, iOS 14, *)
-		{
-			return UTType.fileURL.identifier
-		}
-		else
-		{
-			return kUTTypeFileURL as String
-		}
+		UTType.fileURL.identifier
 	}
 
 	static var imageUTI:String
 	{
-		if #available(macOS 11, iOS 14, *)
-		{
-			return UTType.image.identifier
-		}
-		else
-		{
-			return kUTTypeImage as String
-		}
+		UTType.image.identifier
 	}
 
 	static var movieUTI:String
 	{
-		if #available(macOS 11, iOS 14, *)
-		{
-			return UTType.movie.identifier
-		}
-		else
-		{
-			return kUTTypeMovie as String
-		}
+		UTType.movie.identifier
 	}
 
 	static var audioUTI:String
 	{
-		if #available(macOS 11, iOS 14, *)
-		{
-			return UTType.audio.identifier
-		}
-		else
-		{
-			return kUTTypeAudio as String
-		}
+		UTType.audio.identifier
 	}
 }
 

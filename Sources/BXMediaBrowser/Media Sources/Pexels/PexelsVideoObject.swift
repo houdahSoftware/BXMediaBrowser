@@ -35,9 +35,7 @@ import AppKit
 import UIKit
 #endif
 
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
+import UniformTypeIdentifiers
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -158,16 +156,12 @@ open class PexelsVideoObject : Object
 	
 	override public var localFileUTI:String
 	{
-		var uti = kUTTypeMovie as String
+		let uti = UTType.movie.identifier
 		
 		guard let file = try? Self.bestFile(for:identifier, data:data) else { return uti }
-		let mimeType = file.file_type as CFString
-		if let _uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType, nil)?.takeUnretainedValue()
-		{
-			uti = _uti as String
-		}
+		guard let type = UTType(mimeType:file.file_type) else { return uti }
 		
-		return uti
+		return type.identifier
 	}
 	
 	static func localFileName(for identifier:String, data:Any) -> String
