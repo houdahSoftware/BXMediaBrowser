@@ -120,7 +120,17 @@ open class VideoFile : FolderObject
 			do
 			{
 				let asset = AVURLAsset(url:url)
+
+				// AVAsset.duration is deprecated in favor of the async load(.duration), which is only available
+				// on iOS 16 or newer. Since our iOS deployment target is still 14, keep using the synchronous
+				// property there - it does not warn below iOS 16. Revisit once iOS is bumped to 16.
+
+				#if os(macOS)
+				let duration = try await asset.load(.duration).seconds
+				#else
 				let duration = asset.duration.seconds
+				#endif
+
 				let posterFrame = 0.5 * duration
 				let time = CMTime(seconds:posterFrame, preferredTimescale:600)
 				
