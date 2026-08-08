@@ -69,7 +69,7 @@ public class PhotosSource : Source, AccessControl
 				{
 					self.grantAccess()
 					{
-						[weak self] isGranted in
+                        [weak self = self] isGranted in
 						if isGranted { self?.load(in:library) }
 					}
 				}
