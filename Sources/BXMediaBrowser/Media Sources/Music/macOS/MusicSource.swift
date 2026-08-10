@@ -134,28 +134,37 @@ public class MusicSource : Source, AccessControl
 	{
 		Task
 		{
-			try await Tasks.canContinue()
-
-			// Only reload if it was already loaded before
-			
-			guard await self.isLoaded else { return }
-			
-			MusicSource.log.debug {"\(Self.self).\(#function) \(Self.identifier)"}
-			
-			// First reload the ITLibrary. Unfortunately this has to be done manually and it is monolithic.
-			// We cannot detect granular changes to individual playlists.
-
-			Self.library?.reloadData()
-
-			// Get the current expanded state of all Containers
-			
-			let state = await self.state()
-			
-			// Now reload the complete Source and all its Containers, but try to preserve the existing state
-			
-			await MainActor.run
+			do
 			{
-				self.load(with:state, in:library)
+				try await Tasks.canContinue()
+
+				// Only reload if it was already loaded before
+
+				guard await self.isLoaded else { return }
+
+				MusicSource.log.debug {"\(Self.self).\(#function) \(Self.identifier)"}
+
+				// First reload the ITLibrary. Unfortunately this has to be done manually and it is monolithic.
+				// We cannot detect granular changes to individual playlists.
+
+				Self.library?.reloadData()
+
+				// Get the current expanded state of all Containers
+
+				let state = await self.state()
+
+				// Now reload the complete Source and all its Containers, but try to preserve the existing state
+
+				await MainActor.run
+				{
+					self.load(with:state, in:library)
+				}
+			}
+			catch let error
+			{
+				// The reload was aborted, so the browser keeps showing the previously loaded library.
+
+				MusicSource.log.error {"\(Self.self).\(#function) ERROR \(error)"}
 			}
 		}
 	}

@@ -351,23 +351,33 @@ open class LightroomCCContainer : Container, AppLifecycleMixin
 		
 		Task
 		{
-			guard await self.isLoaded else { return }
-			
-			let catalogID = LightroomCC.shared.catalogID
-			let albumID = data.album.id
-			let accessPoint = "https://lr.adobe.io/v2/catalogs/\(catalogID)/albums/\(albumID)"
-			let album:LightroomCC.Album = try await LightroomCC.shared.getData(from:accessPoint, debugLogging:false)
-			let needsReloading = album.payload.userUpdated > data.album.updated || album.updated > data.album.updated
-
-			LightroomCC.log.debug {"\(Self.self).\(#function)   name = \(self.name)   oldUpdated = \(data.album.updated)    newUpdated = \(album.updated)    needsReloading = \(needsReloading)"}
-
-			if needsReloading
+			do
 			{
-				await MainActor.run
+				guard await self.isLoaded else { return }
+
+				let catalogID = LightroomCC.shared.catalogID
+				let albumID = data.album.id
+				let accessPoint = "https://lr.adobe.io/v2/catalogs/\(catalogID)/albums/\(albumID)"
+				let album:LightroomCC.Album = try await LightroomCC.shared.getData(from:accessPoint, debugLogging:false)
+				let needsReloading = album.payload.userUpdated > data.album.updated || album.updated > data.album.updated
+
+				LightroomCC.log.debug {"\(Self.self).\(#function)   name = \(self.name)   oldUpdated = \(data.album.updated)    newUpdated = \(album.updated)    needsReloading = \(needsReloading)"}
+
+				if needsReloading
 				{
-					LightroomCC.log.debug {"\(Self.self).\(#function)"}
-					self.reload()
+					await MainActor.run
+					{
+						LightroomCC.log.debug {"\(Self.self).\(#function)"}
+						self.reload()
+					}
 				}
+			}
+			catch let error
+			{
+				// This is a background poll for changes - if it fails we simply keep showing the data we
+				// already have, and try again the next time the app is activated.
+
+				LightroomCC.log.error {"\(Self.self).\(#function) ERROR \(error)"}
 			}
 		}
 	}

@@ -131,25 +131,35 @@ open class LightroomCCObject : Object, AppLifecycleMixin
 		
 		Task
 		{
-			guard await self.thumbnailImage != nil else { return }
-			
-			let catalogID = LightroomCC.shared.catalogID
-			let assetID = oldAsset.id
-			let accessPoint = "https://lr.adobe.io/v2/catalogs/\(catalogID)/assets/\(assetID)"
-			let newAsset:LightroomCC.Asset = try await LightroomCC.shared.getData(from:accessPoint, debugLogging:false)
-			let needsReloading = newAsset.updated > oldAsset.updated
-
-			LightroomCC.log.debug {"\(Self.self).\(#function)   oldUpdated = \(oldAsset.updated)    newUpdated = \(newAsset.updated)    needsReloading = \(needsReloading)"}
-
-			if needsReloading
+			do
 			{
-				await MainActor.run
+				guard await self.thumbnailImage != nil else { return }
+
+				let catalogID = LightroomCC.shared.catalogID
+				let assetID = oldAsset.id
+				let accessPoint = "https://lr.adobe.io/v2/catalogs/\(catalogID)/assets/\(assetID)"
+				let newAsset:LightroomCC.Asset = try await LightroomCC.shared.getData(from:accessPoint, debugLogging:false)
+				let needsReloading = newAsset.updated > oldAsset.updated
+
+				LightroomCC.log.debug {"\(Self.self).\(#function)   oldUpdated = \(oldAsset.updated)    newUpdated = \(newAsset.updated)    needsReloading = \(needsReloading)"}
+
+				if needsReloading
 				{
-					LightroomCC.log.debug {"\(Self.self).\(#function)"}
-					self.data = newAsset
-					self.purge()
-					self.load()
+					await MainActor.run
+					{
+						LightroomCC.log.debug {"\(Self.self).\(#function)"}
+						self.data = newAsset
+						self.purge()
+						self.load()
+					}
 				}
+			}
+			catch let error
+			{
+				// This is a background poll for changes - if it fails we simply keep showing the data we
+				// already have, and try again the next time the app is activated.
+
+				LightroomCC.log.error {"\(Self.self).\(#function) ERROR \(error)"}
 			}
 		}
 	}
@@ -256,34 +266,45 @@ open class LightroomCCObject : Object, AppLifecycleMixin
 			
 			Task
 			{
-				// Download the preview file
-				
-				let downloadAPI = self.previewAccessPoint
-				let request = try LightroomCC.shared.request(for:downloadAPI, httpMethod:"GET")
-				let tmpURL = try await URLSession.shared.downloadFile(with:request)
-				
-				// Rename the file
-				
-				let folderURL = tmpURL.deletingLastPathComponent()
-				let filename = self.previewFilename
-				let localURL = folderURL.appendingPathComponent(filename)
-				try? FileManager.default.removeItem(at:localURL)
-				try? FileManager.default.moveItem(at:tmpURL, to:localURL)
-				
-				// Store it in the TempFilePool and update the QLPreviewPanel
-				
-				await MainActor.run
+				do
 				{
-					TempFilePool.shared.register(localURL)
-					self._previewItemURL = localURL
-					
-					#if os(macOS)
-					if QLPreviewPanel.shared().isVisible
+					// Download the preview file
+
+					let downloadAPI = self.previewAccessPoint
+					let request = try LightroomCC.shared.request(for:downloadAPI, httpMethod:"GET")
+					let tmpURL = try await URLSession.shared.downloadFile(with:request)
+
+					// Rename the file
+
+					let folderURL = tmpURL.deletingLastPathComponent()
+					let filename = self.previewFilename
+					let localURL = folderURL.appendingPathComponent(filename)
+					try? FileManager.default.removeItem(at:localURL)
+					try? FileManager.default.moveItem(at:tmpURL, to:localURL)
+
+					// Store it in the TempFilePool and update the QLPreviewPanel
+
+					await MainActor.run
 					{
-						QLPreviewPanel.shared().refreshCurrentPreviewItem()
-						QLPreviewPanel.shared().reloadData()
+						TempFilePool.shared.register(localURL)
+						self._previewItemURL = localURL
+
+						#if os(macOS)
+						if QLPreviewPanel.shared().isVisible
+						{
+							QLPreviewPanel.shared().refreshCurrentPreviewItem()
+							QLPreviewPanel.shared().reloadData()
+						}
+						#endif
 					}
-					#endif
+				}
+				catch let error
+				{
+					// Clearing the flag again is essential - otherwise a single failed download would
+					// block this object from ever retrying.
+
+					LightroomCC.log.error {"\(Self.self).\(#function) ERROR \(error)"}
+					await MainActor.run { self.isDownloadingPreview = false }
 				}
 			}
  		}

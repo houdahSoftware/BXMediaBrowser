@@ -258,25 +258,36 @@ public class PhotosObject : Object
 			
 			Task
 			{
-				// Download the file (hires)
-				
-				let url1 = try await Self.downloadFile(for:identifier, data:data)
-                let url2 = url1.rebuiltFromString   // Workaround: trying to use url1 directly sometimes fails for videos from Photos.app => however using the rebuilt url2 works!
- 
- 				// Store the URL and update the QLPreviewPanel
-				
-				await MainActor.run
+				do
 				{
-					self._previewItemURL = url2
-					self.isDownloadingPreview = false
-					
-					#if os(macOS)
-					if QLPreviewPanel.shared().isVisible
+					// Download the file (hires)
+
+					let url1 = try await Self.downloadFile(for:identifier, data:data)
+					let url2 = url1.rebuiltFromString   // Workaround: trying to use url1 directly sometimes fails for videos from Photos.app => however using the rebuilt url2 works!
+
+					// Store the URL and update the QLPreviewPanel
+
+					await MainActor.run
 					{
-						QLPreviewPanel.shared().refreshCurrentPreviewItem()
-						QLPreviewPanel.shared().reloadData()
+						self._previewItemURL = url2
+						self.isDownloadingPreview = false
+
+						#if os(macOS)
+						if QLPreviewPanel.shared().isVisible
+						{
+							QLPreviewPanel.shared().refreshCurrentPreviewItem()
+							QLPreviewPanel.shared().reloadData()
+						}
+						#endif
 					}
-					#endif
+				}
+				catch let error
+				{
+					// Clearing the flag again is essential - otherwise a single failed download would
+					// block this object from ever retrying.
+
+					BXMediaBrowser.logDataModel.error {"\(Self.self).\(#function) ERROR \(error)"}
+					await MainActor.run { self.isDownloadingPreview = false }
 				}
 			}
  		}

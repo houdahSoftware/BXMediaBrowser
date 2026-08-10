@@ -141,21 +141,31 @@ open class Object : NSObject, ObservableObject, Identifiable, BXSignpostMixin
 		
 		Task
 		{
-			try await Tasks.canContinue()
-			
-			let token = self.beginSignpost(in:"Object","load")
-			defer { self.endSignpost(with:token, in:"Object","load") }
-
-			let image = try? await self.loader.thumbnailImage
-			let metadata = try? await self.loader.metadata
-
-			await MainActor.run
+			do
 			{
-				self.thumbnailImage = image
-				self.metadata = metadata
-				self.captureDate = metadata?[.captureDateKey] as? Date
-				
-				completionHandler?()
+				try await Tasks.canContinue()
+
+				let token = self.beginSignpost(in:"Object","load")
+				defer { self.endSignpost(with:token, in:"Object","load") }
+
+				let image = try? await self.loader.thumbnailImage
+				let metadata = try? await self.loader.metadata
+
+				await MainActor.run
+				{
+					self.thumbnailImage = image
+					self.metadata = metadata
+					self.captureDate = metadata?[.captureDateKey] as? Date
+
+					completionHandler?()
+				}
+			}
+			catch let error
+			{
+				// Loading was aborted before it even started, so the completionHandler is not called
+				// (unchanged behavior) - but the reason is no longer swallowed.
+
+				BXMediaBrowser.logDataModel.error {"\(Self.self).\(#function) ERROR \(error)"}
 			}
 		}
 	}

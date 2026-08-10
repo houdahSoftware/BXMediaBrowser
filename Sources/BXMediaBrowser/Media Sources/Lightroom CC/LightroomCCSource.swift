@@ -80,53 +80,61 @@ open class LightroomCCSource : Source, AccessControl
 
 		Task
 		{
-			var health:LightroomCC.Health? = nil
-			var delay = UInt64(1_000_000_000)
-			
-			while health == nil
+			do
 			{
-				health = try await Self.checkHealth()
-				
-				if health == nil
+				var health:LightroomCC.Health? = nil
+				var delay = UInt64(1_000_000_000)
+
+				while health == nil
 				{
-					try await Task.sleep(nanoseconds:delay)
-					delay *= 2
-				}
-				
-				if let health = health
-				{
-					if health.version == nil
+					health = try await Self.checkHealth()
+
+					if health == nil
 					{
 						try await Task.sleep(nanoseconds:delay)
 						delay *= 2
 					}
+
+					if let health = health
+					{
+						if health.version == nil
+						{
+							try await Task.sleep(nanoseconds:delay)
+							delay *= 2
+						}
+					}
 				}
-			}
-			
-			guard let health = health else { return }
- 
-			if health.version != nil
-			{
-				await MainActor.run
+
+				guard let health = health else { return }
+
+				if health.version != nil
 				{
-					LightroomCC.shared.status = LightroomCC.shared.isLoggedIn ? .loggedIn : .loggedOut
+					await MainActor.run
+					{
+						LightroomCC.shared.status = LightroomCC.shared.isLoggedIn ? .loggedIn : .loggedOut
+					}
 				}
-			}
-			else if let code = health.code, code == 9999
-			{
-				await MainActor.run
+				else if let code = health.code, code == 9999
 				{
-					LightroomCC.shared.status = .currentlyUnavailable
+					await MainActor.run
+					{
+						LightroomCC.shared.status = .currentlyUnavailable
+					}
 				}
-			}
-			else
-			{
-				await MainActor.run
+				else
 				{
-					LightroomCC.shared.status = .invalidClientID
+					await MainActor.run
+					{
+						LightroomCC.shared.status = .invalidClientID
+					}
 				}
 			}
-			
+			catch let error
+			{
+				// The health check could not be completed, so the status stays at whatever it was before.
+
+				LightroomCC.log.error {"\(Self.self).\(#function) ERROR \(error)"}
+			}
 		}
 	}
 	
