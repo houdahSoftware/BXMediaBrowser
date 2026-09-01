@@ -35,9 +35,7 @@ import AppKit
 import UIKit
 #endif
 
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
+import UniformTypeIdentifiers
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -155,7 +153,7 @@ open class PexelsPhotoObject : Object
 	
 	override public var localFileUTI:String
 	{
-		kUTTypeJPEG as String
+		UTType.jpeg.identifier
 	}
 	
 	static func localFileName(for identifier:String, data:Any) -> String

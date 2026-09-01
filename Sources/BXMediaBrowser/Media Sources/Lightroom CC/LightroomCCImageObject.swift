@@ -27,9 +27,7 @@ import BXSwiftUtils
 import Foundation
 import ImageIO
 
-#if canImport(MobileCoreServices)
-import MobileCoreServices
-#endif
+import UniformTypeIdentifiers
 
 #if canImport(QuickLookUI)
 import QuickLookUI
@@ -180,7 +178,7 @@ open class LightroomCCImageObject : LightroomCCObject
 
 	override public var localFileUTI:String
 	{
-		kUTTypeJPEG as String
+		UTType.jpeg.identifier
 	}
 
 	/// Starts downloading an image file

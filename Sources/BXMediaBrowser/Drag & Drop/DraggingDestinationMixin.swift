@@ -150,16 +150,27 @@ extension DraggingDestinationMixin
 
 			Task
 			{
-				try await self.receiveItems(items, progress:progress)
+				do
 				{
-					item in
-					
-					if let object = item.object
+					try await self.receiveItems(items, progress:progress)
 					{
-						let url = try await object.localFileURL
-						item.url = url
-						try self.processFileHandler?(item)
+						item in
+
+						if let object = item.object
+						{
+							let url = try await object.localFileURL
+							item.url = url
+							try self.processFileHandler?(item)
+						}
 					}
+				}
+				catch let error
+				{
+					// receiveItems() only hides the progress when it completes, so a failed drop
+					// would leave the progress window on screen forever.
+
+					logDragAndDrop.error {"\(Self.self).\(#function) ERROR \(error)"}
+					await MainActor.run { self.hideProgress() }
 				}
 			}
 
@@ -176,10 +187,18 @@ extension DraggingDestinationMixin
 
 			Task
 			{
-				try await self.receiveItems(items, progress:progress)
+				do
 				{
-					item in
-					try self.processFileHandler?(item)
+					try await self.receiveItems(items, progress:progress)
+					{
+						item in
+						try self.processFileHandler?(item)
+					}
+				}
+				catch let error
+				{
+					logDragAndDrop.error {"\(Self.self).\(#function) ERROR \(error)"}
+					await MainActor.run { self.hideProgress() }
 				}
 			}
 

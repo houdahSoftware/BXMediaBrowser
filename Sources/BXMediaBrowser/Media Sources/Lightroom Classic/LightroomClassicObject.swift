@@ -31,6 +31,7 @@ import BXSwiftUI
 import CoreGraphics
 import Foundation
 import QuickLookUI
+import UniformTypeIdentifiers
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -224,7 +225,7 @@ open class LightroomClassicObject : Object, AppLifecycleMixin
 
 	override public var localFileUTI:String
 	{
-		kUTTypeJPEG as String
+		UTType.jpeg.identifier
 	}
 
 	// To be overridden in subclasses
