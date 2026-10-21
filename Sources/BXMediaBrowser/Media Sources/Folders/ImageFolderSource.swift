@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2026 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -111,7 +111,10 @@ open class ImageFile : FolderObject
 		guard let url = data as? URL else { throw Error.loadThumbnailFailed }
 		guard url.exists else { throw Error.loadThumbnailFailed }
 
-		return try await url.downloadFromCloudIfNeeded
+		// For a cloud based file that isn't available locally, the closure is skipped in favor of the thumbnail
+		// stored in the cloud, so that browsing doesn't download the file (see FolderObject)
+		
+		return try await Self.loadThumbnail(for:url)
 		{
 			url in
 
@@ -168,16 +171,21 @@ open class ImageFile : FolderObject
 		
 		var metadata = try await super.loadMetadata(for:identifier, data:data)
 		
+		// If the file is in the cloud and not available locally, reading it would trigger a download. Use whatever
+		// Spotlight knows instead. The complete metadata is loaded once the file has been downloaded.
+		
+		if url.isEvictedCloudItem
+		{
+			let keys:[String] = [.widthKey, .heightKey, .profileNameKey, .captureDateKey]
+			metadata += Self.spotlightMetadata(for:url, keys:keys)
+			return metadata
+		}
+
 		// Get image specific info
 		
-		let imageInfo = try await url.downloadFromCloudIfNeeded
-		{
-			url in
-			guard let source = CGImageSourceCreateWithURL(url as CFURL,nil) else { throw Error.loadMetadataFailed }
-			guard let properties = CGImageSourceCopyPropertiesAtIndex(source,0,nil) else { throw Error.loadMetadataFailed }
-			guard let dict = properties as? [String:Any] else { throw Error.loadMetadataFailed }
-			return dict
-		}
+		guard let source = CGImageSourceCreateWithURL(url as CFURL,nil) else { throw Error.loadMetadataFailed }
+		guard let properties = CGImageSourceCopyPropertiesAtIndex(source,0,nil) else { throw Error.loadMetadataFailed }
+		guard let imageInfo = properties as? [String:Any] else { throw Error.loadMetadataFailed }
 
 		// And copy it to metadata dict
 		

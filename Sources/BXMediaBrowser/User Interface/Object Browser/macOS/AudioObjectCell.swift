@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2026 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -251,7 +251,7 @@ open class AudioObjectCell : ObjectCell
 		let composer = metadata[kMDItemComposer as String] as? String
 		let album = metadata[kMDItemAlbum as String] as? String
 		let genre = metadata[kMDItemMusicalGenre as String] as? String
-		let duration = metadata[kMDItemDurationSeconds as String] as? Double ?? 0.0
+		let duration = metadata[kMDItemDurationSeconds as String] as? Double
 		let size = metadata[kMDItemFSSize as String] as? Int
 		let kind = metadata[kMDItemKind as String] as? String
 		let name = title ?? object.displayName
@@ -288,7 +288,7 @@ open class AudioObjectCell : ObjectCell
 		self.setIcon()
 		self.nameField?.stringValue = name
 		self.metadataField?.stringValue = description
-		self.durationField?.stringValue = duration.shortTimecodeString()
+		self.durationField?.stringValue = duration?.shortTimecodeString() ?? ""	// Unknown for cloud files that are not downloaded yet
 		self.sizeField?.stringValue = size?.fileSizeDescription ?? ""
 		
 		if !object.isEnabled

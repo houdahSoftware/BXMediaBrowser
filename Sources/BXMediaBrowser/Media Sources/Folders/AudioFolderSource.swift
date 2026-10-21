@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2026 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -100,7 +100,12 @@ open class AudioFolderContainer : FolderContainer
 		let filename = url.lastPathComponent.lowercased()
 		if filename.contains(searchString) { return url }
 
-		let audioMetadata = url.audioMetadata
+		// Reading the metadata from the file itself would download a cloud based file that isn't available locally,
+		// so in that case only search what Spotlight knows about the file
+		
+		let audioMetadata = url.isEvictedCloudItem ?
+			url.spotlightMetadata(for:[kMDItemTitle,kMDItemAuthors,kMDItemComposer,kMDItemAlbum,kMDItemMusicalGenre,kMDItemCopyright]) :
+			url.audioMetadata
 
 		if let title = audioMetadata[kMDItemTitle] as? String, title.lowercased().contains(searchString)
 		{
@@ -215,22 +220,20 @@ open class AudioFile : FolderObject
 		guard let url = data as? URL else { throw Error.loadThumbnailFailed }
 		guard url.exists else { throw Error.loadThumbnailFailed }
 		
-		return try await url.downloadFromCloudIfNeeded
-		{
-			url in
-			#if os(macOS)
-			
-			let image = NSWorkspace.shared.icon(forFile:url.path)
-			guard let thumbnail = image.cgImage(forProposedRect:nil, context:nil, hints:nil) else { throw Error.loadThumbnailFailed }
-			return thumbnail
-			
-			#else
-			
-			let size = CGSize(256,256)
-			return try await QLThumbnailGenerator.shared.thumbnail(with:url, maxSize:size, type:.icon)
-			
-			#endif
-		}
+		// A generic file icon doesn't need the file contents, so there is no need to download a cloud based file
+		
+		#if os(macOS)
+		
+		let image = NSWorkspace.shared.icon(forFile:url.path)
+		guard let thumbnail = image.cgImage(forProposedRect:nil, context:nil, hints:nil) else { throw Error.loadThumbnailFailed }
+		return thumbnail
+		
+		#else
+		
+		let size = CGSize(256,256)
+		return try await QLThumbnailGenerator.shared.thumbnail(with:url, maxSize:size, type:.icon)
+		
+		#endif
 	}
 
 
@@ -247,12 +250,19 @@ open class AudioFile : FolderObject
 		
 		var metadata = try await super.loadMetadata(for:identifier, data:data)
 		
+		// If the file is in the cloud and not available locally, reading it would trigger a download. Use whatever
+		// Spotlight knows instead. The complete metadata is loaded once the file has been downloaded.
+		
+		if url.isEvictedCloudItem
+		{
+			let keys:[String] = [.durationKey, .titleKey, .albumKey, .authorsKey, .kindKey]
+			metadata += Self.spotlightMetadata(for:url, keys:keys)
+			return metadata
+		}
+
 		// Get audio specific info
 		
-		let audioInfo = try await url.downloadFromCloudIfNeeded
-		{
-			url in url.audioMetadata
-		}
+		let audioInfo = url.audioMetadata
 		
 		// And copy it to metadata dict
 		

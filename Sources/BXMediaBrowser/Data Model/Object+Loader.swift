@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2026 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -103,7 +103,14 @@ extension Object
 					
 					logDataModel.verbose {"Loading thumbnail for \(identifier)"}
 					
-					let image = try await self.loadThumbnailHandler(identifier,data)
+					// Wait for a free slot, so that a folder full of files cannot flood the system with
+					// simultaneous thumbnail requests (see FM-2532)
+					
+					let image = try await Tasks.concurrencyLimiter.perform
+					{
+						try await self.loadThumbnailHandler(identifier,data)
+					}
+					
 					self._thumbnailImage = image
 					self._loadThumbnailTask = nil
 					return image
@@ -161,7 +168,13 @@ extension Object
 
 					logDataModel.verbose {"Loading metadata for \(identifier)"}
 					
-					let metadata:[String:Any] = try await self.loadMetadataHandler(identifier,data)
+					// Wait for a free slot, for the same reason as in thumbnailImage above
+					
+					let metadata:[String:Any] = try await Tasks.concurrencyLimiter.perform
+					{
+						try await self.loadMetadataHandler(identifier,data)
+					}
+					
 					self._metadata = metadata
 					self._loadMetadataTask = nil
 					return metadata
@@ -183,6 +196,28 @@ extension Object
 		/// Returns true if the metadata is currently being loaded. Can be used to display progress info like a spinning wheel.
 		
 		public var isLoadingMetadata:Bool { _loadMetadataTask != nil }
+		
+		/// Returns true if the cached metadata is only partial, e.g. because it was loaded while the file was
+		/// still in the cloud, so that only information that doesn't require the file contents was available.
+		
+		public var hasPartialMetadata:Bool
+		{
+			self._metadata?[.isPartialMetadataKey] as? Bool == true
+		}
+		
+		/// Discards the cached metadata and loads it again. This is used to replace partial metadata with
+		/// the complete metadata, once the file is available locally.
+		
+		public func reloadMetadata() async throws -> [String:Any]
+		{
+			if let task = self._loadMetadataTask
+			{
+				_ = try? await task.value
+			}
+			
+			self._metadata = nil
+			return try await self.metadata
+		}
 		
 	
 //----------------------------------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2026 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,7 @@
 import BXSwiftUtils
 import AVFoundation
 import QuickLook
+import QuickLookThumbnailing
 import Foundation
 
 
@@ -111,7 +112,10 @@ open class VideoFile : FolderObject
 		guard url.exists else { throw Error.loadThumbnailFailed }
 		let size = CGSize(256,256)
 
-		return try await url.downloadFromCloudIfNeeded
+		// For a cloud based file that isn't available locally, the closure is skipped in favor of the thumbnail
+		// stored in the cloud, so that browsing doesn't download the file (see FolderObject)
+		
+		return try await Self.loadThumbnail(for:url)
 		{
 			url in
 
@@ -138,28 +142,24 @@ open class VideoFile : FolderObject
 				generator.appliesPreferredTrackTransform = true
 				generator.maximumSize = size
 				
-				let thumbnail = try generator.copyCGImage(at:time, actualTime:nil)
-				return thumbnail
+				// copyCGImage() is synchronous and waits on an internal semaphore, so it must not be called from a
+				// cooperative pool thread (see FM-2532). Its async replacement image(at:) needs iOS 16, which is
+				// above our iOS deployment target of 14 - so keep the old call there, mirroring the duration
+				// handling above. Revisit once iOS is bumped to 16.
+
+				#if os(macOS)
+				return try await generator.image(at:time).image
+				#else
+				return try generator.copyCGImage(at:time, actualTime:nil)
+				#endif
 			}
 			
 			// Use QuickLook as fallback solution
 			
-			catch let error
+			catch
 			{
-				#if os(macOS)
-				
-				if let image = QLThumbnailImageCreate(kCFAllocatorDefault, url as CFURL, size, nil)?.takeRetainedValue()
-				{
-					return image
-				}
-				
-				throw error
-				
-				#else
-				
+				FolderSource.log.warning {"\(Self.self).\(#function) AVAssetImageGenerator failed for \(url), falling back to QuickLook - \(error)"}
 				return try await QLThumbnailGenerator.shared.thumbnail(with:url, maxSize:size)
-
-				#endif
 			}
 		}
 	}
@@ -178,12 +178,19 @@ open class VideoFile : FolderObject
 		
 		var metadata = try await super.loadMetadata(for:identifier, data:data)
 		
+		// If the file is in the cloud and not available locally, reading it would trigger a download. Use whatever
+		// Spotlight knows instead. The complete metadata is loaded once the file has been downloaded.
+		
+		if url.isEvictedCloudItem
+		{
+			let keys:[String] = [.widthKey, .heightKey, .durationKey, .kindKey, .codecsKey, .captureDateKey]
+			metadata += Self.spotlightMetadata(for:url, keys:keys)
+			return metadata
+		}
+
 		// Get video specific info
 		
-		let videoInfo = try await url.downloadFromCloudIfNeeded
-		{
-			url in url.videoMetadata
-		}
+		let videoInfo = url.videoMetadata
 		
 		// And copy it to metadata dict
 		

@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 //
-//  Copyright ©2022 Peter Baumgartner. All rights reserved.
+//  Copyright ©2022-2026 Peter Baumgartner. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -74,29 +74,19 @@ open class FolderObject : Object
 		guard url.exists else { throw Error.loadThumbnailFailed }
     	let size = CGSize(width:256, height:256)
     	
-		#if os(macOS)
-		
-		let options = [ kQLThumbnailOptionIconModeKey : kCFBooleanFalse ]
-		
-		let ref = QLThumbnailImageCreate(
-			kCFAllocatorDefault,
-			url as CFURL,
-			size,
-			options as CFDictionary)
-		
-		if let thumbnail = ref?.takeUnretainedValue()
+		// This used to call the deprecated - and synchronous - QLThumbnailImageCreate on macOS. Since we are on a
+		// cooperative pool thread here, that blocked one of the very few threads that QuickLookThumbnailing itself
+		// needs to deliver its result, which deadlocked the whole app (FM-2532). Always use the async API.
+
+		do
 		{
-			return thumbnail
+			return try await QLThumbnailGenerator.shared.thumbnail(with:url, maxSize:size)
 		}
-		
-		FolderSource.log.error {"\(Self.self).\(#function) failed to load thumbnail for \(url)"}
-		throw Error.loadThumbnailFailed
-		
-		#else
-		
-		return try await QLThumbnailGenerator.shared.thumbnail(with:url, maxSize:size)
-		
-		#endif
+		catch
+		{
+			FolderSource.log.error {"\(Self.self).\(#function) failed to load thumbnail for \(url) - \(error)"}
+			throw Error.loadThumbnailFailed
+		}
 	}
 
 
@@ -109,30 +99,27 @@ open class FolderObject : Object
 		guard let url = data as? URL else { throw Error.loadMetadataFailed }
 		guard url.exists else { throw Error.loadMetadataFailed }
 
-		return try await url.downloadFromCloudIfNeeded()
+		// These file system attributes are available without reading the file contents, so there is no need
+		// to download a cloud based file here (which a coordinated read would have done).
+		
+		var metadata:[String:Any] = [:]
+		
+		if let fileSize = url.fileSize
 		{
-			url in
-
-			var metadata:[String:Any] = [:]
-			
-			if let fileSize = url.fileSize
-			{
-	//			metadata["fileSize"] = fileSize
-				metadata[.fileSizeKey] = fileSize
-			}
-
-			if let creationDate = url.creationDate
-			{
-				metadata[.creationDateKey] = creationDate
-			}
-
-			if let modificationDate = url.modificationDate
-			{
-				metadata[.modificationDateKey] = modificationDate
-			}
-			
-			return metadata
+			metadata[.fileSizeKey] = fileSize
 		}
+
+		if let creationDate = url.creationDate
+		{
+			metadata[.creationDateKey] = creationDate
+		}
+
+		if let modificationDate = url.modificationDate
+		{
+			metadata[.modificationDateKey] = modificationDate
+		}
+		
+		return metadata
 	}
 
 
@@ -188,30 +175,95 @@ open class FolderObject : Object
 		guard url.exists else { throw Error.downloadFileFailed }
 //		guard !item.isDRMProtected else { throw Object.Error.drmProtected }
 
-		// Since we already have the file on disk we do not really spend any time in this "downloadFile"
-		// function. But we will still create a local progress object and set it to 100% immediately,
-		// so that Progress.globalParent gets notified and the progress bar is updated appropriately.
+		// Usually the file is already on disk, and the progress jumps to 100% immediately. But if the file is in
+		// the cloud (e.g. iCloud Drive) and its contents have been evicted, it has to be downloaded first. This is
+		// the ONLY place where a folder based file may be downloaded, so this is where real progress is reported.
 		
-		#warning("FIXME: Implement proper progress reporting, since the above comment is no longer valid when considering cloud storage")
-		
-		if let parent = Progress.globalParent
-		{
-			let local = Progress(parent:nil)
-			local.totalUnitCount = 1
-			parent.addChild(local, withPendingUnitCount:1)
-			local.completedUnitCount = 1
-		}
+		let progress = Progress(parent:nil)
+		progress.totalUnitCount = 100
+		progress.completedUnitCount = 0
+		Progress.globalParent?.addChild(progress, withPendingUnitCount:1)
 
-		// Return the URL to the local file on disk
+		#if os(macOS)
 		
-		return try await url.downloadFromCloudIfNeeded
+		if url.isEvictedCloudItem
 		{
-			url in
-			return url
+			DraggingProgress.message = NSLocalizedString("Downloading", bundle:.BXMediaBrowser, comment:"Progress Message")
 		}
+		
+		return try await url.downloadFromCloud(reportingTo:progress)
+		
+		#else
+		
+		defer { progress.completedUnitCount = progress.totalUnitCount }
+		return try await url.downloadFromCloudIfNeeded { $0 }
+		
+		#endif
 	}
 
 
+//----------------------------------------------------------------------------------------------------------------------
+
+
+	// MARK: - Cloud Based Files
+	
+	// Reading the contents of a cloud based file whose contents have been evicted (e.g. in iCloud Drive) makes the
+	// system download the WHOLE file. Merely browsing a folder must not do that, so thumbnails and metadata of such
+	// files are loaded from sources that do not need the file contents: the thumbnail that the file provider keeps
+	// in the cloud, and the attributes that Spotlight has indexed. Only downloadFile() may trigger a download.
+	
+	/// Loads the thumbnail for the specified file. If the file is local, the thumbnail is created by readingFile.
+	/// If it is an evicted cloud file, the preview thumbnail is fetched from the file provider instead. Only if the
+	/// file provider doesn't have one (rare), the file is downloaded as a last resort, since images and videos must
+	/// be identifiable in the browser - a generic file icon is not acceptable for them.
+	
+	public class func loadThumbnail(for url:URL, readingFile:@escaping (URL) async throws -> CGImage) async throws -> CGImage
+	{
+		guard url.isEvictedCloudItem else { return try await readingFile(url) }
+		
+		if let thumbnail = await QLThumbnailGenerator.shared.previewThumbnail(with:url, maxSize:CGSize(width:256, height:256))
+		{
+			return thumbnail
+		}
+		
+		FolderSource.log.warning {"\(Self.self).\(#function) no cloud thumbnail available, downloading \(url)"}
+
+		// Fallback downloads run one at a time, so that scrolling past many such files doesn't fan out into
+		// dozens of simultaneous downloads
+		
+		return try await Self.downloadFallbackLimiter.perform
+		{
+			try await Tasks.canContinue()
+			return try await url.downloadFromCloudIfNeeded(byAccessor:readingFile)
+		}
+	}
+	
+	private static let downloadFallbackLimiter = BXConcurrencyLimiter(limit:1)
+	
+	
+	/// Returns the Spotlight attributes for the specified keys. Since some information (e.g. EXIF) is not available
+	/// this way, the returned dictionary is marked as partial, so that the full metadata is loaded as soon as the
+	/// file has been downloaded (see Object.localFileURL).
+	
+	public class func spotlightMetadata(for url:URL, keys:[String]) -> [String:Any]
+	{
+		var metadata:[String:Any] = [:]
+		
+		for (key,value) in url.spotlightMetadata(for:keys.map { $0 as CFString })
+		{
+			metadata[key as String] = value
+		}
+		
+		metadata[.isPartialMetadataKey] = true
+		return metadata
+	}
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+	// MARK: -
+	
 	// Return the URL to the media file
 	
 	open var url:URL?
