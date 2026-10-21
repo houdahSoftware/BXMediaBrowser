@@ -143,12 +143,19 @@ open class VideoFile : FolderObject
 				generator.maximumSize = size
 				
 				// copyCGImage() is synchronous and waits on an internal semaphore, so it must not be called from a
-				// cooperative pool thread (see FM-2532). Its async replacement image(at:) needs iOS 16, which is
-				// above our iOS deployment target of 14 - so keep the old call there, mirroring the duration
-				// handling above. Revisit once iOS is bumped to 16.
+				// cooperative pool thread (see FM-2532). Its async replacement image(at:) needs iOS 16 / macOS 13.
+				// The houdah branch keeps a macOS 12.4 deployment target (and iOS 14), so fall back to the old
+				// call below those versions. Revisit once the deployment targets are bumped.
 
 				#if os(macOS)
-				return try await generator.image(at:time).image
+				if #available(macOS 13, *)
+				{
+					return try await generator.image(at:time).image
+				}
+				else
+				{
+					return try generator.copyCGImage(at:time, actualTime:nil)
+				}
 				#else
 				return try generator.copyCGImage(at:time, actualTime:nil)
 				#endif
