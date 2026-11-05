@@ -43,7 +43,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wollen Sie den Ordner \"%@\" entfernen?"
+            "value" : "Willst du den Ordner \"%@\" entfernen?"
           }
         },
         "en" : {
@@ -219,7 +219,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Starten Sie GarageBand und wählen sie den Menübefehl Garage Band > Sound Library > Alle verfügbaren Sounds laden."
+            "value" : "Starte GarageBand und wähle den Menübefehl Garage Band > Sound Library > Alle verfügbaren Sounds laden."
           }
         },
         "en" : {

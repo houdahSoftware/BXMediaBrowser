@@ -79,7 +79,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bitte erteilen Sie das Zugriffsrecht für den Ordner \"%@\" um die Audiodateien benützen zu können."
+            "value" : "Bitte erteile das Zugriffsrecht für den Ordner \"%@\" um die Audiodateien benützen zu können."
           }
         },
         "en" : {
@@ -508,7 +508,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dieses Lied ist nicht lokal verfügbar. Bitte gehen Sie zur Musik App um das Lied auf diesen Computer herunterzuladen."
+            "value" : "Dieses Lied ist nicht lokal verfügbar. Bitte geh zur Musik App um das Lied auf diesen Computer herunterzuladen."
           }
         },
         "en" : {

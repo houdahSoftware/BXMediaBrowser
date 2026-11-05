@@ -295,7 +295,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Lightroom CC Server ist derzeit nicht erreichbar. Bitte versuchen Sie es später wieder."
+            "value" : "Der Lightroom CC Server ist derzeit nicht erreichbar. Bitte versuche es später wieder."
           }
         },
         "en" : {
@@ -330,7 +330,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lightroom CC wird in dieser Applikation nicht unterstützt. Bitte kontaktieren Sie den Entwickler."
+            "value" : "Lightroom CC wird in dieser Applikation nicht unterstützt. Bitte kontaktiere den Entwickler."
           }
         },
         "en" : {

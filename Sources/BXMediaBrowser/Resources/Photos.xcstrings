@@ -437,7 +437,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bitte gewähren Sie %1$@ Zugriff auf die Fotos Bibliothek. Gehen Sie zu Systemeinstellungen > Datenschutz & Sicherheit > Fotos. Danach starten Sie %1$@ neu."
+            "value" : "Bitte gewähre %1$@ Zugriff auf die Fotos Bibliothek. Gehe zu Systemeinstellungen > Datenschutz & Sicherheit > Fotos. Danach starte %1$@ neu."
           }
         },
         "en" : {

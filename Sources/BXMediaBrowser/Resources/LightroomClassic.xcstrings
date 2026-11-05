@@ -112,7 +112,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adobe Lightroom Classic stellt die Bilder in einer reduzierten Größe zur Verfügung.\n\nUm das Problem zu beheben, wechseln Sie zu Lightroom Classic und selektieren Sie den Menübefehl  Bibliothek > Vorschauen > 1:1-Vorschauen erstellen."
+            "value" : "Adobe Lightroom Classic stellt die Bilder in einer reduzierten Größe zur Verfügung.\n\nUm das Problem zu beheben, wechsle zu Lightroom Classic und wähle den Menübefehl  Bibliothek > Vorschauen > 1:1-Vorschauen erstellen."
           }
         },
         "en" : {
@@ -217,7 +217,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Lightroom Bibliothek is nicht lesbar. Bitte erteilen Sie Zugriffsrechte für den Bibliotheksordner. "
+            "value" : "Die Lightroom Bibliothek is nicht lesbar. Bitte erteile Zugriffsrechte für den Bibliotheksordner. "
           }
         },
         "en" : {
